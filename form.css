@@ -1,0 +1,40 @@
+
+.container > h1 {
+  margin: 32px 0;
+  font-size: 2rem
+}
+
+.form-group {
+  margin: 24px 0
+}
+
+form > .form-group:last-child {
+  text-align: right
+}
+
+.p-error {
+  margin-top: 4px;
+  margin-bottom: 0;
+  padding-top: 8px;
+  font-weight: bold;
+  color: #ff8b8b
+}
+
+.p-error > strong {
+  color: #ff0800
+}
+
+/****************************************************************
+  > MEDIA
+****************************************************************/
+@media (max-width: 490px) {
+
+  .d-name > div {
+    display: block
+  }
+
+  .form-row > div {
+    margin: 24px 0
+  }
+
+}
