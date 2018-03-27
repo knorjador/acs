@@ -1,0 +1,110 @@
+
+/****************************************************************
+  > COMMON
+****************************************************************/
+
+*, :before, :after {
+  border-sizing: border-box
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: monospace
+}
+
+h1 {
+  margin: 0;
+  padding: 32px 0;
+  text-align: center;
+  background: #001616;
+  color: #f8f8f8
+}
+
+.d-order {
+  padding: 2px 16px;
+  background: #42ffe8;
+  color: #001616
+}
+
+.p-order {
+  font-size: 1.1rem
+}
+
+.p-order > span {
+  font-size: 1.7rem
+}
+
+ul > li {
+  margin: .4rem;
+  font-size: 1rem
+}
+
+.d-exercise {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background: blue
+}
+
+/****************************************************************
+  > EXERCISE 1
+****************************************************************/
+
+#text {
+  cursor: default;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px
+}
+
+#text::-moz-selection {
+  background: transparent
+}
+
+#text::selection {
+  background: transparent
+}
+
+.grow {
+  font-size: 32px
+}
+
+/****************************************************************
+  > EXERCISE 2
+****************************************************************/
+
+section:nth-child(3) .d-exercise {
+  margin: 32px 0
+}
+
+section:nth-child(3) .d-exercise .square {
+  margin-left: 96px
+}
+
+button {
+  display: block;
+  width: 140px;
+  margin: 16px 0;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 24px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: lightblue;
+  color: white
+}
+
+button::-moz-focus-inner {
+  border: 0
+}
+
+/****************************************************************
+  > EXERCISE 3
+****************************************************************/

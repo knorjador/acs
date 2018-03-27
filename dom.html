@@ -1,0 +1,67 @@
+
+<DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/dom.css">
+    <title>Dom</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Découverte Javascript : manipulation du DOM</h1>
+
+      <!--********************************
+        > EXERCISE 1
+      ********************************-->
+      <section>
+        <div class="d-order">
+          <p class="p-order"><span>&#9998;</span> Créer un texte qui s’agrandit au click, au reclick reprend sa taille d’origine.</p>
+        </div>
+        <div class="d-exercise">
+          <p id="text">Un projet qui commence en retard finira en retard. <br> Un projet qui commence à l'heure finira en retard. <br><br> - Auteur inconnu -</p>
+        </div>
+      </section>
+
+      <!--********************************
+        > EXERCISE 2
+      ********************************-->
+      <section>
+        <div class="d-order">
+          <p class="p-order"><span>&#9998;</span> Créer 5 boutons et un carré bleu de 100px. Chaque bouton provoque une action sur le carré.</p>
+          <ul>
+            <li>Bouton 1 => Augmente hauteur de 10px jusqu'à 300px sinon remet la hauteur initiale</li>
+            <li>Bouton 2 => Met le carré en vert</li>
+            <li>Bouton 3 => Remet la couleur initiale</li>
+            <li>Bouton 4 => Fait disparaître le carré</li>
+            <li>Bouton 5 => Fait réapparaître le carré</li>
+          </ul>
+        </div>
+        <div class="d-exercise">
+          <div>
+            <button data-action="grow">+ 10px</button>
+            <button data-action="color">Green</button>
+            <button data-action="reset">Reset</button>
+            <button data-action="hide">Hide</button>
+            <button data-action="show">Show</button>
+          </div>
+          <div class="square"></div>
+        </div>
+      </section>
+
+      <!--********************************
+        > EXERCISE 3
+      ********************************-->
+      <section>
+        <div class="d-order">
+          <p class="p-order"><span>&#9998;</span> Reprendre le rectangle bleu, et lorsqu’on appui sur la flèche du haut le faire monter de 100px puis reprendre sa place initiale. ATTENTION il doit monter et descendre en un appui uniquement.</p>
+        </div>
+        <div class="d-exercise">
+          <div class="square"></div>
+        </div>
+      </section>
+
+    </div>
+    <script src="js/dom.js"></script>
+  </body>
+</html>

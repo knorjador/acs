@@ -1,0 +1,21 @@
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%
+}
+
+p {
+  cursor: default;
+  user-select: none;
+  padding: 0 16px;
+  text-align: center;
+  font-family: monospace;
+  font-size: 1.7rem
+}
+
+.grow {
+  font-size: 4.4rem
+}
