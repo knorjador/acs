@@ -23,7 +23,9 @@ h1 {
 
 .d-order {
   padding: 2px 16px;
-  background: #42ffe8;
+  border-top: 2px solid #f4f4f4;
+  border-bottom: 2px solid #f4f4f4;
+  background: #f8f8f8;
   color: #001616
 }
 
@@ -36,7 +38,7 @@ h1 {
 }
 
 ul > li {
-  margin: .4rem;
+  margin: .5rem;
   font-size: 1rem
 }
 
@@ -44,7 +46,7 @@ ul > li {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
+  height: 400px
 }
 
 .square {
@@ -57,18 +59,18 @@ ul > li {
   > EXERCISE 1
 ****************************************************************/
 
-#text {
+.text {
   cursor: default;
   padding: 16px 32px;
   text-align: center;
   font-size: 16px
 }
 
-#text::-moz-selection {
+.text::-moz-selection {
   background: transparent
 }
 
-#text::selection {
+.text::selection {
   background: transparent
 }
 
@@ -85,7 +87,7 @@ section:nth-child(3) .d-exercise {
 }
 
 section:nth-child(3) .d-exercise .square {
-  margin-left: 96px
+  margin-left: 64px
 }
 
 button {
@@ -108,3 +110,20 @@ button::-moz-focus-inner {
 /****************************************************************
   > EXERCISE 3
 ****************************************************************/
+
+.upAndDown {
+  animation-name: upAndDown;
+  animation-duration: 4s
+}
+
+@keyframes upAndDown {
+
+  0% {
+    margin-bottom: 200px
+  }
+
+  100% {
+    margin-bottom: 0px
+  }
+
+}

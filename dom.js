@@ -4,29 +4,29 @@
 ================================*/
 
 // get text element
-let text = document.querySelector('#text')
+let text = document.querySelector('.text')
 
 /****************
  = METHOD 1
 ****************/
 
 // attach click event, toggle class
-// text.addEventListener('click', () => text.classList.toggle('grow'))
+text.addEventListener('click', () => text.classList.toggle('grow'))
 
 /****************
  = METHOD 2
 ****************/
 
-text.addEventListener('click', () => {
-
-  let   currentSize = window.getComputedStyle(text, null).getPropertyValue('font-size')
-      , newSize     = ''
-
-  currentSize === '16px' ? newSize = '32px' : newSize = '16px'
-
-  text.style.fontSize = newSize
-
-})
+// text.addEventListener('click', () => {
+//
+//   let   currentSize = window.getComputedStyle(text, null).getPropertyValue('font-size')
+//       , newSize     = ''
+//
+//   currentSize === '16px' ? newSize = '32px' : newSize = '16px'
+//
+//   text.style.fontSize = newSize
+//
+// })
 
 
 /*================================
@@ -104,19 +104,48 @@ const show = () => square.style.visibility = 'visible'
   > EXERCISE 3
 ================================*/
 
-document.body.addEventListener('keydown', event => {
+/****************
+ = METHOD 1
+****************/
 
-  event.preventDefault()
+const upArrow = function() {
 
-  let   square1   = document.querySelectorAll('.square')[1]
-      , keyCode   = event.keyCode ? event.keyCode : event.which
+  let square = document.querySelectorAll('.square')[1]
 
-  if(keyCode === 38) {
+  document.body.addEventListener('keydown', event => {
 
-    square1.style.marginTop = '-100px'
+    event.preventDefault()
 
-    window.setTimeout(() => square1.style.marginTop = '0px', 1000)
+    if(event.keyCode === 38)
+      square.style.marginBottom = '200px'
 
-  }
+  })
 
-})
+  document.body.addEventListener('keyup', event => {
+
+    event.preventDefault()
+
+    if(event.keyCode === 38)
+      square.style.marginBottom = '0px'
+
+  })
+
+}()
+
+/****************
+ = METHOD 2
+****************/
+
+// document.body.addEventListener('keydown', event => {
+//
+//   event.preventDefault()
+//
+//   if(event.keyCode === 38) {
+//
+//     let square = document.querySelectorAll('.square')[1]
+//
+//     square.classList.toggle('upAndDown')
+//
+//   }
+//
+// })
