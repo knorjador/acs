@@ -4,38 +4,45 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Oswald|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="dom.css">
     <title>Dom</title>
   </head>
   <body>
     <div class="container">
-      <h1>Découverte Javascript : manipulation du DOM</h1>
+
+      <header>
+        <h1>Découverte Javascript : manipulation du DOM</h1>
+      </header>
 
       <!--********************************
         > EXERCISE 1
       ********************************-->
       <section>
         <div class="d-order">
-          <p class="p-order"><span>&#9998;</span> Créer un texte qui s’agrandit au click, au reclick reprend sa taille d’origine.</p>
+          <p class="p-order">
+            <span>&#9998;</span>
+            Créer un texte qui s’agrandit au click, reprend sa taille d’origine au reclick.
+          </p>
         </div>
         <div class="d-exercise">
-          <p class="text">Un projet qui commence en retard finira en retard. <br> Un projet qui commence à l'heure finira en retard. <br><br> - Auteur inconnu -</p>
+          <p class="text"></p>
         </div>
       </section>
 
       <!--********************************
-        > EXERCISE 2
+        > EXERCISE 2 & 3
       ********************************-->
       <section>
         <div class="d-order">
-          <p class="p-order"><span>&#9998;</span> Créer 5 boutons et un carré bleu de 100px. <br> Chaque bouton provoque une action sur le carré.</p>
-          <ul>
-            <li>Bouton 1 => Augmente hauteur de 10px jusqu'à 300px sinon remet la hauteur initiale</li>
-            <li>Bouton 2 => Met le carré en vert</li>
-            <li>Bouton 3 => Remet la couleur initiale</li>
-            <li>Bouton 4 => Fait disparaître le carré</li>
-            <li>Bouton 5 => Fait réapparaître le carré</li>
-          </ul>
+          <p class="p-order">
+            <span>&#9998;</span>
+            Créer 5 boutons et un carré bleu de 100px. Chaque bouton provoque une action sur le carré.
+          </p>
+          <p class="p-order">
+            <span>&#9998;</span>
+            Lors de l'appui sur la flèche du haut, le carré remonte de 100px puis reprend sa place initiale.
+          </p>
         </div>
         <div class="d-exercise">
           <div>
@@ -45,21 +52,14 @@
             <button data-action="hide">Hide</button>
             <button data-action="show">Show</button>
           </div>
-          <div class="square"></div>
+          <div id="square"></div>
         </div>
       </section>
 
-      <!--********************************
-        > EXERCISE 3
-      ********************************-->
-      <section>
-        <div class="d-order">
-          <p class="p-order"><span>&#9998;</span> Lors de l'appui sur la flèche du haut, le carré remonte de 100px puis reprend sa place initiale. <br> Montée/descente en un appui.</p>
-        </div>
-        <div class="d-exercise">
-          <div class="square"></div>
-        </div>
-      </section>
+      <footer>
+        <p><span>Made with</span><span class="heart">&#9829;</span></p>
+        <p>Dorothée - Stacy - Arnaud - Raphaël</p>
+      </footer>
 
     </div>
     <script src="dom.js"></script>

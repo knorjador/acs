@@ -10,50 +10,99 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: monospace
+  font-family: 'Roboto'
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center
 }
 
 h1 {
-  margin: 0;
-  padding: 32px 0;
+  margin: 32px 0;
+  padding: 0 24px;
   text-align: center;
-  background: #001616;
-  color: #f8f8f8
+  font-family: 'Indie Flower';
+  font-size: 2.4rem;
+  color: #4d4d4d
+}
+
+section {
+  width: 60%;
+  margin-bottom: 64px;
+  border: 2px solid #f4f4f4;
+  border-radius: 2px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .2)
 }
 
 .d-order {
-  padding: 2px 16px;
-  border-top: 2px solid #f4f4f4;
-  border-bottom: 2px solid #f4f4f4;
-  background: #f8f8f8;
+  padding: 1px 16px;
+  border-bottom: 2px solid #f3f3f3;
+  background: #f2f2f2;
   color: #001616
 }
 
 .p-order {
-  font-size: 1.1rem
+  margin: 8px 0;
+  font-family: 'Oswald';
+  font-size: 1.3rem
 }
 
 .p-order > span {
-  font-size: 1.7rem
-}
-
-ul > li {
-  margin: .5rem;
-  font-size: 1rem
+  margin-right: 8px;
+  font-size: 1.2rem
 }
 
 .d-exercise {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px
+  height: 251px;
+  background: #f8f8f8
 }
 
-.square {
+#square {
   width: 100px;
   height: 100px;
-  background: blue
+  background: #00aabd
 }
+
+footer {
+  margin-bottom: 16px;
+  text-align: center;
+  font-family: 'Indie Flower';
+  font-size: 20px
+}
+
+footer p {
+  margin: 0;
+  padding: 4px 0
+}
+
+footer p:first-child span {
+  display: inline-block
+}
+
+.heart {
+  padding-left: 8px;
+  animation: heart 2s infinite
+}
+
+@keyframes heart {
+
+  0% {
+    transform: scale(.5)
+  }
+  50% {
+    transform: scale(1)
+  }
+  100% {
+    transform: scale(.5)
+  }
+
+}
+
 
 /****************************************************************
   > EXERCISE 1
@@ -63,7 +112,9 @@ ul > li {
   cursor: default;
   padding: 16px 32px;
   text-align: center;
-  font-size: 16px
+  font-size: 16px;
+  font-style: italic;
+  color: #2d2d2d
 }
 
 .text::-moz-selection {
@@ -75,36 +126,70 @@ ul > li {
 }
 
 .grow {
-  font-size: 32px
+  font-size: 28px
 }
 
 /****************************************************************
   > EXERCISE 2
 ****************************************************************/
 
-section:nth-child(3) .d-exercise {
-  margin: 32px 0
+section:nth-last-of-type(1) .d-exercise {
+  padding: 96px 0
 }
 
-section:nth-child(3) .d-exercise .square {
-  margin-left: 64px
+section:nth-last-of-type(1) .d-exercise #square {
+  margin-left: 128px
 }
 
 button {
   display: block;
-  width: 140px;
+  width: 160px;
   margin: 16px 0;
   padding: 16px 32px;
   border: none;
-  border-radius: 24px;
+  border-radius: 8px;
   font-size: 1.1rem;
   font-weight: bold;
-  background: lightblue;
-  color: white
+  color: #f8f8f8
 }
 
 button::-moz-focus-inner {
   border: 0
+}
+
+button:first-child {
+  border-left: solid 1px #370075;
+  border-right: solid 1px #370075;
+  box-shadow: 0px 5px 0px 0px #370075;
+  background: #4700a3
+}
+
+button:nth-child(2) {
+  border-left: solid 1px #00a86b;
+  border-right: solid 1px #00a86b;
+  box-shadow: 0px 5px 0px 0px #00a86b;
+  background: #00bd71
+}
+
+button:nth-child(3) {
+  border-left: solid 1px #F0B400;
+  border-right: solid 1px #F0B400;
+  box-shadow: 0px 5px 0px 0px #F0B400;
+  background: #F5B800
+}
+
+button:nth-child(4) {
+  border-left: solid 1px #c02b21;
+  border-right: solid 1px #c02b21;
+  box-shadow: 0px 5px 0px 0px #c02b21;
+  background: #de463b;
+}
+
+button:nth-child(5) {
+  border-left: solid 1px #500066;
+  border-right: solid 1px #500066;
+  box-shadow: 0px 5px 0px 0px #500066;
+  background: #5B006B
 }
 
 /****************************************************************
@@ -124,6 +209,97 @@ button::-moz-focus-inner {
 
   100% {
     margin-bottom: 0px
+  }
+
+}
+
+/****************************************************************
+  > MEDIA
+****************************************************************/
+
+/********************************
+ > MAX 1200
+********************************/
+@media (max-width: 1200px) {
+
+  section {
+    width: 70%
+  }
+
+}
+
+/********************************
+ > MAX 992
+********************************/
+@media (max-width: 992px) {
+
+  h1 {
+    font-size: 2rem
+  }
+
+  .p-order {
+    font-size: 1.3rem
+  }
+
+  section {
+    width: 80%
+  }
+
+}
+
+/********************************
+ > MAX 768
+********************************/
+@media (max-width: 768px) {
+
+  section {
+    width: 90%
+  }
+
+}
+
+/********************************
+ > MAX 576
+********************************/
+@media (max-width: 576px) {
+
+  h1 {
+    font-size: 1.8rem
+  }
+
+  .p-order {
+    font-size: 1.1rem
+  }
+
+  .p-order > span {
+    font-size: .9rem
+  }
+
+  .text {
+    font-size: 12px
+  }
+
+  .grow {
+    font-size: 18px
+  }
+
+  section:nth-last-of-type(1) .d-exercise {
+    height: auto;
+    padding: 48px 0
+  }
+
+  section:nth-last-of-type(1) .d-exercise #square {
+    margin-left: 16px
+  }
+
+  button {
+    width: 120px;
+    padding: 8px 24px;
+    font-size: .8rem
+  }
+
+  footer {
+    font-size: 14px
   }
 
 }
