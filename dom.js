@@ -225,3 +225,158 @@ const upAndDown = function() {
 //   }
 //
 // })
+
+/*================================
+  > EXERCISE 4
+================================*/
+
+const   wrapper     = document.getElementById('d-wrapper')
+      , mobile      = document.getElementById('mobile')
+      , maxRight    = wrapper.offsetWidth - mobile.offsetWidth
+      , maxBottom   = wrapper.offsetHeight - mobile.offsetHeight
+      , move        = 48
+
+document.addEventListener('keydown', e => {
+
+  e.preventDefault();
+
+  if(wrapper.classList.contains('collision'))
+    wrapper.classList.remove('collision');
+
+  const keyCode = e.keyCode;
+
+  switch(keyCode) {
+
+    case 38:
+      moveTop(mobile.offsetTop);
+      break;
+
+    case 39:
+      moveRight(mobile.offsetLeft);
+      break;
+
+    case 40:
+      moveBottom(mobile.offsetTop);
+      break;
+
+    case 37:
+      moveLeft(mobile.offsetLeft);
+      break;
+
+    default: return false;
+
+  }
+
+})
+
+const moveTop = currentTop => { //console.log(currentTop)
+
+  if(currentTop < move) {
+
+    displayCollision();
+
+    return mobile.style.top = `0px`;
+
+  }
+
+  if(currentTop === move)
+    displayCollision();
+
+  if(currentTop !== 0)
+    return mobile.style.top = `${currentTop - move}px`;
+
+  return false;
+
+}
+
+const moveRight = currentLeft => { console.log(currentLeft)
+
+  if(currentLeft > maxRight - move) {
+
+    displayCollision();
+
+    return mobile.style.left = `${maxRight}px`;
+
+  }
+
+  if(currentLeft === maxRight - move)
+    displayCollision();
+
+  if(currentLeft !== maxRight)
+    return mobile.style.left = `${currentLeft + move}px`;
+
+  return false;
+
+}
+
+const moveBottom = currentTop => { //console.log(currentTop)
+
+  if(currentTop > maxBottom - move) {
+
+    displayCollision();
+
+    return mobile.style.top = `${maxBottom}px`;
+
+  }
+
+  if(currentTop === maxBottom - move)
+    displayCollision();
+
+  if(currentTop !== maxBottom)
+    return mobile.style.top = `${currentTop + move}px`;
+
+  return false;
+
+}
+
+const moveLeft = currentLeft => { //console.log(currentLeft)
+
+  if(currentLeft < move) {
+
+    displayCollision();
+
+    return mobile.style.left = `0px`;
+
+  }
+
+  if(currentLeft === move)
+    displayCollision();
+
+  if(currentLeft !== 0)
+    return mobile.style.left = `${currentLeft - move}px`;
+
+  return false;
+
+}
+
+const displayCollision = () => {
+
+  // playSound();
+  wrapper.classList.add('collision');
+
+}
+
+const playSound = () => {
+
+  const audio = new Audio(`assets/sounds/${getSound()}.wav`);
+
+  audio.loop = false;
+  audio.play();
+
+
+}
+
+const getSound = () => {
+
+  const sounds = [
+
+      'alarm'
+    , 'fizzle'
+    , 'pew'
+    , 'shoot'
+
+  ]
+
+  return sounds[Math.floor(Math.random() * sounds.length)];
+
+}

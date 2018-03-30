@@ -29,7 +29,7 @@ h1 {
 }
 
 section {
-  width: 60%;
+  width: 960px;
   margin-bottom: 64px;
   border: 2px solid #f4f4f4;
   border-radius: 2px;
@@ -133,11 +133,11 @@ footer p:first-child span {
   > EXERCISE 2
 ****************************************************************/
 
-section:nth-last-of-type(1) .d-exercise {
+section:nth-last-of-type(2) .d-exercise {
   padding: 96px 0
 }
 
-section:nth-last-of-type(1) .d-exercise #square {
+section:nth-last-of-type(2) .d-exercise #square {
   margin-left: 128px
 }
 
@@ -214,6 +214,58 @@ button:nth-child(5) {
 }
 
 /****************************************************************
+  > EXERCISE 4
+****************************************************************/
+
+#d-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:relative;
+  height: 600px;
+  background: #f8f8f8
+}
+
+#mobile {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #00aabd
+}
+
+.collision {
+  animation: collision 2s infinite
+}
+
+@keyframes collision {
+
+  0% {
+    box-shadow: inset 0px 0px 4px 0px rgba(227, 22, 22 , .4)
+  }
+  50% {
+    box-shadow: inset 0px 0px 16px 0px rgba(227, 22, 22 , .8)
+  }
+  100% {
+    box-shadow: inset 0px 0px 4px 0px rgba(227, 22, 22 , .4)
+  }
+
+}
+
+/* @keyframes collision {
+
+  0% {
+    box-shadow: 0px 0px 12px 0px rgba(227, 22, 22 , .5)
+  }
+  50% {
+    box-shadow: 0px 0px 24px 0px rgba(227, 22, 22 , 1)
+  }
+  100% {
+    box-shadow: 0px 0px 12px 0px rgba(227, 22, 22 , .5)
+  }
+
+} */
+
+/****************************************************************
   > MEDIA
 ****************************************************************/
 
@@ -283,12 +335,12 @@ button:nth-child(5) {
     font-size: 18px
   }
 
-  section:nth-last-of-type(1) .d-exercise {
+  section:nth-last-of-type(2) .d-exercise {
     height: auto;
     padding: 48px 0
   }
 
-  section:nth-last-of-type(1) .d-exercise #square {
+  section:nth-last-of-type(2) .d-exercise #square {
     margin-left: 16px
   }
 
