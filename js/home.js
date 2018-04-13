@@ -122,7 +122,7 @@ const post = (data, cb) => { //console.log(data)
 
   const xhr = new XMLHttpRequest()
 
-  xhr.open('post', 'ajax.php')
+  xhr.open('post', 'php/ajax.php')
 
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
 
@@ -266,7 +266,7 @@ const displayScore = (exercise, data) => { //console.log(data)
 
   if(elAudio) elAudio.parentNode.removeChild(elAudio)
 
-  const audio = `<audio id="audio" src="assets/${sound}.wav" autoplay></audio>`
+  const audio = `<audio id="audio" src="assets/sounds/${sound}.wav" autoplay></audio>`
 
   document.body.insertAdjacentHTML('afterbegin', audio)
 
