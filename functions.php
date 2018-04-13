@@ -287,46 +287,4 @@ function displayScore($data) {
 
 }
 
-/*
-if($display === 'play') {
-
-  $table = $data->table;
-
-  if(strlen($table) === 1) {
-
-    $casted = intval($table);
-
-    if($casted > 0 && $casted <= 10) {
-
-      $back = displayGame($table);
-
-    }
-
-  }
-
-}
-
-if($display === 'score') {
-
-  $table = $data->table;
-
-  if(strlen($table) === 1) {
-
-    $casted = intval($table);
-
-    if($casted > 0 && $casted <= 10) {
-
-      $values = $data->values;
-
-      $back = displayScore($table, $values);
-
-    }
-
-  }
-
-}
-
-}
-*/
-
 ?>
