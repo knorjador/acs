@@ -1,65 +1,106 @@
 
 <?php
 
-function getHome(): array {
+/**
+ * Check $_GET
+ *
+ * @return Array   array with data according to template
+ */
+function checkGet(): array {
 
-  return [
+  if (isset($_GET['path']) && isset($_GET['sound']) && isset($_GET['view'])) {
 
-      'breadcrumb'    => getBreadcrumb(ROOT_FOLDER)
-    , 'scaffolding'   => listFolder(ROOT_FOLDER, false)
-    , 'uri'           => '?path=root&sound=false&view='
-    , 'view'          => 'simple'
+    $path   = $_GET['path'];
 
-  ];
+    // Check path start by root folder, no parent folder called and path exist
+    if (substr($path, 0, 4) === ROOT_FOLDER && !strpos($path, '..') && file_exists($path)) {
 
-}
+      $views = ['simple', 'details'];
+      $view  = $_GET['view'];
 
-function getData(string $view): array {
+      if (in_array($view, $views)) {
 
-  if(isset($_GET['path']) && isset($_GET['sound'])) {
+        return [
 
-    $path = $_GET['path'];
+          'template' => $view,
+          'data'     => getData($path, $_GET['sound'], $view)
 
-    if(substr($path, 0, 4) === 'root' && !strpos($path, '..') && file_exists($path)) {
+        ];
 
-      return [
+      // view does not exist
+      } else {
 
-          'breadcrumb'    => getBreadcrumb($path)
-        , 'scaffolding'   => listFolder($path, $_GET['sound'])
-        , 'uri'           => '?path='.$path.'&sound=false&view='
-        , 'view'          => $view
+        return getError('Désolé, une erreur s\'est produite.');
 
-      ];
+      }
 
+    // Try to access to an inexistant or forbidden path
     } else {
 
-      $error = 'Désolé, ce dossier n\'est pas accessible.';
+      return getError('Désolé, ce chemin n\'est pas accessible.');
 
     }
 
+  // $_GET does not contain path & sound & view
   } else {
 
-    $error = 'Désolé, une erreur s\'est produite.';
+    return getError('Désolé, une erreur s\'est produite.');
 
   }
 
+}
+
+/**
+ * Return error template
+ *
+ * @param String   $error the error
+ * @return Array   array data for error template
+ */
+function getError(string $error): array {
+
   return [
 
-      'error'       => $error
-    , 'breadcrumb'  => getBreadcrumb(ROOT_FOLDER)
-    , 'view'        => $view
+    'template'  => 'error',
+    'data'      => ['error' => $error, 'path' => '.']
 
   ];
 
 }
 
+/**
+ * Return all data
+ *
+ * @param String   $folder called path
+ * @param String   $sound play sound or not
+ * @param String   $view kinf of view
+ * @return Array   array with all data
+ */
+function getData(string $folder, string $sound, string $view): array {
+
+  return [
+
+    'breadcrumb'    => getBreadcrumb($folder),
+    'scaffolding'   => listFolder($folder, $sound, $view),
+    'uri'           => '?path='.$folder.'&sound='.$sound.'&view=',
+    'view'          => $view
+
+  ];
+
+}
+
+/**
+ * Return breadcrumb
+ *
+ * @param String   $path called path
+ * @return Array   $breadcrumb array of pieces of path
+ */
 function getBreadcrumb(string $path): array {
 
   $exploded   = explode('/', $path);
   $breadcrumb = [];
   $step       = '';
 
-  foreach($exploded as $explode) {
+  foreach ($exploded as $explode) {
 
     $step .= $explode.'/';
 
@@ -71,89 +112,102 @@ function getBreadcrumb(string $path): array {
 
 }
 
-function listFolder(string $folder, string $sound): array {
+/**
+ * Return content of a folder
+ *
+ * @param String   $folder called path
+ * @param String   $sound play sound or not
+ * @return Array   array of content of folder and details
+ */
+function listFolder(string $folder, string $sound, string $view): array {
 
-  $scaffolding = array_diff(scandir($folder), array('.', '..'));
+  $scaffolding = array_diff(scandir($folder), ['.', '..']);
 
   $folders = $files = [];
 
-  foreach($scaffolding as $element) {
+  foreach ($scaffolding as $name) {
 
-    $path = $folder.DIRECTORY_SEPARATOR.$element;
+    $path = $folder.DIRECTORY_SEPARATOR.$name;
 
-    if(is_dir($path)) {
-
-      array_push($folders, [
-
-          'name'    => $element
-        , 'path'    => $path
-
-      ]);
-
-    } else {
-
-      array_push($files, [
-
-          'icon'    => getIcon($element)
-        , 'name'    => $element
-        , 'path'    => $path
-        // , 'type'    => finfo_file(finfo_open(FILEINFO_MIME_TYPE), $path)
-        , 'type'    => mime_content_type($path)
-        , 'size'    => filesize($path)
-        , 'owner'   => posix_getpwuid(fileowner($path))['name']
-        , 'chmod'   => decoct(fileperms($path) & 0777)
-        , 'date'    => date('d F Y - H:i:s', filemtime($path))
-
-      ]);
-
-    }
+    is_dir($path) ? array_push($folders, getDetails($name, $path, $view)) : array_push($files, getDetails($name, $path, '', true));
 
   }
 
   return [
 
-      'folders'   => $folders
-    , 'files'     => $files
-    // , 'sound'     => $sound === 'true' ? getRandomSound() : false
-    , 'sound'     => $sound === 'true' ? 'click.mp3' : false
+    'elements' => array_merge($folders, $files),
+    'sound'    => $sound === 'true' ? 'click.mp3' : false
 
   ];
 
 }
 
-function getIcon(string $file): string {
+/**
+ * Return details of a folder or file
+ *
+ * @param String   $name folder or file name
+ * @param String   $path path of folder or file
+ * @param Bool     $file file or not
+ * @return Array   array of details of folder or file
+ */
+function getDetails(string $name, string $path, string $view = '', bool $file = false): array {
 
-  $exploded   = explode('.', $file);
-  $extension  = end($exploded);
+  return [
 
-  if($extension === 'png' || $extension === 'jpeg' || $extension === 'jpg' || $extension === 'gif') {
+    'kind'    => $file ? 'file' : 'folder',
+    'link'    => $file ? $path : '?path='.$path.'&sound=true&view='.$view,
+    'icon'    => $file ? getIcon($name) : 'folder',
+    'name'    => $name,
+    // 'type'    => finfo_file(finfo_open(FILEINFO_MIME_TYPE), $path),
+    'type'    => $file ? mime_content_type($path) : '',
+    'size'    => $file ? filesize($path) : '',
+    'owner'   => posix_getpwuid(fileowner($path))['name'],
+    'chmod'   => decoct(fileperms($path) & 0777),
+    'date'    => date('d F Y - H:i:s', filemtime($path))
 
-    $icon = 'image';
-
-  } else if($extension === 'mp3' || $extension === 'wav') {
-
-    $icon = 'music';
-
-  } else if($extension === 'mp4') {
-
-    $icon = 'video';
-
-  } else {
-
-    $icon = 'file';
-
-  }
-
-  return $icon;
+  ];
 
 }
 
-// function getRandomSound() {
-//
-//   $sounds = array_values(array_diff(scandir('assets/sounds'), array('.', '..')));
-//
-//   return $sounds[array_rand($sounds)];
-//
-// }
+
+/**
+ * Return a kind of icon according to extension file
+ *
+ * @param String   $file file with extension
+ * @return String  $icon kind of icon
+ */
+function getIcon(string $file): string {
+
+  $extensions = [
+
+    'image' => ['gif', 'jpg', 'jpeg', 'png'],
+    'music' => ['mp3', 'wav'],
+    'video' => ['mp4']
+
+  ];
+
+  $exploded   = explode('.', $file);
+  $extension  = end($exploded);
+  $finded     = false;
+
+  foreach ($extensions as $key => $values) {
+
+    foreach ($values as $value) {
+
+      if ($value === $extension) {
+
+        $icon   = $key;
+        $finded = true;
+        break;
+
+      }
+
+    }
+
+  }
+
+  return $finded ? $icon : $icon = 'file';
+
+}
 
 ?>

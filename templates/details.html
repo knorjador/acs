@@ -25,36 +25,28 @@
     </thead>
     <tbody>
 
-      {# FOLDERS #}
-      {% for folder in scaffolding.folders %}
-        <tr class="tr-folder">
-          <th><img class="i-folder" src="assets/icons/folder.png" alt="folder icon"></th>
-          <td><a href="?path={{ folder.path }}&sound=true&view={{ view }}">{{ folder.name }}</a></td>
-        </tr>
-      {% endfor %}
-
-      {# FILES #}
-      {% for file in scaffolding.files %}
+      {# ELEMENTS #}
+      {% for element in scaffolding.elements %}
 
         <tr class="tr-desktop">
-          <th><img class="i-file" src="assets/icons/{{ file.icon }}.png" alt="file icon"></th>
-          <td><a href="{{ file.path }}" download>{{ file.name }}</a></td>
-          <td>{{ file.type }}</td>
-          <td>{{ file.size }} {% if file.size > 0 %} octets {% else %} octet {% endif %}</td>
-          <td>{{ file.owner }}</td>
-          <td>0{{ file.chmod }}</td>
-          <td>{{ file.date }}</td>
+          <th><img class="i-{{ element.kind }}" src="assets/icons/{{ element.icon }}.png" alt="{{ element.kind }} icon"></th>
+          <td><a href="{{ element.link }}" {% if element.kind == 'file' %} download {% endif %}>{{ element.name }}</a></td>
+          <td>{{ element.type }}</td>
+          <td>{{ element.size }} {% if element.kind == 'file' %} {% if element.size > 0 %} octets {% else %} octet {% endif %} {% endif %}</td>
+          <td>{{ element.owner }}</td>
+          <td>0{{ element.chmod }}</td>
+          <td>{{ element.date }}</td>
         </tr>
 
         <tr class="tr-mobile">
-          <th><img class="i-file" src="assets/icons/{{ file.icon }}.png" alt="file icon"></th>
+          <th><img class="i-{{ element.kind }}" src="assets/icons/{{ element.icon }}.png" alt="{{ element.kind }} icon"></th>
           <td>
-            <span><a href="{{ file.path }}" download>{{ file.name }}</a></span>
-            <span>{{ file.type }}</span>
-            <span>{{ file.size }} {% if file.size > 0 %} octets {% else %} octet {% endif %}</span>
-            <span>{{ file.owner }}</span>
-            <span>{{ file.chmod }}</span>
-            <span>{{ file.date }}</span>
+            <span><a href="{{ element.link }}">{{ element.name }}</a></span>
+            <span>{{ element.type }}</span>
+            <span>{{ element.size }} {% if element.kind == 'file' %} {% if element.size > 0 %} octets {% else %} octet {% endif %} {% endif %}</span>
+            <span>{{ element.owner }}</span>
+            <span>{{ element.chmod }}</span>
+            <span>{{ element.date }}</span>
           </td>
         </tr>
 

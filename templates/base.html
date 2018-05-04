@@ -14,41 +14,40 @@
 
       <h1>Explorator</h1>
 
-      <form method="get">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
+      {% if not error %}
 
-            {# BREADCRUMB #}
-            {% for item in breadcrumb %}
-              <li class="breadcrumb-item">
-                <a href="?path={{ item.path }}&sound=false&view={{ view }}">{{ item.name }}</a>
-              </li>
-            {% endfor %}
+        <form method="get">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
 
-          </ol>
-        </nav>
-      </form>
+              {# BREADCRUMB #}
+              {% for item in breadcrumb %}
+                <li class="breadcrumb-item">
+                  <a href="?path={{ item.path }}&sound=false&view={{ view }}">{{ item.name }}</a>
+                </li>
+              {% endfor %}
 
-      {% if error is null %}
+            </ol>
+          </nav>
+        </form>
+
         <div id="d-views">
-          <button class="b-view" data-uri="{{ uri }}" data-view="simple">Vue Simple</button>
-          <button class="b-view" data-uri="{{ uri }}" data-view="details">Vue Détaillée</button>
+          <form method="get">
+            <a class="a-button" href="{{ uri }}simple">Vue Simple</a>
+            <a class="a-button" href="{{ uri }}details">Vue Détaillée</a>
+          </form>
         </div>
+
+        {% if scaffolding.sound %}
+          <audio src="assets/sounds/{{ scaffolding.sound }}" autoplay></audio>
+        {% endif %}
+
       {% endif %}
 
       <div class="content">
-        {% if error %}
-          <p>{{ error }}</p>
-        {% else %}
-          {% block content %}{% endblock %}
-        {% endif %}
+        {% block content %}{% endblock %}
       </div>
 
-      {% if scaffolding.sound %}
-        <audio src="assets/sounds/{{ scaffolding.sound }}" autoplay></audio>
-      {% endif %}
-
     </div>
-    <script src="assets/js/explorer.js"></script>
   </body>
 </html>
