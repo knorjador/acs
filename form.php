@@ -3,76 +3,16 @@
 
 if(!empty($_POST)) {
 
-  $firstname  = $_POST['firstname'];
-  $lastname   = $_POST['lastname'];
-  $subject    = $_POST['subject'];
-  $message    = $_POST['message'];
-  $errors     = [];
+  require 'php/functions.php';
 
-  if(empty($firstname))
-    $errors['firstname'] = 'Renseigner un prénom';
+  $done = performRequest($_POST);
 
-  if(empty($lastname))
-    $errors['lastname'] = 'Renseigner un nom';
-
-  if(empty($subject))
-    $errors['subject'] = 'Choisir un sujet';
-
-  if(empty($message))
-    $errors['message'] = 'Écrire un message';
-
-  if(empty($errors)) {
-
-    $done = true;
-
-    sendMail($firstname, $lastname, $subject, $message);
-
-  }
+  // var_dump($done);
+  // die();
 
 }
 
-function displayDone(string $firstname, string $lastname, string $subject) {
-
-  return '
-
-    <div class="alert alert-success">
-      <h4 class="alert-heading">Félicitations <span class="sbold">'.$firstname.' '.$lastname.'</span></h4>
-      <h4 class="alert-heading">le message au sujet de : <span class="sbold">'.$subject.'</span></h4>
-      <h4 class="alert-heading">a bien été envoyé.</h4>
-    </div>
-
-  ';
-
-}
-
-function sendMail(string $firstname, string $lastname, string $subject, string $message) {
-
-  $to         = 'raphael.c@codeur.online';
-  $identity   = $firstname.' '.$lastname;
-  $headers    = 'From: '.$identity.' <someone@domain.tld>' . "\r\n";
-  $headers    .= "X-Mailer: PHP ".phpversion()."\n";
-  $headers    .= "X-Priority: 1 \n";
-  $headers    .= "Mime-Version: 1.0\n";
-  $headers    .= "Content-Transfer-Encoding: 8bit\n";
-  $headers    .= "Content-type: text/html; charset= utf-8\n";
-  $headers    .= "Date:" . date("D, d M Y h:s:i") . " +0200\n";
-
-  $formatted  = '
-
-    <html>
-      <body>
-        <p>'.$message.'</p>
-      </body>
-    </html>
-
-  ';
-
-  // var_dump(mail($to, $subject, $formatted, $headers));
-  mail($to, $subject, $formatted, $headers);
-
-}
-
-?><DOCTYPE html>
+?><!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -83,34 +23,82 @@ function sendMail(string $firstname, string $lastname, string $subject, string $
   </head>
   <body>
     <div class="container col-sm-10 col-md-8 col-lg-6 col-xl-4">
-      <?php if(isset($done)) echo displayDone($firstname, $lastname, $subject); ?>
+      <?php if(isset($done['notif'])) echo $done['notif']; ?>
       <h1>Contact</h1>
       <form method="post" action="form.php">
+        <!--********************************
+          > GENDER
+        ********************************-->
+        <div class="form-group">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input class="custom-control-input" type="radio" id="man" name="gender" value="man" <?php if(isset($done['values']['man'])) echo 'checked' ?>>
+            <label class="custom-control-label" for="man">Monsieur</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input class="custom-control-input" type="radio" id="woman" name="gender" value="woman" <?php if(isset($done['values']['woman'])) echo 'checked' ?>>
+            <label class="custom-control-label" for="woman">Madame</label>
+          </div>
+          <span id="sradio" style="display:block"><?php if(isset($done['errors']['gender'])) echo $done['errors']['gender']; ?></span>
+        </div>
+        <!--********************************
+          > FIRSTNAME & LASTNAME
+        ********************************-->
         <div class="form-group">
           <div class="form-row">
             <div class="col">
-              <input data-content type="text" name="firstname" class="form-control" value="<?php if(isset($firstname)) echo $firstname; ?>" placeholder="Prénom">
-              <span><?php if(isset($errors['firstname'])) echo $errors['firstname']; ?></span>
+              <input data-content type="text" name="firstname" class="form-control" value="<?php if(isset($done['values']['firstname'])) echo $done['values']['firstname']; ?>" placeholder="Prénom">
+              <span><?php if(isset($done['errors']['firstname'])) echo $done['errors']['firstname']; ?></span>
             </div>
             <div class="col">
-              <input data-content type="text" name="lastname" class="form-control" value="<?php if(isset($lastname)) echo $lastname; ?>" placeholder="Nom">
-              <span><?php if(isset($errors['lastname'])) echo $errors['lastname']; ?></span>
+              <input data-content type="text" name="lastname" class="form-control" value="<?php if(isset($done['values']['lastname'])) echo $done['values']['lastname']; ?>" placeholder="Nom">
+              <span><?php if(isset($done['errors']['lastname'])) echo $done['errors']['lastname']; ?></span>
             </div>
           </div>
         </div>
+        <!--********************************
+          > EMAIL
+        ********************************-->
         <div class="form-group">
           <div class="form-row">
             <div class="col">
-              <input data-content type="text" name="subject" class="form-control" value="<?php if(isset($subject)) echo $subject; ?>" placeholder="Sujet">
-              <span><?php if(isset($errors['subject'])) echo $errors['subject']; ?></span>
+              <input type="text" data-content name="email" class="form-control" value="<?php if(isset($done['values']['email'])) echo $done['values']['email']; ?>" placeholder="Email">
+              <span><?php if(isset($done['errors']['email'])) echo $done['errors']['email']; ?></span>
             </div>
           </div>
         </div>
+        <!--********************************
+          > NATURE
+        ********************************-->
+        <div class="form-group">
+          <select name="nature" class="custom-select">
+            <option <?php if(!isset($_POST['nature'])) echo 'selected'; ?>>Nature du contact</option>
+            <option <?php if(isset($done['values']['pro'])) echo 'selected'; ?>>Professionnel</option>
+            <option <?php if(isset($done['values']['per'])) echo 'selected'; ?>>Personnel</option>
+          </select>
+          <span><?php if(isset($done['errors']['nature'])) echo $done['errors']['nature']; ?></span>
+        </div>
+        <!--********************************
+          > SUBJECT
+        ********************************-->
+        <div class="form-group">
+          <div class="form-row">
+            <div class="col">
+              <input data-content type="text" name="subject" class="form-control" value="<?php if(isset($done['values']['subject'])) echo $done['values']['subject']; ?>" placeholder="Sujet">
+              <span><?php if(isset($done['errors']['subject'])) echo $done['errors']['subject']; ?></span>
+            </div>
+          </div>
+        </div>
+        <!--********************************
+          > MESSAGE
+        ********************************-->
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea data-content name="message" class="form-control" id="message" rows="4"><?php if(isset($message)) echo $message; ?></textarea>
-          <span><?php if(isset($errors['message'])) echo $errors['message']; ?></span>
+          <textarea data-content name="message" class="form-control" id="message" rows="4"><?php if(isset($done['values']['message'])) echo $done['values']['message']; ?></textarea>
+          <span><?php if(isset($done['errors']['message'])) echo $done['errors']['message']; ?></span>
         </div>
+        <!--********************************
+          > SUBMIT
+        ********************************-->
         <div class="form-group">
            <button type="submit" class="btn btn-primary">Envoyer</button>
          </div>
