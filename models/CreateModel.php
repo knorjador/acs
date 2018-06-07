@@ -13,7 +13,6 @@ function getBases($pdo): array {
     // echo '</pre>';
     
     return $data;
-    
 }
 
 ?>

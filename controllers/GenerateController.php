@@ -9,7 +9,7 @@ function ctrlGenerate($twig, $pdo, $posted) {
 
   $data          = (array) json_decode($posted['data']);
   $data['image'] = getImageName($data['image']);
-  $max           = 4;
+  $max           = 20;
 
   if($data['image'] === 'create') {
 
