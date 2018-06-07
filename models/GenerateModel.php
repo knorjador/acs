@@ -1,16 +1,27 @@
 
 <?php
 
-function saveMeme($pdo, $image, $uniqueId) {
+function saveMeme($pdo, $image, $uniqId) {
 
-    $prepare = $pdo->getInstance()->prepare('SELECT id FROM bases WHERE path = ?');
-    $prepare->execute([$image]);
-    $image_id = $prepare->fetch();
+  try {
 
-    $save = $pdo->getInstance()->prepare("INSERT INTO memes(path, base_id) VALUES(?, ? )");
-    $save->execute([$uniqueId, intval($image_id['id'])]);
+    $getImageId = $pdo->getInstance()->prepare("SELECT id FROM bases WHERE path = ?");
+    $getImageId->execute([$image]);
+    $imageId = $getImageId->fetch();
 
-    return $uniqueId;
+    $saveMeme = $pdo->getInstance()->prepare("INSERT INTO memes(path, base_id) VALUES(?, ? )");
+    $saveMeme->execute([$uniqId, intval($imageId['id'])]);
+
+    return ['valid' => true, 'uniqId' => $uniqId];
+
+  } catch (Exception $e) {
+
+    // var_dump($e->getMessage());
+
+    return ['valid' => false];
+
+  }
+  
 }
 
 ?>

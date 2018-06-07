@@ -7,58 +7,157 @@ require 'models/GenerateModel.php';
 
 function ctrlGenerate($twig, $pdo, $posted) {
 
-  // var_dump($posted);
+  $data          = (array) json_decode($posted['data']);
+  $data['image'] = getImageName($data['image']);
+  $max           = 4;
 
-  $data      = json_decode($posted['data']);
-  $image     = getImageName($data->image);
-  $upText    = $data->upText;
-  $upColor   = $data->upColor;
-  $upSize    = $data->upSize;
-  $downText  = $data->downText;
-  $downColor = $data->downColor;
-  $downSize  = $data->downSize;
+  if($data['image'] === 'create') {
 
-  $memememe = Image::make('assets/images/'.$image.'.jpg');
+    echo $twig->render('partials/message.html', ['message' => 'Hep là,<br> il faut choisir une image', 'emoji' => 'tongue']);
 
-  // var_dump($memememe);
+  } else if(empty($data['upText']) && empty($data['downText'])) {
 
-  $memememe->text($upText, 512, 60, function($details) use($upColor, $upSize) {
+    echo $twig->render('partials/message.html', ['message' => 'Il n\'y a pas de texte', 'emoji' => 'sad']);
 
-    $details->file('assets/fonts/impact.ttf');
-    $details->size($upSize * 2);
-    $details->color($upColor);
-    $details->align('center');
-    $details->valign('top');
+  } else if(strlen($data['upText']) > $max || strlen($data['downText']) > $max) {
 
-  });
+    $side = strlen($data['upText']) > $max ? 'haut' : 'bas';
 
-  $memememe->text($downText, 512, 650, function($details) use($downColor, $downSize) {
+    echo $twig->render('partials/message.html', ['message' => 'Texte du '.$side.' trop long', 'emoji' => 'confused']);
 
-    $details->file('assets/fonts/impact.ttf');
-    $details->size($downSize * 2);
-    $details->color($downColor);
-    $details->align('center');
-    $details->valign('top');
+  } else {
 
-  });
+    $memememe = makeMeme(getArgs($data));
 
-  $step = $image.'_';
-  $uniqueId = uniqid($step);
+    if(!$memememe['valid']) {
 
-  $memememe->save('uploads/'.$uniqueId.'.jpg');
+      echo $twig->render('partials/message.html', ['message' => 'Désolé,<br> une erreur est survenue', 'emoji' => 'thinking']);
 
-  echo $twig->render('modal.html', ['memememe' => saveMeme($pdo, $image, $uniqueId)]);
+    } else {
 
+      $saveMeme = saveMeme($pdo, $data['image'], $memememe['uniqId']);
+
+      if(!$memememe['valid']) {
+
+        echo $twig->render('partials/message.html', ['message' => 'Désolé,<br> une erreur est survenue', 'emoji' => 'thinking']);
+
+      } else {
+
+        // echo $twig->render('partials/message.html', ['message' => 'Done']);
+        echo $twig->render('partials/modal.html', ['memememe' => $saveMeme['uniqId']]);
+
+      }
+
+    }
+
+  }
 
 }
 
-function getImageName($image): string {
+function getImageName(string $image): string {
 
   $slashExplode     = explode('/', $image);
   $end              = end($slashExplode);
   $extensionExplode = explode('.', $end);
 
   return $extensionExplode[0];
+
+}
+
+function getArgs(array $data): array {
+
+  $image     = $data['image'];
+  $upText    = $data['upText'];
+  $upColor   = $data['upColor'];
+  $upSize    = $data['upSize'];
+  $downText  = $data['downText'];
+  $downColor = $data['downColor'];
+  $downSize  = $data['downSize'];
+
+  if(empty($upText)) {
+
+    $args = ['image' => $image, 'downText' => $downText, 'downColor' => $downColor, 'downSize' => $downSize];
+
+  } else if(empty($downText)) {
+
+    $args = ['image' => $image, 'upText' => $upText, 'upColor' => $upColor, 'upSize' => $upSize];
+
+  } else {
+
+    $args = [
+
+      'image'     => $image,
+      'upText'    => $upText,
+      'upColor'   => $upColor,
+      'upSize'    =>$upSize,
+      'downText'  => $downText,
+      'downColor' => $downColor,
+      'downSize'  => $downSize
+
+    ];
+
+  }
+
+  return $args;
+
+}
+
+function makeMeme(array $args): array {
+
+  $image    = $args['image'];
+  $memememe = Image::make('assets/images/'.$image.'.jpg');
+  $font     = 'assets/fonts/impact.ttf';
+
+  if(isset($args['upText'])) {
+
+    $upColor = $args['upColor'];
+    $upSize  = $args['upSize'];
+
+    $memememe->text($args['upText'], 512, 60, function($details) use($font, $upColor, $upSize) {
+
+      $details->file($font);
+      $details->size($upSize * 2);
+      $details->color($upColor);
+      $details->align('center');
+      $details->valign('top');
+
+    });
+
+  }
+
+  if(isset($args['downText'])) {
+
+    $downColor = $args['downColor'];
+    $downSize  = $args['downSize'];
+
+    $memememe->text($args['downText'], 512, 650, function($details) use($font, $downColor, $downSize) {
+
+      $details->file($font);
+      $details->size($downSize * 2);
+      $details->color($downColor);
+      $details->align('center');
+      $details->valign('top');
+
+    });
+
+  }
+
+  $step     = $image.'_';
+  $uniqId = uniqid($step);
+
+  try {
+
+    $saved = $memememe->save('uploads/'.$uniqId.'.jpg');
+
+    return ['valid' => true, 'uniqId' => $uniqId];
+
+  } catch (Exception $e) {
+
+    // var_dump($e->getMessage());
+
+    return ['valid' => false];
+
+  }
 
 }
 

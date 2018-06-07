@@ -61,7 +61,8 @@ const eventUpText = e => {
 
   }
 
-  pUpText.style.color = upTextColor.value
+  pUpText.style.color    = upTextColor.value
+  pUpText.style.fontSize = `${upSizeText.value}px`
 
 }
 
@@ -78,7 +79,8 @@ const eventDownText = e => {
 
   }
 
-  pDownText.style.color = downTextColor.value
+  pDownText.style.color    = downTextColor.value
+  pDownText.style.fontSize = `${downSizeText.value}px`
 
 }
 
@@ -164,9 +166,15 @@ const post = (data, cb) => {
 
   XHR.send(`data=${JSON.stringify(data)}`)
 
+  showLoading()
+
   XHR.onreadystatechange = () => {
 
     if(XHR.readyState === 4 && XHR.status === 200) {
+
+      const loading = document.querySelector('.meme-loading')
+
+      loading.parentNode.removeChild(loading)
 
       // cb(JSON.parse(XHR.responseText))
       cb(XHR.responseText)
@@ -174,6 +182,64 @@ const post = (data, cb) => {
     }
 
   }
+
+}
+
+const showLoading = () => {
+
+  const html = `
+
+    <div class="meme-loading">
+
+      <p>MeMeMeMe en préparation</p>
+
+      <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-red">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  `
+
+  document.querySelector('.modal').insertAdjacentHTML('afterbegin', html)
 
 }
 
