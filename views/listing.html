@@ -2,15 +2,19 @@
 {% extends "layouts/base.html" %}
 
 {% block css %}
-  {{ baseUrl('assets/css/listing.css') }}
+{{ baseUrl('assets/css/listing.css') }}
 {% endblock %}
 
 {% block content %}
-
-<h2>Listing</h2>
-
+<div class="row">
+     {% for meme in data %}
+     <div class="col s12 m6 l4 images">
+          <a target="_blank" href="{{ baseUrl('uploads/') }}{{ meme.path }}.jpg"><img height="250px" src="{{ baseUrl('uploads/') }}{{ meme.path }}.jpg" alt=""></a>
+     </div>
+     {% endfor %}
+</div>
 {% endblock %}
 
 {% block js %}
-  {{ baseUrl('assets/js/listing.js') }}
+{{ baseUrl('assets/js/listing.js') }}
 {% endblock %}

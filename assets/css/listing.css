@@ -1,7 +1,19 @@
 .nav-wrapper > ul > li > a{
     font-size: 20px;
 }
-
+.images{
+     display: flex;
+}
+.images img{
+     margin-top: 50px;
+     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.59), -3px -3px 10px rgba(0, 0, 0, 0.59);
+}
 .container {
-    width: 85%
+  width: 85%;
+}
+.row .col{
+     padding: 0;
+}
+.row {
+     width: 103%;
 }
