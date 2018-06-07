@@ -62,6 +62,7 @@ const eventUpText = e => {
   }
 
   pUpText.style.color = upTextColor.value
+  pUpText.style.fontSize = `${upSizeText.value}px`
 
 }
 
@@ -79,6 +80,7 @@ const eventDownText = e => {
   }
 
   pDownText.style.color = downTextColor.value
+  pDownText.style.fontSize = `${downSizeText.value}px`
 
 }
 
