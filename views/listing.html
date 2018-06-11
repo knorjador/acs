@@ -8,10 +8,10 @@
 {% block content %}
 
 <div class="row">
-  <center>
+  <div class="center dlisting">
     <h4>Les dernières créations</h4>
     <h6>Cliquer sur une image pour la partager</h6>
-  </center>
+  </div>
     {% for meme in data %}
     <div class="col s12 m6 l4 creation">
       <a target="_blank" href="{{ baseUrl('media/') }}{{ meme.path }}.jpg">
