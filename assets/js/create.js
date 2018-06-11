@@ -1,10 +1,10 @@
 
+document.addEventListener('DOMContentLoaded', () => {
 
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(elems);
-  });
+  const   elems     = document.querySelectorAll('.modal')
+        , instances = M.Modal.init(elems)
 
+})
 
 const   inputUpText   = document.querySelector('#input-up-text')
       , inputDownText = document.querySelector('#input-down-text')
@@ -31,7 +31,7 @@ const eventCarousel = () => {
 
     })
 
-  });
+  })
 
 }
 

@@ -32,6 +32,11 @@ switch (true) {
     return ctrlCreate($twig, $pdo);
     break;
 
+  case !empty($_GET['memememe']):
+    //return ctrlCreate($twig, $pdo);
+    echo $twig->render('memememe.html');
+    break;
+
   default:
     return ctrlListing($twig, $pdo);
     break;

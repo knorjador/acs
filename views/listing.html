@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="row">
   <center>
     <h4>Les dernières créations</h4>
@@ -13,7 +14,9 @@
   </center>
     {% for meme in data %}
     <div class="col s12 m6 l4">
-      <a target="_blank" href="{{ baseUrl('uploads/') }}{{ meme.path }}.jpg"><img width="95%" height="95%" src="{{ baseUrl('uploads/') }}{{ meme.path }}.jpg" alt=""></a>
+      <a target="_blank" href="{{ baseUrl('media/') }}{{ meme.path }}.jpg">
+        <img width="100%" src="{{ baseUrl('uploads/') }}{{ meme.path }}.jpg" alt="memememe">
+      </a>
     </div>
     {% endfor %}
 </div>
