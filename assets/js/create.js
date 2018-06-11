@@ -149,6 +149,13 @@ const getCarousel = () => {
 
 }
 
+const getSidenav = () => {
+  
+    const elems = document.querySelectorAll('.sidenav')
+        , instances = M.Sidenav.init(elems);
+
+}
+
 const getSelects = () => {
 
   const   elems     = document.querySelectorAll('select')
@@ -184,6 +191,7 @@ const post = (data, cb) => {
   }
 
 }
+
 
 const showLoading = () => {
 
@@ -260,8 +268,11 @@ const done = back => { //console.log(back)
 const init = function() {
 
   getCarousel()
+  getSidenav()
   getSelects()
   eventCarousel()
   eventForm()
 
 }()
+
+

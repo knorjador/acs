@@ -19,13 +19,11 @@ body{
 
 .user-choice {
   position: relative;
-  width: 512px;
-  height: 384px
+  width: 100%;
 }
 
 .user-choice > img {
-  width: 512px;
-  height: 384px;
+  width: 90%;
 }
 
 #p-up-text, #p-down-text {
@@ -158,4 +156,27 @@ a.mt-share-inline-square-bw-sm {
   font-size: 1.7rem;
   font-weight: bold;
   color: #4d4d4d;
+}
+
+.appear{
+  display: none;
+}
+
+@media screen and (max-width: 984px){
+  nav > .container{
+    width: 100%;
+}
+  form{
+    display: flex;
+    flex-flow: column;
+  }
+  
+  div#text_up{order: 1;}
+  div#custom_image{order: -1;}
+  div#text_down{order: 1;}
+  div#button{order: 2;}
+
+  .disappear{
+    display: none;
+  }
 }
