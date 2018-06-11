@@ -5,6 +5,7 @@ require './config/pdo.php';
 require './controllers/CreateController.php';
 require './controllers/GenerateController.php';
 require './controllers/ListingController.php';
+require './controllers/MemememeController.php';
 
 $loader = new Twig_Loader_Filesystem('./views');
 
@@ -33,8 +34,7 @@ switch (true) {
     break;
 
   case !empty($_GET['memememe']):
-    // return ctrlCreate($twig, $pdo);
-    echo $twig->render('memememe.html');
+    return ctrlMemememe($twig, $_GET['memememe']);
     break;
 
   default:

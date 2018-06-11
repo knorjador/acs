@@ -13,9 +13,10 @@
     <h6>Cliquer sur une image pour la partager</h6>
   </center>
     {% for meme in data %}
-    <div class="col s12 m6 l4">
+    <div class="col s12 m6 l4 creation">
       <a target="_blank" href="{{ baseUrl('media/') }}{{ meme.path }}.jpg">
         <img width="100%" src="{{ baseUrl('uploads/') }}{{ meme.path }}.jpg" alt="memememe">
+        <div class="memememe-shadow"></div>
       </a>
     </div>
     {% endfor %}
