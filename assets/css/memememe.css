@@ -29,3 +29,18 @@ a.mt-share-inline-square-bw-sm {
     background-color: rgb(51, 51, 51);
     transition: background-color 300ms ease-in 0s;
 }
+
+.resize {
+    margin-top: 5%;
+    width: 45%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.59), -2px -2px 5px rgba(0, 0, 0, 0.59);
+}
+
+
+.container {
+    width: 85%;
+}
+
+.nav-wrapper > ul > li > a{
+    font-size: 20px;
+}

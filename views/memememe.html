@@ -2,7 +2,7 @@
 {% extends "layouts/base.html" %}
 
 {% block meta %}
-<meta name="keywords" content="{{ base.path }}">
+<meta name="keywords" content="{{ splitted }}">
 {% endblock %}
 
 
@@ -11,22 +11,22 @@
 {% endblock %}
 
 {% block content %}
-
-<img src="{{ baseUrl('uploads/')}}{{ memememe }}.jpg">
-<p>Lien de l'image</p>
-<a href="{{ baseUrl('media/')}}{{ memememe }}.jpg" target="_blank">{{ baseUrl('media/')}}{{ memememe }}.jpg</a>
 <div class="center">
+<img class="resize" src="{{ baseUrl('uploads/')}}{{ memememe }}">
+<p class="center">Lien de l'image</p>
+<a href="{{ baseUrl('media/')}}{{ memememe }}" target="_blank">{{ baseUrl('media/')}}{{ memememe }}</a>
+
     <p>Partager</p>
-    <a class="mt-facebook mt-share-inline-square-bw-sm" href="https://www.facebook.com/sharer/sharer.php?u={{ baseUrl('media/')}}{{ memememe }}.jpg" target="_blank">
+    <a class="mt-facebook mt-share-inline-square-bw-sm" href="https://www.facebook.com/sharer/sharer.php?u={{ baseUrl('media/')}}{{ memememe }}" target="_blank">
         <img src="http://mojotech-static.s3.amazonaws.com/facebook@2x.png">
     </a>
-    <a class="mt-twitter mt-share-inline-square-bw-sm" href="http://twitter.com/intent/tweet?text=&amp;url={{ baseUrl('media/')}}{{ memememe }}.jpg" target="_blank">
+    <a class="mt-twitter mt-share-inline-square-bw-sm" href="http://twitter.com/intent/tweet?text=&amp;url={{ baseUrl('media/')}}{{ memememe }}" target="_blank">
         <img src="http://mojotech-static.s3.amazonaws.com/twitter@2x.png">
     </a> 
-    <a class="mt-google mt-share-inline-square-bw-sm" href="https://plus.google.com/share?url={{ baseUrl('media/')}}{{ memememe }}.jpg">
+    <a class="mt-google mt-share-inline-square-bw-sm" href="https://plus.google.com/share?url={{ baseUrl('media/')}}{{ memememe }}">
         <img src="http://mojotech-static.s3.amazonaws.com/google@2x.png">
     </a>
-    <a class="mt-pinterest mt-share-inline-square-bw-sm" href="http://www.pinterest.com/pin/create/button/?url={{ baseUrl('media/')}}{{ memememe }}.jpg&amp;media=&amp;guid=1234&amp;description=" target="_blank">
+    <a class="mt-pinterest mt-share-inline-square-bw-sm" href="http://www.pinterest.com/pin/create/button/?url={{ baseUrl('media/')}}{{ memememe }}&amp;media=&amp;guid=1234&amp;description=" target="_blank">
         <img src="http://mojotech-static.s3.amazonaws.com/pinterest@2x.png">
     </a>
 </div>
