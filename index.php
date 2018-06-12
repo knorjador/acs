@@ -29,8 +29,12 @@ switch (true) {
     return ctrlGenerate($twig, $pdo, $_POST);
     break;
 
+  case !empty($_GET['list']):
+    return ctrlList($twig, $pdo, $_GET['list']);
+    break;
+
   case !empty($_GET['create']):
-    return ctrlCreate($twig, $pdo);
+    return ctrlCreate($twig, $pdo, $_GET['create']);
     break;
 
   case !empty($_GET['memememe']):

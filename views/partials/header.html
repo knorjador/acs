@@ -4,44 +4,42 @@
       <a href="{{ baseUrl('') }}" class="brand-logo">MeMeMeMe</a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <a href="{{ baseUrl('') }}"class="brand-logo center" ><img class="center disappear" width="60%" src="{{ baseUrl('assets/logo.png') }}"></a>
-
-  
     <div class="right disappear">
       <ul id="dropdown2" class="dropdown-content">
-        <li><a href="{{ baseUrl('create') }}">Images</a></li>
+        <li><a href="{{ baseUrl('create/image') }}">Images</a></li>
         <li class="divider"></li>
-        <li><a href="#!">Gifs</a></li>
+        <li><a href="{{ baseUrl('create/gif') }}">Gifs</a></li>
       </ul>
       <ul>
-        <li><a class="dropdown-trigger btn deep-purple" href="#!" data-target="dropdown2">Créer<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-trigger btn deep-purple" href="{{ baseUrl('') }}#!" data-target="dropdown2">Créer<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
     </div>
 
     <div class="right disappear">
       <ul id="dropdown1" class="dropdown-content">
-        <li><a href="{{ baseUrl('') }}">Images</a></li>
+        <li><a href="{{ baseUrl('list/images') }}">Images</a></li>
         <li class="divider"></li>
-        <li><a href="#!">Gifs</a></li>
+        <li><a href="{{ baseUrl('list/gifs') }}">Gifs</a></li>
       </ul>
       <ul>
         <li><a class="dropdown-trigger btn deep-purple" href="#!" data-target="dropdown1">Liste<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
     </div>
-  
+
     <ul class="sidenav" id="mobile-demo">
       <li><a href="{{ baseUrl('') }}"class="center" ><img class="center" width="30%" src="{{ baseUrl('assets/logo.png') }}"></a></li>
       <ul id="dropdown3" class="dropdown-content">
-          <li><a href="{{ baseUrl('') }}">Images</a></li>
+          <li><a href="{{ baseUrl('list/images') }}">Images</a></li>
           <li class="divider"></li>
-          <li><a href="#!">Gifs</a></li>
+          <li><a href="{{ baseUrl('list/gifs') }}">Gifs</a></li>
       </ul>
       <ul>
         <li><a class="dropdown-trigger btn deep-purple" href="#!" data-target="dropdown3">Liste<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
       <ul id="dropdown4" class="dropdown-content">
-        <li><a href="{{ baseUrl('create') }}">Images</a></li>
+        <li><a href="{{ baseUrl('create/image') }}">Images</a></li>
         <li class="divider"></li>
-        <li><a href="#!">Gifs</a></li>
+        <li><a href="{{ baseUrl('create/gif') }}">Gifs</a></li>
       </ul>
       <ul>
         <li><a class="dropdown-trigger btn deep-purple" href="#!" data-target="dropdown4">Créer<i class="material-icons right">arrow_drop_down</i></a></li>

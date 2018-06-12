@@ -2,37 +2,37 @@
 {% extends "layouts/base.html" %}
 
 {% block meta %}
-<meta name="keywords" content="{{ splitted }}">
+  <meta name="keywords" content="{{ splitted }}">
 {% endblock %}
 
 
 {% block css %}
-{{ baseUrl('assets/css/memememe.css') }}
+  {{ baseUrl('assets/css/memememe.css') }}
 {% endblock %}
 
 {% block content %}
-<div class="center">
-<img class="resize" src="{{ baseUrl('uploads/')}}{{ memememe }}">
-<p class="center">Lien de l'image</p>
-<a href="{{ baseUrl('media/')}}{{ memememe }}" target="_blank">{{ baseUrl('media/')}}{{ memememe }}</a>
 
-    <p>Partager</p>
+  <div class="center">
+    <img class="resize" src="{{ baseUrl('uploads/')}}{{ memememe }}">
+    <p class="center plink">Lien de l'image</p>
+    <a class="alink" href="{{ baseUrl('media/')}}{{ memememe }}" target="_blank">{{ baseUrl('media/')}}{{ memememe }}</a>
+    <p class="plink">Partager</p>
     <a class="mt-facebook mt-share-inline-square-bw-sm" href="https://www.facebook.com/sharer/sharer.php?u={{ baseUrl('media/')}}{{ memememe }}" target="_blank">
-        <img src="http://mojotech-static.s3.amazonaws.com/facebook@2x.png">
+      <img src="{{ baseUrl('assets/icons/facebook.png') }}">
     </a>
     <a class="mt-twitter mt-share-inline-square-bw-sm" href="http://twitter.com/intent/tweet?text=&amp;url={{ baseUrl('media/')}}{{ memememe }}" target="_blank">
-        <img src="http://mojotech-static.s3.amazonaws.com/twitter@2x.png">
-    </a> 
+      <img src="{{ baseUrl('assets/icons/twitter.png') }}">
+    </a>
     <a class="mt-google mt-share-inline-square-bw-sm" href="https://plus.google.com/share?url={{ baseUrl('media/')}}{{ memememe }}">
-        <img src="http://mojotech-static.s3.amazonaws.com/google@2x.png">
+      <img src="{{ baseUrl('assets/icons/google.png') }}">
     </a>
     <a class="mt-pinterest mt-share-inline-square-bw-sm" href="http://www.pinterest.com/pin/create/button/?url={{ baseUrl('media/')}}{{ memememe }}&amp;media=&amp;guid=1234&amp;description=" target="_blank">
-        <img src="http://mojotech-static.s3.amazonaws.com/pinterest@2x.png">
+      <img src="{{ baseUrl('assets/icons/pinterest.png') }}">
     </a>
-</div>
+  </div>
 
 {% endblock %}
 
 {% block js %}
-{{ baseUrl('assets/js/memememe.js') }}
+  {{ baseUrl('assets/js/memememe.js') }}
 {% endblock %}
