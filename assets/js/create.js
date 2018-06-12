@@ -156,6 +156,13 @@ const getSidenav = () => {
 
 }
 
+const getDropdown = () => {
+
+    const elems = document.querySelectorAll('.dropdown-trigger')
+        , instances = M.Dropdown.init(elems);
+
+}
+
 const getSelects = () => {
 
   const   elems     = document.querySelectorAll('select')
@@ -272,10 +279,6 @@ const init = function() {
   getSelects()
   eventCarousel()
   eventForm()
-
+  getDropdown()
 }()
 
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.dropdown-trigger');
-  var instances = M.Dropdown.init(elems);
-});

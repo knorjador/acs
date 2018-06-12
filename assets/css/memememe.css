@@ -53,19 +53,19 @@ a.mt-share-inline-square-bw-sm {
     .disappear{
         display: none;
     }
-
-
+    
+    
 }
 
 
 @media screen and (min-width: 990px){
     #mobile-demo{
-      display:none;
+        display:none;
     }
-  
+    
     .sidenav-overlay{
-      opacity: 0;
-      background-color: rgba(0, 0, 0, 0);
-      z-index: -9;
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0);
+        z-index: -9;
     }
-  }
+}
