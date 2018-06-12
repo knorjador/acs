@@ -1,17 +1,12 @@
 
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.dropdown-trigger');
-  var instances = M.Dropdown.init(elems);
-});
+document.addEventListener('DOMContentLoaded', () => {
 
-// document.addEventListener('DOMContentLoaded', () => {
-//
-//   const   modal        = document.querySelectorAll('.modal')
-//         , initModal    = M.Modal.init(modal)
-//         // , dropdown     = document.querySelectorAll('.dropdown-trigger')
-//         // , initDropdown = M.Dropdown.init(dropdown)
-//
-// })
+  const   modal        = document.querySelectorAll('.modal')
+        , initModal    = M.Modal.init(modal)
+        , dropdown     = document.querySelectorAll('.dropdown-trigger')
+        , initDropdown = M.Dropdown.init(dropdown)
+
+})
 
 const   inputUpText   = document.querySelector('#input-up-text')
       , inputDownText = document.querySelector('#input-down-text')

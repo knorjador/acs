@@ -95,8 +95,6 @@ form > .row {
 .modal{
   padding-bottom: 1%;
   width: 30%;
-  height: 70%;
-  background-image: url(cool-background.png);
 }
 
 .modal-content > a{
@@ -153,14 +151,19 @@ a.mt-share-inline-square-bw-sm {
 .message-modal {
   margin-bottom: 32px;
   font-family: monospace;
-  font-size: 1.7rem;
+  font-size: 3vW;
   font-weight: bold;
   color: #4d4d4d;
 }
 
-.appear{
-  display: none;
+#text_up > .row{
+  margin-left: 0;
 }
+
+#text_down > .row{
+  margin-right: 0;
+}
+
 
 @media screen and (max-width: 984px){
   nav > .container{
@@ -178,5 +181,18 @@ a.mt-share-inline-square-bw-sm {
 
   .disappear{
     display: none;
+  }
+}
+
+
+@media screen and (min-width: 990px){
+  #mobile-demo{
+    display:none;
+  }
+
+  .sidenav-overlay{
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: -9;
   }
 }

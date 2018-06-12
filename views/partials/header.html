@@ -4,25 +4,46 @@
       <a href="{{ baseUrl('') }}" class="brand-logo">MeMeMeMe</a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <a href="{{ baseUrl('') }}"class="brand-logo center" ><img class="center disappear" width="60%" src="{{ baseUrl('assets/logo.png') }}"></a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="{{ baseUrl('') }}">Liste</a></li>
-      <!-- <li><a href="{{ baseUrl('create') }}">Créer</a></li> -->
-      <a class="dropdown-trigger btn" href="#" data-target="dropdown">Créer</a>
-      <!-- DROPDOWN  -->
-      <ul id="dropdown" class="dropdown-content">
-        <li><a href="#!">Image</a></li>
+    <div class="right disappear">
+      <ul id="dropdown2" class="dropdown-content">
+        <li><a href="{{ baseUrl('create') }}">Images</a></li>
         <li class="divider"></li>
-        <li><a href="#!">Gif</a></li>
+        <li><a href="#!">Gifs</a></li>
       </ul>
-    </ul>
+      <ul>
+        <li><a class="dropdown-trigger btn deep-purple" href="#!" data-target="dropdown2">Créer<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+
+    <div class="right disappear">
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="{{ baseUrl('') }}">Images</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">Gifs</a></li>
+      </ul>
+      <ul>
+        <li><a class="dropdown-trigger btn deep-purple" href="#!" data-target="dropdown1">Liste<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+
     <ul class="sidenav" id="mobile-demo">
       <li><a href="{{ baseUrl('') }}"class="center" ><img class="center" width="30%" src="{{ baseUrl('assets/logo.png') }}"></a></li>
-      <li><a href="{{ baseUrl('') }}">Liste</a></li>
-      <!-- <li><a href="{{ baseUrl('create') }}">Créer</a></li> -->
-      <!-- DROPDOWN TRIGGER -->
-      <li>
-        <!-- <a class='dropdown-trigger btn' href='#' data-target='dropdown'>Créer</a> -->
-      </li>
+      <ul id="dropdown3" class="dropdown-content">
+          <li><a href="{{ baseUrl('') }}">Images</a></li>
+          <li class="divider"></li>
+          <li><a href="#!">Gifs</a></li>
+      </ul>
+      <ul>
+        <li><a class="dropdown-trigger btn deep-purple" href="#!" data-target="dropdown3">Liste<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+      <ul id="dropdown4" class="dropdown-content">
+        <li><a href="{{ baseUrl('create') }}">Images</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">Gifs</a></li>
+      </ul>
+      <ul>
+        <li><a class="dropdown-trigger btn deep-purple" href="#!" data-target="dropdown4">Créer<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
     </ul>
   </div>
 </nav>
