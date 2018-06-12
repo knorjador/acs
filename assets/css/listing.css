@@ -43,17 +43,20 @@ html {
 
 }
 
-@media screen and (max-width: 990px){
+@media screen and (max-width: 990px) {
+
   nav > .container{
     width: 100%;
-}
+  }
+
   .disappear{
     display: none;
   }
 
 }
 
-@media screen and (min-width: 990px){
+@media screen and (min-width: 990px) {
+
   #mobile-demo{
     display:none;
   }
@@ -63,4 +66,5 @@ html {
     background-color: rgba(0, 0, 0, 0);
     z-index: -9;
   }
+  
 }

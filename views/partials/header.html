@@ -6,20 +6,20 @@
     <a href="{{ baseUrl('') }}"class="brand-logo center" ><img class="center disappear" width="60%" src="{{ baseUrl('assets/logo.png') }}"></a>
     <div class="right disappear">
       <ul id="dropdown2" class="dropdown-content">
-        <li><a href="{{ baseUrl('create') }}">Images</a></li>
+        <li><a href="{{ baseUrl('create/image') }}">Images</a></li>
         <li class="divider"></li>
-        <li><a href="#!">Gifs</a></li>
+        <li><a href="{{ baseUrl('create/gif') }}">Gifs</a></li>
       </ul>
       <ul>
-        <li><a class="dropdown-trigger btn deep-purple" href="#!" data-target="dropdown2">Créer<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-trigger btn deep-purple" href="{{ baseUrl('') }}#!" data-target="dropdown2">Créer<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
     </div>
 
     <div class="right disappear">
       <ul id="dropdown1" class="dropdown-content">
-        <li><a href="{{ baseUrl('') }}">Images</a></li>
+        <li><a href="{{ baseUrl('list/images') }}">Images</a></li>
         <li class="divider"></li>
-        <li><a href="#!">Gifs</a></li>
+        <li><a href="{{ baseUrl('list/gifs') }}">Gifs</a></li>
       </ul>
       <ul>
         <li><a class="dropdown-trigger btn deep-purple" href="#!" data-target="dropdown1">Liste<i class="material-icons right">arrow_drop_down</i></a></li>
