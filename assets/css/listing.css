@@ -42,3 +42,14 @@ html {
 .hcreation {
 
 }
+
+@media screen and (max-width: 984px){
+  nav > .container{
+    width: 100%;
+}
+  .disappear{
+    display: none;
+  }
+
+  
+}

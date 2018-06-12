@@ -54,3 +54,17 @@ a.mt-share-inline-square-bw-sm {
 .alink {
   color: #4a148c;
 }
+    font-size: 20px;
+}
+
+
+@media screen and (max-width: 984px){
+    nav > .container{
+        width: 100%;
+    }
+    .disappear{
+        display: none;
+    }
+
+
+}

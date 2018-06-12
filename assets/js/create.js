@@ -1,10 +1,17 @@
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.dropdown-trigger');
+  var instances = M.Dropdown.init(elems);
+});
 
-  const   elems     = document.querySelectorAll('.modal')
-        , instances = M.Modal.init(elems)
-
-})
+// document.addEventListener('DOMContentLoaded', () => {
+//
+//   const   modal        = document.querySelectorAll('.modal')
+//         , initModal    = M.Modal.init(modal)
+//         // , dropdown     = document.querySelectorAll('.dropdown-trigger')
+//         // , initDropdown = M.Dropdown.init(dropdown)
+//
+// })
 
 const   inputUpText   = document.querySelector('#input-up-text')
       , inputDownText = document.querySelector('#input-down-text')
@@ -149,6 +156,13 @@ const getCarousel = () => {
 
 }
 
+const getSidenav = () => {
+
+    const elems = document.querySelectorAll('.sidenav')
+        , instances = M.Sidenav.init(elems);
+
+}
+
 const getSelects = () => {
 
   const   elems     = document.querySelectorAll('select')
@@ -184,6 +198,7 @@ const post = (data, cb) => {
   }
 
 }
+
 
 const showLoading = () => {
 
@@ -260,6 +275,7 @@ const done = back => { //console.log(back)
 const init = function() {
 
   getCarousel()
+  getSidenav()
   getSelects()
   eventCarousel()
   eventForm()
