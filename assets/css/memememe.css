@@ -56,3 +56,16 @@ a.mt-share-inline-square-bw-sm {
 
 
 }
+
+
+@media screen and (min-width: 990px){
+    #mobile-demo{
+      display:none;
+    }
+  
+    .sidenav-overlay{
+      opacity: 0;
+      background-color: rgba(0, 0, 0, 0);
+      z-index: -9;
+    }
+  }
