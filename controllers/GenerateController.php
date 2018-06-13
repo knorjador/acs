@@ -44,10 +44,7 @@ function ctrlGenerate($twig, $pdo, $posted) {
 
     echo $twig->render('partials/message.html', ['message' => 'Gif', 'emoji' => 'tongue']);
 
-        // echo $twig->render('partials/message.html', ['message' => 'Done']);
-        echo $twig->render('partials/modal.html', ['memememe' => $saveMeme['uniqId']]);
-
-      }
+  } else {
 
     echo $twig->render('partials/message.html', ['message' => 'Image', 'emoji' => 'tongue']);
 
