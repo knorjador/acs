@@ -169,7 +169,7 @@ const post = (data, cb) => {
 
   const XHR = new XMLHttpRequest()
 
-  XHR.open('POST', 'index.php')
+  XHR.open('POST', '../index.php')
 
   XHR.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
 
@@ -181,7 +181,7 @@ const post = (data, cb) => {
 
     if(XHR.readyState === 4 && XHR.status === 200) {
 
-      const loading = document.querySelector('.meme-loading')
+      const loading = document.querySelector('.show-loading')
 
       loading.parentNode.removeChild(loading)
 
@@ -194,12 +194,11 @@ const post = (data, cb) => {
 
 }
 
-
 const showLoading = () => {
 
   const html = `
 
-    <div class="meme-loading">
+    <div class="show-loading">
 
       <p>MeMeMeMe en préparation</p>
 
@@ -253,7 +252,7 @@ const showLoading = () => {
 
 }
 
-const done = back => { //console.log(back)
+const done = back => { console.log(back)
 
   const modal = document.querySelector('#modal')
 

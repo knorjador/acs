@@ -3,52 +3,94 @@
 
 use Intervention\Image\ImageManagerStatic as Image;
 
+use GifFrameExtractor\GifFrameExtractor as GifFrameExtractor;
+use ImageWorkshop\ImageWorkshop as ImageWorkshop;
+use GifCreator\GifCreator as GifCreator;
+
 require 'models/GenerateModel.php';
 
 function ctrlGenerate($twig, $pdo, $posted) {
 
-  $data          = (array) json_decode($posted['data']);
-  $data['image'] = getImageName($data['image']);
-  $max           = 20;
+  $data = (array) json_decode($posted['data']);
 
-  if($data['image'] === 'create') {
+  if(strpos($data['image'], 'giphy.com') !== false) {
 
-    echo $twig->render('partials/message.html', ['message' => 'Hep là,<br> il faut choisir une image', 'emoji' => 'tongue']);
+    $src = file_get_contents($data['image']);
 
-  } else if(empty($data['upText']) && empty($data['downText'])) {
+    if (GifFrameExtractor::isAnimatedGif($src)) {
 
-    echo $twig->render('partials/message.html', ['message' => 'Il n\'y a pas de texte', 'emoji' => 'sad']);
+      $gfe             = new GifFrameExtractor();
+      $frames          = $gfe->extract($src);
+      $text            = ImageWorkshop::initFromPath('This is the text');
+      $retouchedFrames = [];
 
-  } else if(strlen($data['upText']) > $max || strlen($data['downText']) > $max) {
+      foreach ($frames as $frame) {
 
-    $side = strlen($data['upText']) > $max ? 'haut' : 'bas';
+        $frameLayer = ImageWorkshop::initFromResourceVar($frame['image']);
 
-    echo $twig->render('partials/message.html', ['message' => 'Texte du '.$side.' trop long', 'emoji' => 'confused']);
+        $frameLayer->resizeInPixel(350, null, true);
+        $frameLayer->addLayerOnTop($text, 20, 20, 'LB');
+
+        $retouchedFrames[] = $frameLayer->getResult();
+
+      }
+
+      $gc = new GifCreator();
+      $gc->create($retouchedFrames, $gfe->getFrameDurations(), 0);
+
+      file_put_contents('uploads/gifs/newgif.gif', $gc->getGif());
+
+    }
+
+    echo $twig->render('partials/message.html', ['message' => 'Gif', 'emoji' => 'tongue']);
 
   } else {
 
-    $memememe = makeMeme(getArgs($data));
+    echo $twig->render('partials/message.html', ['message' => 'Image', 'emoji' => 'tongue']);
 
-    if(!$memememe['valid']) {
-
-      echo $twig->render('partials/message.html', ['message' => 'Désolé,<br> une erreur est survenue', 'emoji' => 'thinking']);
-
-    } else {
-
-      $saveMeme = saveMeme($pdo, $data['image'], $memememe['uniqId']);
-
-      if(!$memememe['valid']) {
-
-        echo $twig->render('partials/message.html', ['message' => 'Désolé,<br> une erreur est survenue', 'emoji' => 'thinking']);
-
-      } else {
-
-        // echo $twig->render('partials/message.html', ['message' => 'Done']);
-        echo $twig->render('partials/modal.html', ['memememe' => $saveMeme['uniqId']]);
-        
-      }
-
-    }
+    // $data['image'] = getImageName($data['image']);
+    // $max           = 20;
+    //
+    // if($data['image'] === 'create') {
+    //
+    //   echo $twig->render('partials/message.html', ['message' => 'Hep là,<br> il faut choisir une image', 'emoji' => 'tongue']);
+    //
+    // } else if(empty($data['upText']) && empty($data['downText'])) {
+    //
+    //   echo $twig->render('partials/message.html', ['message' => 'Il n\'y a pas de texte', 'emoji' => 'sad']);
+    //
+    // } else if(strlen($data['upText']) > $max || strlen($data['downText']) > $max) {
+    //
+    //   $side = strlen($data['upText']) > $max ? 'haut' : 'bas';
+    //
+    //   echo $twig->render('partials/message.html', ['message' => 'Texte du '.$side.' trop long', 'emoji' => 'confused']);
+    //
+    // } else {
+    //
+    //   $memememe = makeMeme(getArgs($data));
+    //
+    //   if(!$memememe['valid']) {
+    //
+    //     echo $twig->render('partials/message.html', ['message' => 'Désolé,<br> une erreur est survenue', 'emoji' => 'thinking']);
+    //
+    //   } else {
+    //
+    //     $saveMeme = saveMeme($pdo, $data['image'], $memememe['uniqId']);
+    //
+    //     if(!$memememe['valid']) {
+    //
+    //       echo $twig->render('partials/message.html', ['message' => 'Désolé,<br> une erreur est survenue', 'emoji' => 'thinking']);
+    //
+    //     } else {
+    //
+    //       // echo $twig->render('partials/message.html', ['message' => 'Done']);
+    //       echo $twig->render('partials/modal.html', ['memememe' => $saveMeme['uniqId']]);
+    //
+    //     }
+    //
+    //   }
+    //
+    // }
 
   }
 
