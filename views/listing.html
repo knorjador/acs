@@ -14,8 +14,8 @@
   </div>
     {% for meme in data %}
     <div class="col s12 m6 l4 creation">
-      <a target="_blank" href="{{ baseUrl('media/') }}{{ meme.path }}.jpg">
-        <img width="100%" src="{{ baseUrl('uploads/') }}{{ meme.path }}.jpg" alt="memememe">
+      <a target="_blank" href="{{ baseUrl('media/') }}{{ meme.path }}">
+        <img width="100%" src="{{ baseUrl('uploads/') }}{{ meme.path }}" alt="memememe">
         <div class="memememe-shadow"></div>
       </a>
     </div>

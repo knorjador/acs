@@ -2,6 +2,8 @@
 <!-- CAROUSEL -->
 <div class="carousel">
   {% for base in data %}
-  <a class="carousel-item"><img src="{{ baseUrl('assets/images/') }}{{ base.path }}.jpg"></a>
+    {% if base.path != 'null' %}
+      <a class="carousel-item"><img src="{{ baseUrl('assets/images/') }}{{ base.path }}.jpg"></a>
+    {% endif %}
   {% endfor %}
 </div>
