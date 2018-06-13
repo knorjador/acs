@@ -5,7 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
         , initModal    = M.Modal.init(modal)
         , dropdown     = document.querySelectorAll('.dropdown-trigger')
         , initDropdown = M.Dropdown.init(dropdown)
-
+        , sidenav      = document.querySelectorAll('.sidenav')
+        , initSidenav  = M.Sidenav.init(sidenav)
+        , select       = document.querySelectorAll('select')
+        , instances    = M.FormSelect.init(select)
 })
 
 const   inputUpText   = document.querySelector('#input-up-text')
@@ -220,53 +223,53 @@ const showLoading = () => {
 
   const html = `
 
-    <div class="show-loading">
+  <div class="show-loading">
 
-      <p>Recherche de Gif</p>
+  <p>Recherche de Gif</p>
 
-      <div class="preloader-wrapper big active">
-        <div class="spinner-layer spinner-blue">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
+  <div class="preloader-wrapper big active">
+  <div class="spinner-layer spinner-blue">
+  <div class="circle-clipper left">
+  <div class="circle"></div>
+  </div><div class="gap-patch">
+  <div class="circle"></div>
+  </div><div class="circle-clipper right">
+  <div class="circle"></div>
+  </div>
+  </div>
 
-        <div class="spinner-layer spinner-red">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
+  <div class="spinner-layer spinner-red">
+  <div class="circle-clipper left">
+  <div class="circle"></div>
+  </div><div class="gap-patch">
+  <div class="circle"></div>
+  </div><div class="circle-clipper right">
+  <div class="circle"></div>
+  </div>
+  </div>
 
-        <div class="spinner-layer spinner-yellow">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
+  <div class="spinner-layer spinner-yellow">
+  <div class="circle-clipper left">
+  <div class="circle"></div>
+  </div><div class="gap-patch">
+  <div class="circle"></div>
+  </div><div class="circle-clipper right">
+  <div class="circle"></div>
+  </div>
+  </div>
 
-        <div class="spinner-layer spinner-green">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
-      </div>
+  <div class="spinner-layer spinner-green">
+  <div class="circle-clipper left">
+  <div class="circle"></div>
+  </div><div class="gap-patch">
+  <div class="circle"></div>
+  </div><div class="circle-clipper right">
+  <div class="circle"></div>
+  </div>
+  </div>
+  </div>
 
-    </div>
+  </div>
 
   `
 

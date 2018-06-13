@@ -180,7 +180,19 @@ a.mt-share-inline-square-bw-sm {
   margin-right: 0;
 }
 
+.form_gif{
+  width: 45%;
+  
+  margin: auto;
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 984px){
+
+  .form_gif{
+    width: 100%;
+  }
+
   nav > .container{
     width: 100%;
 }

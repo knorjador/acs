@@ -15,7 +15,12 @@
   <div class="center">
     <img class="resize" src="{{ baseUrl('uploads/')}}{{ memememe }}">
     <p class="center plink">Lien de l'image</p>
-    <a class="alink" href="{{ baseUrl('media/')}}{{ memememe }}" target="_blank">{{ baseUrl('media/')}}{{ memememe }}</a>
+
+    <textarea id="to-copy" spellcheck="false">{{ baseUrl('media/')}}{{ memememe }}</textarea>
+    <button id="copy" type="button">Copier le lien<span class="copiedtext" aria-hidden="true">Lien copié !</span></button>
+    <div id="cleared"></div>
+
+
     <p class="plink">Partager</p>
     <a class="mt-facebook mt-share-inline-square-bw-sm" href="https://www.facebook.com/sharer/sharer.php?u={{ baseUrl('media/')}}{{ memememe }}" target="_blank">
       <img src="{{ baseUrl('assets/icons/facebook.png') }}">

@@ -1,11 +1,13 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-
+  
   const   modal        = document.querySelectorAll('.modal')
         , initModal    = M.Modal.init(modal)
         , dropdown     = document.querySelectorAll('.dropdown-trigger')
         , initDropdown = M.Dropdown.init(dropdown)
-
+        , sidenav      = document.querySelectorAll('.sidenav')
+        , initSidenav  = M.Sidenav.init(sidenav)
+        , select       = document.querySelectorAll('select')
+        , instances    = M.FormSelect.init(select)
 })
 
 const   inputUpText   = document.querySelector('#input-up-text')
@@ -153,8 +155,8 @@ const getCarousel = () => {
 
 const getSidenav = () => {
 
-    const elems = document.querySelectorAll('.sidenav')
-        , instances = M.Sidenav.init(elems);
+  const elems = document.querySelectorAll('.sidenav')
+  , instances = M.Sidenav.init(elems);
 
 }
 
@@ -273,5 +275,4 @@ const init = function() {
   getSelects()
   eventCarousel()
   eventForm()
-
 }()
