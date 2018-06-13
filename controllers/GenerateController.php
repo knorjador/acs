@@ -44,7 +44,7 @@ function ctrlGenerate($twig, $pdo, $posted) {
       } else {
 
         // echo $twig->render('partials/message.html', ['message' => 'Done']);
-        echo $twig->render('partials/modal.html', ['memememe' => $saveMeme['uniqId']]);
+        echo $twig->render('partials/modal.html', ['memememe' => $saveMeme['uniqId']]); 
         
       }
 

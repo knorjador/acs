@@ -35,14 +35,6 @@ html {
   color: #4d4d4d
 }
 
-.d-listing > h6 {
-  /* margin-bottom: 24px; */
-}
-
-.hcreation {
-
-}
-
 @media screen and (max-width: 990px) {
 
   nav > .container{

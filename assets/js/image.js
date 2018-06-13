@@ -171,7 +171,7 @@ const post = (data, cb) => {
 
   const XHR = new XMLHttpRequest()
 
-  XHR.open('POST', 'index.php')
+  XHR.open('POST', '../index.php')
 
   XHR.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
 
