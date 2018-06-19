@@ -1,0 +1,42 @@
+
+.dchoose {
+  margin-bottom: 64px
+}
+
+/* Hide original appearance */
+.ifiles {
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 0.1px;
+  z-index: -1;
+}
+
+/* Style both input field and label */
+.ifiles + .lfiles {
+  background-color: #cf1259;
+  box-sizing: border-box;
+  color: #fff;
+  display: block;
+  font-family: Sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 1rem 1.4rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.lfiles:hover {
+  cursor: default;
+}
+
+.ifiles:focus + .lfiles,
+.ifiles + .lfiles:hover {
+  background-color: #E5246E;
+}
+
+
+label.lfiles::before {
+  content: "Choose files";
+}
