@@ -6,38 +6,39 @@
 {% block content %}
 
 <div class="row">
-  <form class="col s6">
-    <div class="row">
-      <div class="input-field col s6 dchoose">
-        <input class="ifiles" type="file" id="ifiles" name="files[]" multiple>
-        <label for="ifiles" class="lfiles"></label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s6">
-        <input id="receiver" type="email" class="validate">
-        <label for="receiver">Email Receiver</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s6">
-        <input id="sender" type="email" class="validate">
-        <label for="sender">Your Email</label>
-      </div>
-    </div>
-    <p>
-     <label>
-       <input type="checkbox" />
-       <span>I want a copy</span>
-     </label>
-   </p>
-    <div class="row">
-      <div class="col s6">
-        <button id="submit" type="submit" class="waves-effect waves-light btn">Send</button>
-      </div>
-    </div>
-  </form>
-  <div class="dfiles"></div>
+    <h1>WELCOME</h1>
+    <form class="col s6">
+        <div class="row">
+            <div class="dchoose">
+                <input class="ifiles" type="file" id="ifiles" name="files[]" multiple>
+                <label for="ifiles" class="lfiles"></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input id="receiver" type="email" placeholder="Email Receiver" class="validate">
+                <label for="receiver"></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input id="sender" type="email" placeholder="Your Email" class="validate">
+                <label for="sender"></label>
+            </div>
+        </div>
+        <p>
+            <label>
+                <input type="checkbox" />
+                <span>I want a copy</span>
+            </label>
+        </p>
+        <div class="row">
+            <div>
+                <button type="submit" id="submit" class="btn btn-2">Send</a>
+            </div>
+        </div>
+    </form>
+    <div class="dfiles"></div>
 </div>
 
 {% endblock %}
