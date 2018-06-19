@@ -76,9 +76,9 @@ const eventSubmit = function() {
 
     e.preventDefault()
 
-    formData.append("receiver", document.querySelector('#receiver').value)
-    formData.append("sender", document.querySelector('#sender').value)
-    formData.append("copy", document.querySelector('input[type="checkbox"]').checked)
+    formData.append('receiver', document.querySelector('#receiver').value)
+    formData.append('sender', document.querySelector('#sender').value)
+    // formData.append('copy', document.querySelector('input[type="checkbox"]').checked)
 
     // console.log(formData);
 
@@ -96,13 +96,15 @@ const post = (data, cb) => {
 
   const XHR = new XMLHttpRequest()
 
-  XHR.open('POST', '/checkpoint')
+  XHR.open('POST', `${window.location.href}/checkpoint`)
 
   XHR.send(formData)
 
   XHR.onreadystatechange = () => {
 
     if(XHR.readyState === 4 && XHR.status === 200) {
+
+      // console.log(XHR.responseText)
 
       // cb(JSON.parse(XHR.responseText))
 
