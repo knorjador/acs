@@ -1,3 +1,16 @@
-.navbar {
-    margin-bottom: 20px;
+nav{
+    background-color: $newBlack;
+}
+.brand-logo {
+    margin-right: 300px;
+}
+.entreprise{
+    color: $newWhite;
+    margin-left: 200px;
+    font-size: 3em;
+    font-family:sans-serif;
+}
+img{
+    height: 100px;
+    margin-top: -20px;
 }

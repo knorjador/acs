@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "twig/twig": "^2.0",
+        "twig/twig": "^2.4",
         "vlucas/phpdotenv": "^2.4",
         "symfony/yaml": "^4.1",
         "picorm/picorm": "^0.0.7"
