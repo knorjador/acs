@@ -5,12 +5,17 @@
 
 {% block content %}
 
-<div class="row">
-  <h2>Result Content</h2>
-</div>
 
+<div class="row">
+    <h1>Successful</h1>
+    <form class="col s12">
+      <h3>Your files have been <br> successfully sent </h3>
+       <input type="text">
+         <button class="bton" id="copy">Copy</button>
+    </form>
+</div>
 {% endblock %}
 
 {% block javascripts %}
-  <script src="{{ url('assets/js/result.js') }}"></script>
+<script src="{{ url('assets/js/result.js') }}"></script>
 {% endblock %}

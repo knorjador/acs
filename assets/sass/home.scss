@@ -1,17 +1,17 @@
 form {
     border: solid 4px $newPurple;
-    margin-top: 4%;
+    margin-top: 2%;
     text-align: center;
     background-color:$newWhite;
     opacity: 0.8;
 }
 body {
     background-image: url(../img/background.jpeg);
-    background-size:100% 150%;
+    background-size : 100% 130%;
     background-repeat: no-repeat;
 }
 h1{ 
-    margin-top: 5%;
+    margin-top: 3%;
     font-size: 6em;
     color: $newWhite;
     text-align: center;
@@ -48,7 +48,6 @@ span{
     border-right: 2px solid $newBlack;
     border-bottom: 2px solid $newBlack;
 }
-
 .btn-2 {
     font-size: 2em;
     background-color: transparent;
@@ -61,12 +60,10 @@ span{
 .btn-2 {
     letter-spacing: 0;
 }
-
 .btn-2:hover,
 .btn-2:active {
     letter-spacing: 5px;
 }
-
 .btn-2:after,
 .btn-2:before {
     backface-visibility: hidden;
@@ -95,4 +92,8 @@ span{
     bottom: auto;
     top: 0;
     width: 70%;
+}
+.btn:focus{
+    background-color: transparent;
+        
 }
