@@ -1,13 +1,23 @@
 
 {% extends 'base.html.twig' %}
 
-{% block title %}My Easy Transfer - Result{% endblock %}
+{% block title %}MyEasyTransfer - Result{% endblock %}
 
 {% block content %}
 
 <div class="row">
-  <h2>Result Content</h2>
-  <p>{{ id }}</p>
+    <h1>Successful</h1>
+    <div class="col s2 m2 l2"></div>
+    <form id="formCopy" class="col s8 m8 l8">
+        <h3>Your files have been <br> successfully sent </h3>
+        <input class="textcopy" id="textcopy" type="text"> <br>
+        <button class="btn-3" id="copy">Copy</button>
+    </form>
+    <div class="col s2 m2 l2"></div>
 </div>
 
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ url('assets/js/result.js') }}"></script>
 {% endblock %}

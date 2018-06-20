@@ -3,16 +3,17 @@ form {
     margin-top: 2%;
     text-align: center;
     background-color:$newWhite;
-    opacity: 0.8;
+    opacity: 0.9;
 }
-body {
+html, body {
     background-image: url(../img/background.jpeg);
-    background-size: cover;
+    height: 100%;
+    width: auto;
     background-repeat: no-repeat;
 }
 h1{
     margin-top: 3.5%;
-    font-size: 3em;
+    font-size: 5em;
     color: $newWhite;
     text-align: center;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
@@ -45,7 +46,6 @@ span{
     border-right: 2px solid $newBlack;
     border-bottom: 2px solid $newBlack;
 }
-
 .btn-2 {
     font-size: 2em;
     background-color: transparent;
@@ -58,12 +58,10 @@ span{
 .btn-2 {
     letter-spacing: 0;
 }
-
 .btn-2:hover,
 .btn-2:active {
     letter-spacing: 5px;
 }
-
 .btn-2:after,
 .btn-2:before {
     backface-visibility: hidden;
@@ -82,7 +80,7 @@ span{
     backface-visibility: hidden;
     border-color: #fff;
     transition: width 350ms ease-in-out;
-    width: 70%;
+    width: 100%;
 }
 .btn:hover{
     background-color: transparent;
@@ -91,40 +89,53 @@ span{
 .btn-2:hover:before {
     bottom: auto;
     top: 0;
-    width: 70%;
+    width: 100%;
 }
-
+.btn:focus{
+    background-color: transparent;
+}
 .dchoose{
     margin: 10px 0 25px 0;
 }
 
 .ifiles {
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  width: 0.1px;
-  z-index: -1;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 0.1px;
+    z-index: -1;
 }
 
 .ifiles + .lfiles {
-  background-color: $newPurple;
-  box-sizing: border-box;
-  color: $newWhite;
-  display: block;
-  position: relative;
-  width: 80%;
-  left: 10%;
-  margin-top: 30px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 0.75rem 1rem;
-  text-align: center;
-  text-transform: uppercase;
+    background-color: $newPurple;
+    box-sizing: border-box;
+    color: $newWhite;
+    display: block;
+    position: relative;
+    width: 80%;
+    left: 10%;
+    margin-top: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10%;
 }
-
 label.lfiles::before {
-  content: "Choose file(s)";
+    content: "Choose file(s)";
+}
+.dfiles{
+    font-size: 1em;
+    background-color: $newWhite;
+    border: solid 0px $newPurple;
+    opacity : 0.8;
+}
+.liste{
+    background-color: transparent;
+    margin-left: 100px;
+    margin-top: 50px;
 }
 
 .overlay {
@@ -171,3 +182,4 @@ label.lfiles::before {
 .notify-danger {
   font-weight: bold;
 }
+  

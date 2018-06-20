@@ -13,7 +13,7 @@
 
 <div class="row">
     <h1>WELCOME</h1>
-    <form class="col s6">
+    <form class="col s12 m6 l6">
         <div class="row">
             <div class="dchoose">
                 <input class="ifiles" type="file" id="ifiles" name="files[]" multiple>
@@ -40,12 +40,15 @@
         </p>
         <div class="row">
             <div>
-                <!-- <button type="submit" id="submit" class="btn btn-2">Send</a> -->
                 <button type="submit" id="submit" class="btn btn-2 modal-trigger" data-target="modal">Send</a>
             </div>
         </div>
     </form>
-    <div class="dfiles"></div>
+    <div class="col s12 m6 l6 liste">
+        <div class="dfiles"></div>
+    </div>
+
 </div>
+
 
 {% endblock %}

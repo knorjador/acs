@@ -6,11 +6,26 @@ nav{
 }
 .entreprise{
     color: $newWhite;
-    margin-left: 200px;
     font-size: 2em;
+    margin-left: 200px;
     font-family:sans-serif;
 }
 img{
     height: 100px;
     margin-top: -20px;
 }
+@media screen and (max-width: 1000px){
+    .entreprise{
+    margin-left: 50px;
+    }
+    .brand-logo{
+    margin-right: 50px;
+    }
+}
+ @media screen and (max-width: 600px){
+   img{
+    height: 80px;
+    margin-top: -10px;
+    }
+}
+    

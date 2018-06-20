@@ -1,3 +1,4 @@
+
 {% extends 'base.html.twig' %}
 
 {% block title %}My Easy Transfer - Files{% endblock %}
@@ -5,7 +6,20 @@
 {% block content %}
 
 <div class="row">
-  <h2>Files Content</h2>
+    <div class="col s2 m2 l2"></div>
+    <form id="formDll" class="col s8 m8 l8">
+        <h3>You can download <br> the files here</h3>
+        <br>
+        <br>
+        <button class="btn-3" id="download">Clic here for download</button>
+        <input class="textcopy" id="textcopy" type="text"><br>
+        <button class="btn-3" id="copy">Copy Url</button>
+    </form>
+    <div class="col s2 m2 l2"></div>
 </div>
 
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ url('assets/js/files.js') }}"></script>
 {% endblock %}
