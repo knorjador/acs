@@ -126,3 +126,48 @@ span{
 label.lfiles::before {
   content: "Choose file(s)";
 }
+
+.overlay {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  background: rgba(0, 0, 0, 0.5)
+}
+
+.modal {
+  z-index: 1
+}
+
+.processing {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: $newPurple;
+}
+
+.progress {
+  width: 50%;
+  left: 25%;
+  background: $newWhite;
+}
+
+.progress .indeterminate {
+  background: $newPurple;
+}
+
+#toast-container {
+  z-index: 0;
+  width: 25%;
+  top: 12.5%;
+  left:12.5%;
+}
+
+.toast {
+  background: $newPurple;
+}
+
+.notify-danger {
+  font-weight: bold;
+}

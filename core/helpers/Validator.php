@@ -8,13 +8,12 @@ class Validator
   public static function checkPosted($posted, $expected)
   {
 
-    foreach ($posted as $key => $value) {
+    $step = [];
 
-      var_dump($key);
+    foreach ($posted as $key => $value)
+      array_push($step, $key);
 
-    }
-
-    die();
+    return count(array_diff($expected, $step)) === 0 ? true : false;
 
   }
 
@@ -28,18 +27,17 @@ class Validator
   public static function checkEmpty($data)
   {
 
-    $empty = [];
-
-    foreach ($data as $key => $value) {
-
-      if(empty($value))
-        array_push($empty, $key);
-
-    }
-
-    return empty($empty) ? true : $empty;
+    return !empty($data) ? true : false;
 
   }
+
+  public static function checkEmail($data)
+  {
+
+    return filter_var($data, FILTER_VALIDATE_EMAIL) ? true : false;
+
+  }
+
 
   public static function checkBoolean($data) {
 

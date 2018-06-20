@@ -4,7 +4,9 @@ namespace Controllers;
 
 use Core\Controllers\Controller;
 use Core\Helpers\Validator;
+use Core\Helpers\Notificator;
 use Model\CheckPoint;
+use Model\Files;
 
 class CheckPointController extends Controller
 {
@@ -17,89 +19,71 @@ class CheckPointController extends Controller
   public function checkpoint()
   {
 
-    $receiver = $_POST['receiver'];
-    $sender   = $_POST['sender'];
-    $copy     = $_POST['copy'];
-
-    $checkPosted = Validator::checkPosted($_POST, ['receiver', 'sender', 'copy']);
-
-    // var_dump($checkPosted); die();
-
-    // $receiver = Validator::checkEmpty(Validator::sanitarize($_POST['receiver']));
-    // $sender   = Validator::checkEmpty(Validator::sanitarize($_POST['sender']));
-
-    $receiver   = Validator::sanitarize($_POST['receiver']);
-    $sender     = Validator::sanitarize($_POST['sender']);
-
-    $hasEmpty = Validator::checkEmpty([
-
-      'receiver' => $receiver,
-      'sender'   => $sender
-
-    ]);
-
-    if (!$hasEmpty) {
-
-      $isEmail = Validator::checkEmail([
-
-        'receiver' => $receiver,
-        'sender'   => $sender
-
-      ]);
-
-    } else {
-
-
-
-    }
-
-    var_dump($hasEmpty); die();
-
-
-    var_dump($receiver); die();
-
-    // $validator = new Validator();
-    //
-    // $validator->checkEmpty($receiver);
-    // $validator->checkEmpty($sender);
-    // $validator->checkBoolean($copy);
-
-    // var_dump(gettype($copy));
-
-    if(empty($receiver)) {
-
-      echo $this->twig->render('partials/flashbag.html.twig', [
-
-        'type' => 'danger',
-        'msg' => 'Please give an receiver email'
-
-      ]);
-
-    }
-
-    if(empty($sender)) {
-
-      echo $this->twig->render('partials/flashbag.html.twig', [
-
-        'type' => 'danger',
-        'msg' => 'Please give your email'
-
-      ]);
-
-    }
-
-    if($copy !== 'true' || $copy === 'false') {
-
-
-    }
-
-    // if()
-
     // var_dump($_POST);
     // echo '<pre>';
     // var_dump($_FILES);
     // echo '</pre>';
     // die();
+
+    if(!Validator::checkPosted($_POST, ['receiver', 'sender', 'copy']))
+      Notificator::notify($this->twig, 'danger', 'Sorry, an error occurred');
+
+    $receiver = Validator::sanitarize($_POST['receiver']);
+    $sender   = Validator::sanitarize($_POST['sender']);
+    $copy     = Validator::sanitarize($_POST['copy']);
+
+    if(!Validator::checkBoolean($copy))
+      Notificator::notify($this->twig, 'danger', 'Sorry, an error occurred');
+
+    if(!Validator::checkEmpty($receiver))
+      Notificator::notify($this->twig, 'danger', 'Please give an receiver email');
+
+    if(!Validator::checkEmail($receiver))
+      Notificator::notify($this->twig, 'danger', 'Receveir email is not valid');
+
+    if(!Validator::checkEmpty($sender))
+      Notificator::notify($this->twig, 'danger', 'Please give your email');
+
+    if(!Validator::checkEmail($sender))
+      Notificator::notify($this->twig, 'danger', 'Sender email is not valid');
+
+    if (isset($_FILES['files'])) {
+
+      $checkPoint = new CheckPoint();
+
+      $checkPoint->sender_email   = $sender;
+      $checkPoint->receiver_email = $receiver;
+      $checkPoint->save();
+
+      $files      = $_FILES['files']['name'];
+      $nb         = count($files);
+      $uploadsDir = './uploads/';
+
+      for ($i = 0 ; $i < $nb ; $i++) {
+
+        $file              = new Files();
+        $file->filename    = $files[$i];
+        $file->transfer_id = $checkPoint->id;
+        $file->save();
+
+        $uploadFile = $uploadsDir.$files[$i];
+
+        if (!move_uploaded_file($_FILES['files']['tmp_name'][$i], $uploadFile))
+          Notificator::notify($this->twig, 'danger', 'Sorry, an error occurred');
+
+      }
+
+      echo json_encode(['redirection' => true, 'id' => 'klmfkglm9898']);
+
+      // echo $this->twig->render('result.html.twig', [
+      //     'test' => 'ok'
+      // ]);
+
+    } else {
+
+      Notificator::notify($this->twig, 'danger', 'Please choose file(s)');
+
+    }
 
   }
 

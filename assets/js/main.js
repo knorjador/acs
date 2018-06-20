@@ -1,4 +1,11 @@
 
+document.addEventListener('DOMContentLoaded', () => {
+
+  const   modal        = document.querySelectorAll('.modal')
+        , initModal    = M.Modal.init(modal, { dismissible: false })
+
+})
+
 const iFiles = document.querySelector('#ifiles')
 
 let formData = new FormData();
@@ -78,11 +85,11 @@ const eventSubmit = function() {
 
     formData.append('receiver', document.querySelector('#receiver').value)
     formData.append('sender', document.querySelector('#sender').value)
-    // formData.append('copy', document.querySelector('input[type="checkbox"]').checked)
+    formData.append('copy', document.querySelector('input[type="checkbox"]').checked)
 
     // console.log(formData);
 
-    post(formData)
+    post(formData, done)
 
   })
 
@@ -100,13 +107,29 @@ const post = (data, cb) => {
 
   XHR.send(formData)
 
+  processing()
+
   XHR.onreadystatechange = () => {
 
     if(XHR.readyState === 4 && XHR.status === 200) {
 
-      // console.log(XHR.responseText)
+      if(XHR.responseText.includes('redirection')) {
 
-      // cb(JSON.parse(XHR.responseText))
+        const parsed = JSON.parse(XHR.responseText)
+
+        document.location.href = `${window.location.href}result/${parsed.id}`
+
+      } else {
+
+        setTimeout(() => {
+
+          document.querySelector('.overlay').style.display = 'none'
+
+          cb(XHR.responseText)
+
+        }, 1000)
+
+      }
 
     }
 
@@ -114,12 +137,33 @@ const post = (data, cb) => {
 
 }
 
+const processing = () => {
+
+  document.querySelector('.overlay').style.display = 'block'
+
+  const modalContent = document.querySelector('.modal-content')
+  const html = `
+
+    <p class="processing">Processing</p>
+
+    <div class="progress">
+      <div class="indeterminate"></div>
+    </div>
+
+  `
+
+  modalContent.innerHTML = ''
+  modalContent.insertAdjacentHTML('afterbegin', html)
+
+}
+
 /**** **** **** **** **** **** **** ****
  > CALLBACK
 **** **** **** **** **** **** **** ****/
 
-const done = data => {
+const done = back => { console.log(back)
 
-  console.log(data)
+  if(!document.querySelector('.toast'))
+    setTimeout(() => M.toast({html: back, displayLength: 1000}), 500)
 
 }

@@ -8,7 +8,7 @@
   controller: Controllers\CheckPointController::checkpoint
 
 - path:
-  - /result
+  - /result/(\w+)
   controller: Controllers\ResultController::render
 
 - path:

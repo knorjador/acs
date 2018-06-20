@@ -25,8 +25,9 @@ class CheckPoint extends \PicORM\Model {
 
   function __construct()
   {
-    $now = new DateTime;
-    $this->date = $now->format('Y-m-d H:i:s');
+    $date = new DateTime;
+    $this->date = $date->format('Y-m-d H:i:s');
+    $this->sender_ip = $_SERVER['REMOTE_ADDR'];
   }
 
   protected static function defineRelations()

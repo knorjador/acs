@@ -1,9 +1,15 @@
 
 {% extends 'base.html.twig' %}
 
-{% block title %}My Easy Transfer - Home{% endblock %}
+{% block title %}MyEasyTransfer - Home{% endblock %}
 
 {% block content %}
+
+<div class="overlay">
+  <div id="modal" class="modal">
+    <div class="center modal-content"></div>
+  </div>
+</div>
 
 <div class="row">
     <h1>WELCOME</h1>
@@ -34,7 +40,8 @@
         </p>
         <div class="row">
             <div>
-                <button type="submit" id="submit" class="btn btn-2">Send</a>
+                <!-- <button type="submit" id="submit" class="btn btn-2">Send</a> -->
+                <button type="submit" id="submit" class="btn btn-2 modal-trigger" data-target="modal">Send</a>
             </div>
         </div>
     </form>

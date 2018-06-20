@@ -12,10 +12,10 @@ class ResultController extends Controller {
    *
    * @return void
    */
-  public function render()
+  public function render($id)
   {
     echo $this->twig->render('result.html.twig', [
-      
+      'id' => $id
     ]);
   }
 
