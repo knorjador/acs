@@ -1,4 +1,10 @@
-
+#formCopy{
+    margin-top: 10%;
+    border: solid 8px $newPurple;
+    text-align: center;
+    background-color:$newWhite;
+    opacity: 0.9;
+}
 .btn-3 {
     font-size: 2em;
     background-color: transparent;
@@ -14,7 +20,7 @@
 }
 .btn-3:hover,
 .btn-3:active {
-    letter-spacing: 5px;
+    letter-spacing: 0px;
 }
 .btn-3:after,
 .btn-3:before {
@@ -65,5 +71,10 @@ input[type=text]:not(.browser-default):focus:not([readonly]){
     box-shadow: 0 1px 0 0 $newPurple;
 }
 #formCopy{
-margin-top: 10%;
+    margin-top: 10%;
+}
+@media screen and (max-width: 500px) {
+    h3{
+        font-size: 2em;
+    }
 }
