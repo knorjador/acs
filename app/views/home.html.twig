@@ -7,13 +7,32 @@
 
 <div class="row">
     <h1>WELCOME</h1>
-    <form class="col s6">
+    <form class="col s12 m6 l6">
         <div class="row">
-            <h3>Add your files</h3>
-            <div class="input-field dchoose">
+            <div class="dchoose">
                 <input class="ifiles" type="file" id="ifiles" name="files[]" multiple>
-                <label for="ifiles" class="lfiles"></label>                
+                <label for="ifiles" class="lfiles"></label>
             </div>
+            <!--    SPINNER MATERIALIZE     -->
+            <!--
+<div class="preloader-wrapper big active">
+<div class="spinner-layer spinner-blue-only">
+<div class="circle-clipper left">
+<div class="circle">
+</div>
+</div>
+<div class="gap-patch">
+<div class="circle">
+</div>
+</div>
+<div class="circle-clipper right">
+<div class="circle">
+</div>
+</div>
+</div>
+</div>
+-->
+            <!--    SPINNER MATERIALIZE END     -->
         </div>
         <div class="row">
             <div class="input-field">
@@ -34,12 +53,18 @@
             </label>
         </p>
         <div class="row">
-            <div class="">
-                <button type="submit" id="submit" class="btn btn-2">Send</a> 
+            <div>
+                <button type="submit" id="submit" class="btn btn-2">Send</a>
             </div>
         </div>
     </form>
-    <div class="dfiles"></div>
+    <div class="col s12 m6 l6 liste">
+        <div class="dfiles"></div>
+    </div>
+
+
+
 </div>
+
 
 {% endblock %}

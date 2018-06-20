@@ -5,86 +5,86 @@ let formData = new FormData();
 
 iFiles.addEventListener('change', e => {
 
-  const   files  = iFiles.files
-        , length = files.length
+    const   files  = iFiles.files
+    , length = files.length
 
-  let html = ``
+    let html = ``
 
-  for (let i = 0; i < length; i++) {
+    for (let i = 0; i < length; i++) {
 
-    formData.append('files[]', files[i])
+        formData.append('files[]', files[i])
 
-    html += `<p>${files[i].name} <span class="delete-file" id="${files[i].name}">X</span></p>`
+        html += `<p>${files[i].name} <span class="delete-file" id="${files[i].name}">X</span></p>`
 
-  }
+    }
 
-  document.querySelector('.dfiles').insertAdjacentHTML('beforeend', html)
+    document.querySelector('.dfiles').insertAdjacentHTML('beforeend', html)
 
-  eventDelete()
+    eventDelete()
 
 })
 
 const eventDelete = () => {
 
-  const deleteFiles = document.querySelectorAll('.delete-file')
+    const deleteFiles = document.querySelectorAll('.delete-file')
 
-  deleteFiles.forEach(deleteFile => {
+    deleteFiles.forEach(deleteFile => {
 
-    deleteFile.addEventListener('click', () => {
+        deleteFile.addEventListener('click', () => {
 
-      const parent = deleteFile.parentNode
+            const parent = deleteFile.parentNode
 
-      if(parent) {
+            if(parent) {
 
-        parent.parentNode.removeChild(parent);
+                parent.parentNode.removeChild(parent);
 
-        removeFile(deleteFile.getAttribute('id'))
+                removeFile(deleteFile.getAttribute('id'))
 
-      }
+            }
+
+        })
 
     })
-
-  })
 
 }
 
 const removeFile = element => {
 
-  const files = formData.getAll('files[]')
+    const files = formData.getAll('files[]')
 
-  formData.delete('files[]')
+    formData.delete('files[]')
 
-  files
-    .filter(file => file.name !== element)
-    .forEach(file => formData.append('files[]', file))
+    files
+        .filter(file => file.name !== element)
+        .forEach(file => formData.append('files[]', file))
 
-  // console.log(`***********************************`)
-  //
-  // for (let file of formData.values()) {
-  //
-  //   console.log(file.name)
-  //
-  // }
+    // console.log(`***********************************`)
+    //
+    // for (let file of formData.values()) {
+    //
+    //   console.log(file.name)
+    //
+    // }
 
 }
 
 const eventSubmit = function() {
 
-  const submit = document.querySelector('#submit')
+    const submit = document.querySelector('#submit')
 
-  submit.addEventListener('click', e => {
+    submit.addEventListener('click', e => {
 
-    e.preventDefault()
+        e.preventDefault()
 
-    formData.append("receiver", document.querySelector('#receiver').value)
-    formData.append("sender", document.querySelector('#sender').value)
-    formData.append("copy", document.querySelector('input[type="checkbox"]').checked)
+        formData.append('receiver', document.querySelector('#receiver').value)
+        formData.append('sender', document.querySelector('#sender').value)
+        // formData.append('copy', document.querySelector('input[type="checkbox"]').checked)
 
-    // console.log(formData);
+        // console.log(formData);
 
-    post(formData)
+        post(formData)
 
-  })
+    })
 
 }()
 
@@ -94,21 +94,23 @@ const eventSubmit = function() {
 
 const post = (data, cb) => {
 
-  const XHR = new XMLHttpRequest()
+    const XHR = new XMLHttpRequest()
 
-  XHR.open('POST', '/checkpoint')
+    XHR.open('POST', `${window.location.href}/checkpoint`)
 
-  XHR.send(formData)
+    XHR.send(formData)
 
-  XHR.onreadystatechange = () => {
+    XHR.onreadystatechange = () => {
 
-    if(XHR.readyState === 4 && XHR.status === 200) {
+        if(XHR.readyState === 4 && XHR.status === 200) {
 
-      // cb(JSON.parse(XHR.responseText))
+            // console.log(XHR.responseText)
+
+            // cb(JSON.parse(XHR.responseText))
+
+        }
 
     }
-
-  }
 
 }
 
@@ -118,6 +120,7 @@ const post = (data, cb) => {
 
 const done = data => {
 
-  console.log(data)
+    console.log(data)
 
 }
+
