@@ -5,3 +5,11 @@
     background-color:$newWhite;
     opacity: 0.9;
 }
+ul{
+    margin: 10%;
+}
+ul > li > a{
+    color: $newPurple;
+    font-size: 1.2em;
+    font-weight: 600;
+}
