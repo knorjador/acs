@@ -51,8 +51,10 @@ class CheckPointController extends Controller
 
       $checkPoint = new CheckPoint();
 
+      $checkPoint->id             = uniqid();
       $checkPoint->sender_email   = $sender;
       $checkPoint->receiver_email = $receiver;
+
       $checkPoint->save();
 
       $files      = $_FILES['files']['name'];
@@ -66,18 +68,14 @@ class CheckPointController extends Controller
         $file->transfer_id = $checkPoint->id;
         $file->save();
 
-        $uploadFile = $uploadsDir.$files[$i];
+        $uploadFile = $uploadsDir.$checkPoint->id.'_'.$files[$i];
 
         if (!move_uploaded_file($_FILES['files']['tmp_name'][$i], $uploadFile))
           Notificator::notify($this->twig, 'danger', 'Sorry, an error occurred');
 
       }
 
-      echo json_encode(['redirection' => true, 'id' => 'klmfkglm9898']);
-
-      // echo $this->twig->render('result.html.twig', [
-      //     'test' => 'ok'
-      // ]);
+      echo json_encode(['redirection' => true, 'id' => $checkPoint->id]);
 
     } else {
 

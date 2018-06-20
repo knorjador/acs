@@ -14,7 +14,7 @@ class CheckPoint extends \PicORM\Model {
     'sender_email',
     'sender_ip',
     'receiver_email',
-    'date'
+    'date',
   );
 
   public $id;

@@ -3,7 +3,7 @@
 namespace Controllers;
 
 use Core\Controllers\Controller;
-use Model\Category;
+use Model\Files;
 
 class FilesController extends Controller {
 
@@ -12,10 +12,16 @@ class FilesController extends Controller {
    *
    * @return void
    */
-  public function render()
+  public function render($id)
   {
-    echo $this->twig->render('files.html.twig', [
 
+    $files = Files::find([
+      'transfer_id' => $id
+    ]);
+
+    echo $this->twig->render('files.html.twig', [
+      'id'    => $id,
+      'files' => $files
     ]);
   }
 
