@@ -3,6 +3,7 @@
     border: solid 8px $newPurple;
     text-align: center;
     background-color:white;
+    max-width: auto;
     opacity: 0.9;
 }
 ul{
@@ -11,5 +12,14 @@ ul{
 ul > li > a{
     color: $newPurple;
     font-size: 1.2em;
-    font-weight: 600;
+    font-weight: 600;    
 }
+ul:not(.browser-default){
+    word-break: break-word;
+}
+
+
+
+
+
+

@@ -17,7 +17,7 @@ class Twig {
         $this->initialize();
         $this->url = new Url();
     }
-    
+
     protected function initialize()
     {
         $loader = new Twig_Loader_Filesystem('./app/views/');
@@ -25,12 +25,12 @@ class Twig {
             'cache' => false,
             'debug' => ((getenv('APP_DEBUG') == 'true') ? true : false)
         ));
-    
+
         $this->twig->addFunction(new \Twig_SimpleFunction('url', function ($url) {
             $uri = str_replace($_SERVER['SCRIPT_NAME'], '', $_SERVER['PHP_SELF']);
             return $this->url->getRoot().$url;
         }));
-    
+
         if (getenv('APP_DEBUG') == 'true') {
             $this->twig->addExtension(new \Twig_Extension_Debug());
         }
@@ -42,5 +42,9 @@ class Twig {
         die();   
     }
 
+    public function parse($template, $arguments = []) {
+        $arguments['flashbag'] = $this->flashbag;
+        return $this->twig->render($template, $arguments);  
+    }
 
 }

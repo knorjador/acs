@@ -11,7 +11,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Table `transfer`.`transfer`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `transfer`.`transfer` (
+CREATE TABLE IF NOT EXISTS `arnaudw_transfer`.`transfer` (
   `id` VARCHAR(255) NOT NULL,
   `sender_email` VARCHAR(255) NOT NULL,
   `sender_ip` VARCHAR(100) NOT NULL,
@@ -24,7 +24,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `transfer`.`file`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `transfer`.`file` (
+CREATE TABLE IF NOT EXISTS `arnaudw_transfer`.`file` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `filename` VARCHAR(255) NOT NULL,
   `transfer_id` VARCHAR(255) NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `transfer`.`file` (
   INDEX `fk_file_transfer_idx` (`transfer_id` ASC),
   CONSTRAINT `fk_file_transfer`
     FOREIGN KEY (`transfer_id`)
-    REFERENCES `transfer`.`transfer` (`id`)
+    REFERENCES `arnaudw_transfer`.`transfer` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
