@@ -74,6 +74,14 @@ class CheckPointController extends Controller
           Notificator::notify($this->twig, 'danger', 'Sorry, an error occurred');
 
       }
+      if($copy === 'true') {
+
+        $this->sendMail($sender, $sender, $checkPoint->id);
+        
+        }
+        
+        $this->sendMail($sender, $receiver, $checkPoint->id);
+      
 
       echo json_encode(['redirection' => true, 'id' => $checkPoint->id]);
 
@@ -82,6 +90,18 @@ class CheckPointController extends Controller
       Notificator::notify($this->twig, 'danger', 'Please choose file(s)');
 
     }
+
+  }
+
+  public function sendMail($from, $to, $id) {
+
+    $subject = 'My Easy Transfer - Link for download';
+
+    $headers = [];
+    $headers[] = "MIME-Version: 1.0";
+    $headers[] = "Content-type:text/html;charset=UTF-8";
+
+    mail($to, $subject, $this->twig->parse('partials/mail.html.twig', ['id' => $id, 'from' => $from]), implode("\r\n", $headers));
 
   }
 

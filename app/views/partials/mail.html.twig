@@ -1,0 +1,11 @@
+<html>
+<body>
+    <h2>My Easy Transfer</h2>
+    <img src="{{ url('assets/img/logo.png')}}">
+    <p>Here, your download link from <a href="mailto:{{ from }}">{{ from }}</a></p>
+    <p>
+<a target="_blank" href="{{ url('files/') }}{{ id }}">{{ url('files/') }}{{ id }}</a>
+    </p>
+
+</body>
+</html>
