@@ -17,20 +17,20 @@ class CheckPointController extends Controller
    * @return void
    */
 
-    public function sendMail($receiver,$id) {
-
-        $subject = 'My easy transfer';
-
-        $headers = "X-Mailer: PHP ".phpversion()."\n";
-        $headers .= "X-Priority: 1 \n";
-        $headers .= "Mime-Version: 1.0\n";
-        $headers .= "Content-Transfer-Encoding: 8bit\n";
-        $headers .= "Content-type: text/html; charset= utf-8\n";
-        $headers .= "Date:" . date("D, d M Y h:s:i") . " +0200\n";
-
-        mail($receiver, $subject,$this->twig->parse('partials/mail.html.twig',['id'=>$id]),$headers);
-
-    }
+//    public function sendMail($receiver,$id) {
+//
+//        $subject = 'My easy transfer';
+//
+//        $headers = "X-Mailer: PHP ".phpversion()."\n";
+//        $headers .= "X-Priority: 1 \n";
+//        $headers .= "Mime-Version: 1.0\n";
+//        $headers .= "Content-Transfer-Encoding: 8bit\n";
+//        $headers .= "Content-type: text/html; charset= utf-8\n";
+//        $headers .= "Date:" . date("D, d M Y h:s:i") . " +0200\n";
+//
+//        mail($receiver, $subject,$this->twig->parse('partials/mail.html.twig',['id'=>$id]),$headers);
+//
+//    }
 
     public function checkpoint()
     {
@@ -71,11 +71,22 @@ class CheckPointController extends Controller
             $checkPoint->sender_email   = $sender;
             $checkPoint->receiver_email = $receiver;
 
-            $this->sendMail($receiver,$checkPoint->id);
 
-            if($copy == true){
-                $this->sendMail($sender,$checkPoint->id);
-            }
+//            $this->sendMail($receiver,$checkPoint->id);
+
+      
+      if($copy === 'true') {
+
+        $this->sendMail($sender, $sender, $checkPoint->id);
+        
+        }
+        
+        $this->sendMail($sender, $receiver, $checkPoint->id);
+      
+
+//            if($copy == true){
+//                $this->sendMail($sender,$checkPoint->id);
+//            }
 
             $checkPoint->save();
 
@@ -106,5 +117,17 @@ class CheckPointController extends Controller
         }
 
     }
+
+  public function sendMail($from, $to, $id) {
+
+    $subject = 'My Easy Transfer - Link for download';
+
+    $headers = [];
+    $headers[] = "MIME-Version: 1.0";
+    $headers[] = "Content-type:text/html;charset=UTF-8";
+
+    mail($to, $subject, $this->twig->parse('partials/mail.html.twig', ['id' => $id, 'from' => $from]), implode("\r\n", $headers));
+
+  }
 
 }

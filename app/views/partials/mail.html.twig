@@ -1,23 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>MyEasyTransfer</title>
-    </head>
-    <body>
-        <section class="container">
-            <article class="row">
-                <h4> My Easy Transfer </h4>
-                <p>Vous pouvez consulter ce liens pour télécharger le fichier !</p>
-                <br>
-                <a href="{{ url('files/') }}{{ id }}">{{ url('files/') }}{{ id }}</a>
-            </article>
-        </section>
-    </body>
+<html>
+<body>
+    <h2>My Easy Transfer</h2>
+    <img src="{{ url('assets/img/logo.png')}}">
+    <p>Here, your download link from <a href="mailto:{{ from }}">{{ from }}</a></p>
+    <p>
+<a target="_blank" href="{{ url('files/') }}{{ id }}">{{ url('files/') }}{{ id }}</a>
+    </p>
+
+</body>
 </html>
-
-
-
-
-
 

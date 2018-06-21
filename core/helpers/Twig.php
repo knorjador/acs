@@ -46,5 +46,4 @@ class Twig {
         $arguments['flashbag'] = $this->flashbag;
         return $this->twig->render($template, $arguments);  
     }
-
 }

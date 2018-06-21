@@ -11,6 +11,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Table `transfer`.`transfer`
 -- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS `arnaudw_transfer`.`transfer` (
   `id` VARCHAR(255) NOT NULL,
   `sender_email` VARCHAR(255) NOT NULL,
@@ -24,6 +25,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `transfer`.`file`
 -- -----------------------------------------------------
+<<<<<<< HEAD
 CREATE TABLE IF NOT EXISTS `arnaudw_transfer`.`file` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `filename` VARCHAR(255) NOT NULL,
