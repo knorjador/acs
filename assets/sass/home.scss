@@ -127,16 +127,25 @@ span{
 label.lfiles::before {
     content: "Choose file(s)";
 }
+
 .dfiles{
-    font-size: 1em;
-    background-color: $newWhite;
-    border: solid 0px $newPurple;
-    opacity : 0.8;
+    // font-size: 1em;
+    // background-color: $newWhite;
+    // border: solid 0px $newPurple;
+    // opacity : 0.8;
+    // display: none;
+    border: solid 8px $newPurple;
+    margin-top: 2%;
+    text-align: center;
+    background-color:$newWhite;
+    opacity: 0.9;
+    width: 100%;
 }
+
 .liste{
     background-color: transparent;
     margin-left: 100px;
-    margin-top: 50px;
+    // margin-top: 50px;
 }
 
 .overlay {

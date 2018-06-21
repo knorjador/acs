@@ -75,6 +75,8 @@ class CheckPointController extends Controller
 
       }
 
+      //SEND MAILS
+
       echo json_encode(['redirection' => true, 'id' => $checkPoint->id]);
 
     } else {
