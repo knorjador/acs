@@ -11,7 +11,7 @@
         <h3>You can download <br> the files here</h3>
         <ul>
             {% for file in files %}
-                <li><a href="{{ url('uploads/') }}{{ id }}_{{ file.filename }}" download>{{ url('uploads/') }}{{ file.filename }}</a></li>
+                <li><a href="{{ url('uploads/') }}{{ id }}_{{ file.filename }}" download>{{ url('uploads/') }}{{ file.filename }}</a></li> <br>
             {% endfor %}
         </ul>
     </div>
