@@ -1,5 +1,11 @@
 <?php
 
+// echo '<pre>';
+// var_dump($_SERVER);
+// echo '</pre>';
+//
+// die();
+
 session_start();
 
 require_once "vendor/autoload.php";
