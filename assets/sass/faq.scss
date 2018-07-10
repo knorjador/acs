@@ -1,2 +1,34 @@
 
 @import 'variables';
+.faq{
+    width : 80%;
+    margin-top: 40px;
+    font-family : 'Titillium Web', cursive;
+}
+.faq h2{
+    // text-decoration: underline;
+    // text-decoration-color: $primary;
+    padding-bottom: 10px;
+    border-bottom: 3px dashed $primary;
+}
+ .faq p{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size : 1.1em;
+   
+}
+.faq p {
+
+    color: #888888;
+}
+.faq a {
+
+    color : #404040;
+}
+
+.faq a:hover{
+
+    color : $primary;
+    text-decoration : none;
+}
+
