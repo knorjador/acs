@@ -5,7 +5,6 @@ namespace Controllers;
 use Model\Atm;
 use Model\Venues;
 use Core\Controllers\Controller;
-use Controllers\MarqueeController as Marquee;
 
 class HomeController extends Controller {
 
