@@ -47,6 +47,49 @@ svg {
   z-index: 1
 }
 
+#start {
+  animation: start 400ms ease forwards;
+  animation-delay: 400ms;
+}
+
+@keyframes start {
+  from {
+    transform: translateX(-100%) translateY(-150%);
+  }
+  to {
+    transform: translateX(20%) translateY(15%);
+  }
+}
+
+#middle {
+  animation: middle 500ms ease-out forwards;
+  animation-delay: 200ms;
+}
+
+@keyframes middle {
+  from {
+    transform: translateX(100%) translateY(-20%);
+  }
+  to {
+    transform: translateX(22.5%) translateY(30%);
+  }
+}
+
+#end {
+  animation: end 200ms ease-out forwards;
+  animation-delay: 800ms;
+}
+
+@keyframes end {
+  from {
+    transform: translateX(-10%) translateY(45%);
+  }
+  to {
+    transform: translateX(20%) translateY(45%);
+  }
+}
+
+
 /**** **** **** **** **** **** **** ****
   > ANIMATION BODY BACKGROUND
 **** **** **** **** **** **** **** ****/
@@ -174,14 +217,10 @@ svg {
   position: absolute;
   font-family: 'cabin-sketch';
   font-size: 4.4rem;
-  /* font-family: 'zilla-slab';
-  font-size: 3rem; */
   fill: #4d4d4d
 }
 
 #best-wishes {
-  /* font-family: 'bungee-shade';
-  font-size: 3.5rem; */
   font-family: 'zilla-slab';
   font-size: 4rem;
   font-weight: bold;
@@ -198,8 +237,6 @@ svg {
 
 #svg-bg > rect {
   mask: url(#mask);
-  /* fill: #d21f43 */
-  /* fill: #fff */
 }
 
 video {
@@ -274,41 +311,59 @@ video {
 
 }
 
-
 /**** **** **** ****
   > MAX 768
 **** **** **** ****/
 @media (max-width: 768px) {
 
   #svg-bg text {
-    font-size: 2.5rem
+    font-size: 1.7rem
   }
 
   #best-wishes {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   #svg-bg #middle {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
-}
-
-/**** **** **** ****
-  > MAX 576
-**** **** **** ****/
-@media (max-width: 576px) {
-
-  #svg-bg text {
-    font-size: 2rem
+  @keyframes topToBottom {
+    from {
+      width: 100%;
+      bottom: 120%
+    }
+    to {
+      width: 35%;
+      bottom: 7.5%
+    }
   }
 
-  #best-wishes {
-    font-size: 1.1rem;
+  @keyframes start {
+    from {
+      transform: translateX(-100%) translateY(-100%);
+    }
+    to {
+      transform: translateX(5%) translateY(15%);
+    }
   }
 
-  #svg-bg #middle {
-    font-size: .6rem;
+  @keyframes middle {
+    from {
+      transform: translateX(100%) translateY(-20%);
+    }
+    to {
+      transform: translateX(7.5%) translateY(25%);
+    }
+  }
+
+  @keyframes end {
+    from {
+      transform: translateX(-10%) translateY(35%);
+    }
+    to {
+      transform: translateX(5%) translateY(35%);
+    }
   }
 
 }
