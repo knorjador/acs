@@ -1,0 +1,47 @@
+
+.container {
+  margin-top: 32px
+}
+
+.dselect {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 16px
+}
+
+.dselect > h4 {
+  margin: 0 16px 0 0
+}
+
+#render {
+  margin-top: 8px;
+  padding: 24px;
+}
+
+table {
+  font-weight: bold
+}
+
+.highlight {
+  margin: 0 1px;
+  padding: 4px;
+  background: #212529;
+  color: #f8f8f8
+}
+
+.tdalbum {
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+
+.ialbum {
+  width: 48px;
+  margin-right: 16px
+}
+
+.sorry {
+  font-size: 1.4rem;
+  font-weight: bold
+}
