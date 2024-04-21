@@ -1,0 +1,13 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h4>Répartition par état et le nombre d’enregistrement par état (croissant) ({{ data.count }})</h4>
+<ul class="uldata">
+  {% for country in data.data %}
+    <li>&#8902; {{ country.country_code }} => {{ country.nb }}</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

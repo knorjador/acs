@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon-acs.png"/>
+    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/csv.css">
+    <title>CSV</title>
+  </head>
+  <body>
+    <div class="container col-12">
+
+      <h1>Initiation aux données</h1>
+
+      {{ include('partials/menu.html') }}
+
+      <hr>
+
+      <div class="content">
+        {% block content %}{% endblock %}
+      </div>
+
+    </div>
+  </body>
+</html>
