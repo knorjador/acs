@@ -1,0 +1,195 @@
+form {
+    border: solid 8px $newPurple;
+    margin-top: 4%;
+    text-align: center;
+    background-color:white;
+    opacity: 0.9;
+    width: 100%;
+}
+html, body {
+    background-image: url(../img/back.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: auto;
+}
+h1{
+    margin-top: 4%;
+    font-size: 4em;
+    color: $newWhite;
+    text-align: left;
+}
+.input-field > label{
+    color: $newBlack;
+}
+input[type=email]:not(.browser-default) {
+    border-bottom: 2px solid $newPurple;
+    width: 80%;
+    font-size: 1.4em;
+    font-weight: 800;
+}
+input[type=email]:not(.browser-default):focus:not([readonly]){
+    border-bottom: 1px solid $newPurple;
+    box-shadow: 0 1px 0 0 $newPurple;
+    color: $newPurple;
+}
+span{
+    color: $newBlack;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+[type="checkbox"] + span:not(.lever):before {
+    border :solid 2px $newBlack;
+}
+[type="checkbox"]:checked + span:not(.lever):before {
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid $newBlack;
+    border-bottom: 2px solid $newBlack;
+}
+.btn-2 {
+    font-size: 2em;
+    background-color: transparent;
+    margin-top: 3%;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    color: $newBlack;
+}
+.btn-2 {
+    letter-spacing: 0;
+}
+.btn-2:hover,
+.btn-2:active {
+    letter-spacing: 0px;
+}
+.btn-2:after,
+.btn-2:before {
+    backface-visibility: hidden;
+    border: 1px solid rgba(#fff, 0);
+    bottom: 0px;
+    content: " ";
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    transition: all 280ms ease-in-out;
+    width: 0;
+}
+
+.btn-2:hover:after,
+.btn-2:hover:before {
+    backface-visibility: hidden;
+    border-color: $newPurple;
+    transition: width 350ms ease-in-out;
+    width: 100%;
+}
+.btn:hover{
+    background-color: transparent;
+    box-shadow: none;
+}
+.btn-2:hover:before {
+    bottom: auto;
+    top: 0;
+    width: 100%;
+}
+.btn:focus{
+    background-color: transparent;
+}
+.dchoose{
+    margin: 10px 0 25px 0;
+}
+
+.ifiles {
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 0.1px;
+    z-index: -1;
+}
+
+.ifiles + .lfiles {
+    background-color: $newPurple;
+    box-sizing: border-box;
+    color: white;
+    display: block;
+    position: relative;
+    width: 80%;
+    left: 10%;
+    margin-top: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10%;
+}
+label.lfiles::before {
+    content: "Choose file(s)";
+}
+
+.dfiles{
+    font-size: 1em;
+    background-color: white;
+    border: solid 0px $newPurple;
+    opacity : 0.8;
+}
+
+.liste{
+    background-color: transparent;
+    margin-left: 100px;
+    // margin-top: 50px;
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background: rgba(0, 0, 0, 0.5)
+}
+
+.modal {
+    z-index: 1
+}
+
+.processing {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: $newPurple;
+}
+
+.progress {
+    width: 50%;
+    left: 25%;
+    background: $newWhite;
+}
+
+.progress .indeterminate {
+    background: $newPurple;
+}
+
+#toast-container {
+    z-index: 0;
+    width: 25%;
+    top: 12.5%;
+    left:12.5%;
+}
+
+.toast {
+    background: $newPurple;
+}
+
+.notify-danger {
+    font-weight: bold;
+}
+@media screen and (max-width: 500px) {
+    h1{
+        font-size: 3em;
+    }
+
+
+}
