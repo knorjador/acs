@@ -1,0 +1,222 @@
+
+/**** **** **** **** **** **** **** ****
+  > GLOBAL
+**** **** **** **** **** **** **** ****/
+
+html {
+  line-height: 1
+}
+
+button::-moz-focus-inner {
+  border: 0
+}
+
+.row .col.s2, .row .col.s4, .row .col.s6 {
+  margin: 0
+}
+
+h4 {
+  margin-top: 32px;
+  font-family: 'Indie Flower';
+}
+
+h6 {
+  text-decoration: underline;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4d4d4d
+}
+
+.input-field > label {
+  position: relative;
+  margin-right: 32px
+}
+
+.dropdown-content li {
+  text-align: center
+}
+
+/**** **** **** **** **** **** **** ****
+  > NAV
+**** **** **** **** **** **** **** ****/
+
+nav {
+  background: #4a148c
+}
+
+nav .brand-logo {
+  width: 100%
+}
+
+/**** **** **** **** **** **** **** ****
+  > TABS
+**** **** **** **** **** **** **** ****/
+
+.d-tabs {
+  margin-top: 24px
+}
+
+/**** **** **** **** **** **** **** ****
+  > CONTENT
+**** **** **** **** **** **** **** ****/
+
+#content {
+  width: 100%;
+  padding-top: 16px;
+  text-align: center
+}
+
+.col.exercise {
+  padding: 24px 0;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .2);
+  background: #f8f8f8;
+}
+
+.d-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.d-field > button {
+  margin-left: 32px
+}
+
+.d-content {
+  margin-top: 32px
+}
+
+.s-result {
+  font-size: 1.2rem
+}
+
+/**** **** **** **** **** **** **** ****
+  > SELECT
+**** **** **** **** **** **** **** ****/
+
+.dropdown-content li > a, .dropdown-content li > span {
+  font-size: 16px
+}
+
+/**** **** **** **** **** **** **** ****
+  > CHECKBOXES
+**** **** **** **** **** **** **** ****/
+
+.p-choices {
+  font-size: 1.2rem;
+  font-weight: bold
+}
+
+.btn-top {
+  margin: 24px 0 8px 0
+}
+
+.d-tables {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center
+}
+
+.d-tables > div {
+  width: 33.33%;
+  padding-bottom: 24px
+}
+
+/**** **** **** **** **** **** **** ****
+  > REVISIONS
+**** **** **** **** **** **** **** ****/
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px
+}
+
+.d-question > div {
+  margin: 0
+}
+
+.d-question > div .response {
+  width: 30%;
+  text-align: center;
+  font-weight: bold;
+  color: #4d4d4d
+}
+
+.d-question > div .success {
+  background: #1de9b6;
+  color: #004d40
+}
+
+.d-question > div .error {
+  background: #ef5350;
+  color: #b71c1c
+}
+
+.question {
+  width: 70%;
+  text-align: center;
+  font-weight: bold
+}
+
+.questions > button {
+  margin-top: 32px
+}
+
+.p-score {
+  margin-top: 32px;
+  font-size: 1.4rem;
+  font-weight: bold
+}
+
+/****************************************************************
+  > MEDIA
+****************************************************************/
+
+/********************************
+ > MAX 992
+********************************/
+@media (max-width: 992px) {
+
+  nav .brand-logo {
+    font-size: 1.8rem
+  }
+
+  .d-tables > div {
+    width: 50%
+  }
+
+}
+
+/********************************
+ > MAX 768
+********************************/
+@media (max-width: 768px) {
+
+  nav .brand-logo {
+    font-size: 1.6rem
+  }
+
+}
+
+/********************************
+ > MAX 576
+********************************/
+@media (max-width: 576px) {
+
+  nav .brand-logo {
+    font-size: 1.2rem
+  }
+
+  .d-field {
+    display: block
+  }
+
+  .d-tables > div {
+    width: 90%
+  }
+
+}
