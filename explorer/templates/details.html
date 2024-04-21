@@ -1,0 +1,60 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="get">
+
+  <table class="table table-dark">
+    <thead>
+
+      <tr id="tr-desktop">
+        <th></th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Size</th>
+        <th>Owner</th>
+        <th>Permissions</th>
+        <th>Date</th>
+      </tr>
+
+      <tr id="tr-mobile">
+        <th>Dossiers - Fichiers</th>
+      </tr>
+
+    </thead>
+    <tbody>
+
+      {# ELEMENTS #}
+      {% for element in scaffolding.elements %}
+
+        <tr class="tr-desktop">
+          <th><img class="i-{{ element.kind }}" src="assets/icons/{{ element.icon }}.png" alt="{{ element.kind }} icon"></th>
+          <td><a href="{{ element.link }}" {% if element.kind == 'file' %} download {% endif %}>{{ element.name }}</a></td>
+          <td>{{ element.type }}</td>
+          <td>{{ element.size }} {% if element.kind == 'file' %} {% if element.size > 0 %} octets {% else %} octet {% endif %} {% endif %}</td>
+          <td>{{ element.owner }}</td>
+          <td>0{{ element.chmod }}</td>
+          <td>{{ element.date }}</td>
+        </tr>
+
+        <tr class="tr-mobile">
+          <th><img class="i-{{ element.kind }}" src="assets/icons/{{ element.icon }}.png" alt="{{ element.kind }} icon"></th>
+          <td>
+            <span><a href="{{ element.link }}">{{ element.name }}</a></span>
+            <span>{{ element.type }}</span>
+            <span>{{ element.size }} {% if element.kind == 'file' %} {% if element.size > 0 %} octets {% else %} octet {% endif %} {% endif %}</span>
+            <span>{{ element.owner }}</span>
+            <span>{{ element.chmod }}</span>
+            <span>{{ element.date }}</span>
+          </td>
+        </tr>
+
+      {% endfor %}
+
+    </tbody>
+  </table>
+
+</form>
+
+{% endblock %}

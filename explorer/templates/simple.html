@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<ul>
+  <form method="get">
+
+    {# ELEMENTS #}
+    {% for element in scaffolding.elements %}
+      {% if element.kind == 'folder' %}
+        <li class="{{ element.kind }}">
+          <a href="{{ element.link }}">
+            <img class="i-{{ element.kind }}" src="assets/icons/{{ element.icon }}.png" alt="{{ element.kind }} icon">
+            {{ element.name }}
+          </a>
+        </li>
+      {% else %}
+        <li class="{{ element.kind }}">
+          <img class="i-{{ element.kind }}" src="assets/icons/{{ element.icon }}.png" alt="{{ element.kind }} icon">
+          <a href="{{ element.link }}" download>{{ element.name }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+
+  </form>
+</ul>
+
+{% endblock %}
