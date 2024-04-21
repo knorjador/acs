@@ -1,0 +1,46 @@
+
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+<div class="container col-lg-10 mt-3">
+
+  <div class="row row-header">
+    <div class="header">
+      <div class="title">
+        <h4 class="youtube-title"><img  class="youtube-icon" src="{{ url('assets/icons/youtube/youtube.svg') }}" alt="">L'ACTU YOUTUBE</h4>
+      </div>
+
+        <form>
+          <div class="btn-news">
+            <button class="btn hashtag youtube-color" value="bitcoin">#BITCOIN</button>
+            <button class="btn hashtag youtube-color" value="crypto">#CRYPTO</button>
+            <button class="btn hashtag youtube-color" value="blockchain">#BLOCKCHAIN</button>
+            <button class="btn hashtag youtube-color" value="ico">#ICO</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <div class="row row-content">
+      <div id="loading">
+        <div id="loader">
+          <p>Chargement en cours</p>
+          <img src="{{ url('assets/img/loading.gif') }}">
+        </div>
+      </div>
+      <div class="row row-videos">
+        {% include 'partials/videos.html.twig' with videos %}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ url('assets/js/youtube.js') }}"></script>
+{% endblock %}

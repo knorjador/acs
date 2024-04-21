@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  {% block metas %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {% endblock %}
+
+  {% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url('assets/css/lib/leaflet.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/css/dist/main.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/css/dist/partials/marquee.css') }}">
+  {% endblock %}
+
+  <title>{% block title %}Crytpomap{% endblock %}</title>
+</head>
+
+<body>
+  <div class="container-fluid h-100">
+    <div class="row h-100">
+      <div class="col-2 col-nav">
+        {% include "partials/navbar.html.twig" %}
+      </div>
+      <div class="col-10 col-content">
+        {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>
+
+    {% block javascripts %}
+      <script src="{{ url('assets/js/navbar.js') }}"></script>
+    {% endblock %}
+  </body>
+  </html>

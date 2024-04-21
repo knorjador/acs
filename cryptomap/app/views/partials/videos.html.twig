@@ -1,0 +1,14 @@
+
+{% for video in videos %}
+  <div class="col-xl-4 col-md-6">
+    <div class="card youtube-card mb-4">
+      <a href="https://www.youtube.com/watch?v={{ video.id }}" target="_blank">
+        <img class="card-img-top" src="{{ video.thumbnail }}" alt="youtube video">
+      </a>
+      <div class="card-body text-center">
+        <h5 class="card-title">{{ video.title }}</h5>
+        <p class="card-text youtube-date">{{ video.date|date("H:i d/m/Y", "Europe/Paris") }}</p>
+      </div>
+    </div>
+  </div>
+{% endfor %}
