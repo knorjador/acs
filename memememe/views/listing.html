@@ -1,0 +1,28 @@
+
+{% extends "layouts/base.html" %}
+
+{% block css %}
+{{ baseUrl('assets/css/listing.css') }}
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="center dlisting">
+    <h4>{{ title }}</h4>
+    <h6>Cliquez pour partager</h6>
+  </div>
+    {% for meme in data %}
+    <div class="col s12 m6 l4 creation">
+      <a target="_blank" href="{{ baseUrl('media/') }}{{ meme.path }}">
+        <img width="100%" src="{{ baseUrl('uploads/') }}{{ meme.path }}" alt="memememe">
+        <div class="memememe-shadow"></div>
+      </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block js %}
+{{ baseUrl('assets/js/listing.js') }}
+{% endblock %}
