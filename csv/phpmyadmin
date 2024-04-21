@@ -1,0 +1,44 @@
+
+/**** **** **** **** **** **** **** ****
+ > Insérer un utilisateur
+**** **** **** **** **** **** **** ****/
+
+INSERT INTO users (first_name, last_name, email, gender, ip_address, birth_date, zip_code, avatar_url, state_code, country_code)
+ VALUES ('John', 'Doe', 'johndoe@email.com', 'Male', '127.0.0.1', '1970-01-01',  '', 'https://via.placeholder.com/350x150',  '', '');
+
+/**** **** **** **** **** **** **** ****
+ > Mettre à jour son email
+**** **** **** **** **** **** **** ****/
+
+UPDATE users SET email = 'johndoe@email.org' WHERE email = 'johndoe@email.com';
+
+/**** **** **** **** **** **** **** ****
+ > Supprimer l'utilisateur
+**** **** **** **** **** **** **** ****/
+
+DELETE FROM users WHERE email = 'johndoe@email.org';
+
+/**** **** **** **** **** **** **** **** **** **** **** **** **** **** **** ****
+ >  Créer deux nouvelles tables, une qui contient l’ensemble des membres de
+ l’ACS, l’autre qui contient les départements avec numéros et nom écrit
+**** **** **** **** **** **** **** **** **** **** **** **** **** **** **** ****/
+
+CREATE TABLE students
+(
+  id INT PRIMARY KEY NOT NULL,
+  first_name VARCHAR(100),
+  last_name VARCHAR(100),
+  department VARCHAR(3)
+)
+
+CREATE TABLE departments
+(
+  number VARCHAR(3) PRIMARY KEY,
+  name VARCHAR(100)
+)
+
+/**** **** **** **** **** **** **** **** **** **** **** **** **** **** **** ****
+ > Nom de chaque apprenant avec son département de résidence
+**** **** **** **** **** **** **** **** **** **** **** **** **** **** **** ****/
+
+SELECT * FROM students INNER JOIN departments ON students.department = departments.number;

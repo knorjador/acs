@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h4>Nom de chaque apprenant avec son département de résidence</h4>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Département</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in data.data %}
+      <tr>
+        <td>{{ item.first_name }}</td>
+        <td>{{ item.last_name }}</td>
+        <td>{{ item.name }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
