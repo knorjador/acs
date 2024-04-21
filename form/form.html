@@ -1,0 +1,74 @@
+
+<DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="form.css">
+    <title>Contact</title>
+  </head>
+  <body>
+    <div class="container col-sm-10 col-md-8 col-lg-6 col-xl-4">
+      <h1>Contact</h1>
+      <form>
+        <!--********************************
+          > RADIO
+        ********************************-->
+        <div class="form-group d-radio">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" data-radio="Monsieur" id="man" name="radio" class="custom-control-input">
+            <label class="custom-control-label" for="man">Monsieur</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" data-radio="Madame" id="woman" name="radio" class="custom-control-input">
+            <label class="custom-control-label" for="woman">Madame</label>
+          </div>
+        </div>
+        <!--********************************
+          > FIRSTNAME LASTNAME
+        ********************************-->
+        <div class="form-group d-name">
+          <div class="form-row">
+            <div class="col">
+              <input type="text" data-value="Prénom" class="form-control item" placeholder="Prénom">
+            </div>
+            <div class="col">
+              <input type="text" data-value="Nom" class="form-control item" placeholder="Nom">
+            </div>
+          </div>
+        </div>
+        <!--********************************
+          > EMAIL
+        ********************************-->
+        <div class="form-group">
+          <input type="text" data-value="Email" class="form-control" placeholder="Email">
+        </div>
+        <!--********************************
+          > SELECT
+        ********************************-->
+        <div class="form-group">
+          <select data-value="Kind" class="custom-select">
+            <option selected>Nature du contact</option>
+            <option>Professionnel</option>
+            <option>Personnel</option>
+          </select>
+        </div>
+        <!--********************************
+          > TEXTAREA
+        ********************************-->
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea data-value="Message" class="form-control item" id="message" rows="4"></textarea>
+        </div>
+        <!--********************************
+          > SUBMIT
+        ********************************-->
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Envoyer</button>
+        </div>
+      </form>
+    </div>
+    <script src="form.js"></script>
+  </body>
+</html>
