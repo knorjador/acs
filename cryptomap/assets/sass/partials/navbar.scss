@@ -1,0 +1,233 @@
+
+@import '../variables';
+
+.navbar-left {
+  position: fixed;
+  width: 16.66667%;
+  height: 100%;
+  background: $primary;
+}
+
+.navbar-left .app-header .header-center > a {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Galada', cursive;
+  font-weight: bold;
+  font-size: 1.9rem;
+  color: $strongText;
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.app-header .logo {
+  margin-bottom: 15px;
+}
+
+.navbar-brand {
+  margin-right: 0
+}
+
+.navbar-left > ul > li {
+  margin: 15px 0;
+  list-style: none;
+}
+
+.navbar-left > ul > li > a {
+  font-family: 'Titillium Web', cursive;
+  font-size: 1.3rem;
+  color: $strongText;
+}
+
+.navbar-left > ul > li > a:hover {
+  color: #0a0a0a;
+}
+
+.navbar-left > ul > li > a:hover {
+  text-decoration: none;
+}
+
+#donations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+#donations > h5 {
+  margin-bottom: 20px;
+  font-family: 'Titillium Web', cursive;
+}
+
+.donate-img{
+  width: 25%;
+}
+
+.donate-img-mobile{
+  width: 20%;
+}
+
+#donations > p {
+  margin-top: 10px;
+  width: 100%;
+  padding: 0 25px;
+  text-align: center;
+  font-size: 0.7rem;
+  word-break: break-all;
+}
+
+#hamburger, #mobile, #full  {
+  display: none;
+}
+
+#widget {
+  margin-top: 50px;
+}
+
+.btc-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/**** **** **** **** **** **** **** ****
+  > MEDIA QUERIES
+  **** **** **** **** **** **** **** ****/
+
+  @media (max-width: 992px) {
+
+    .navbar-left {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      position: fixed;
+      width: 100%;
+      height: 100px;
+      top: 0;
+      left: 0;
+      background: $primary;
+      z-index: 9999999;
+    }
+
+    .app-header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      margin-top: 0;
+    }
+
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      height: 100%;
+    }
+
+    #widget-mobile {
+      display: block;
+      margin-top: 20px;
+    }
+
+    #full{
+      display: block;
+      width:30px;
+      height:30px;
+    }
+
+    #ul-nav, #donations, #widget {
+      display: none;
+    }
+
+    #hamburger {
+      display: block;
+    }
+
+    #mobile {
+      z-index: 9999999;
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      top: 100px;
+      left: 0;
+      background: $primary;
+      border-top: 1px solid white;
+    }
+
+    #ul-mobile > li {
+      margin: 15px 0;
+      list-style: none;
+    }
+
+    #ul-mobile > li > a {
+      font-family: 'Titillium Web', cursive;
+      font-size: 1.3rem;
+      color: $strongText;
+    }
+
+    #ul-mobile > li > a:hover {
+      text-decoration: none;
+    }
+
+    #donations-mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    #donations-mobile > h5 {
+      margin-bottom: 20px;
+      font-family: 'Titillium Web', cursive;
+    }
+
+    .donate-img-mobile{
+      width: 10%;
+    }
+
+    #donations-mobile > p {
+      margin-top: 10px;
+      width: 100%;
+      padding: 0 25px;
+      text-align: center;
+      font-size: 0.7rem;
+      word-break: break-all;
+    }
+    .col-content {
+      margin-left: -8%;
+    }
+
+    body {
+      padding-top: 100px;
+    }
+
+  }
+
+  @media (max-width: 992px){
+
+    .donate-img-mobile{
+      width: 15%;
+    }
+
+  }
+
+  @media (max-height: 600px){
+
+    #ul-mobile > li {
+      margin: 7px 0;
+    }
+
+  }

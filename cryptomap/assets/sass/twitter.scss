@@ -1,0 +1,178 @@
+@import 'variables';
+
+.row-header {
+	margin: 30px 0;
+}
+
+.row-tweets {
+	width: 100%;
+	justify-content: center;
+}
+
+.date{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-size:0.875em;
+	font-weight: bold;
+	color: grey;
+}
+.bleu{
+	background-color: $twitter;
+	color:white;
+	font-size: 0.875em;
+}
+.bleu:hover{
+	background-color: #ffff;
+	color: $twitter;
+	font-weight: bold;
+}
+.twitter-card{
+	height: 330px;
+}
+.voir-tweet{
+	background-color: $twitter;
+	color:white;
+}
+.voir-tweet:hover{
+	font-weight: bold;
+	color: white;
+}
+.hashtag{
+	font-weight: bold;
+}
+.a-twitter{
+	color: $twitter;
+}
+.a-twitter:hover{
+	text-decoration: none !important;
+}
+.transparent{
+	background-color: transparent;
+	width: 80px;
+}
+.twitter-icon{
+	width: 30px;
+	margin-right: 15px;
+}
+.twitter-white{
+	width: 15px;
+}
+.twitter-title{
+	color: $twitter;
+	font-weight: bold;
+	font-size: 2em;
+}
+.test{
+	border: 1px solid black;
+}
+.message {
+	position: relative;
+	margin-top: 50px;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+.header{
+	width:100%;
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.btn-news{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+h4{	display:inline;
+}
+.hashtag{
+	margin-right: 20px;
+}
+.title{
+	margin-top: 5px;
+	margin-left: 12px;
+}
+@media (max-width: 1350px) {
+
+	.twitter-card{
+		height: 370px;
+	}
+	h4{
+		font-size:1.3em;
+	}
+}
+@media (max-width: 1200px) {
+
+	.twitter-card{
+		height: 320px;
+	}
+	.twitter-title{
+		font-size: 1.2em;
+	}
+}
+@media (max-width: 992px){
+	.header{
+		flex-direction: column;
+	}
+	.btn-news{
+		flex-direction:column;
+	}
+	.hashtag{
+		margin-bottom: 10px;
+		width: 250px;
+		align-self: center;
+		margin-right: 0;
+	}
+	.title{
+		display: flex;
+		justify-content: space-around;
+	}
+}
+@media (max-width: 768px) {
+
+	.twitter-card{
+		height: 250px;
+	}
+	h4{
+		dipslay: block;
+	}
+}
+@media (max-width: 568px) {
+
+	.twitter-card{
+		height: 300px;
+	}
+	.hashtag{
+		width: 200px;
+	}
+	h4{
+		font-size:1em;
+	}
+	p{
+		font-size: 0.9em;
+	}
+	.btn-news{
+		margin-left: 6%;
+	}
+	.title{
+		margin-left: 8%;
+	}
+}
+@media (max-width: 370px) {
+
+	.twitter-card{
+		height: 330px;
+	}
+	.twitter-title{
+		font-size: 1.2em;
+	}
+	p{
+		font-size: 0.875em;
+	}
+}
+@media (max-width: 308px){
+	.twitter-title{
+		font-size: 1em;
+	}
+}

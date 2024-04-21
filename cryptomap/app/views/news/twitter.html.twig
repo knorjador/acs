@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+  <div class="container col-lg-10 mt-3">
+    <div class="row row-header">
+      <div class="header">
+        <div class="title">
+
+          <h4 class="twitter-title"><img class="twitter-icon" src="{{ url('assets/icons/twitter/twitter-blue.svg') }}" alt="">L'ACTU TWITTER</h4>
+        </div>
+
+        <form>
+          <div class="btn-news">
+            <button name="hashtag" class="btn bleu hashtag" value="bitcoin">#BITCOIN</button>
+            <button name="hashtag" class="btn bleu hashtag" value="crypto">#CRYPTO</button>
+            <button name="hashtag" class="btn bleu hashtag" value="blockchain">#BLOCKCHAIN</button>
+            <button name="hashtag" class="btn bleu hashtag" value="ICO">#ICO</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row content">
+      <div id="loading">
+        <div id="loader">
+          <p>Chargement en cours</p>
+          <img src="{{ url('assets/img/loading.gif') }}">
+        </div>
+      </div>
+      <div class="row row-tweets">
+        {% include 'partials/tweets.html.twig' with statuses.statuses %}
+      </div>
+   </div>
+ </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ url('assets/js/twitter.js') }}"></script>
+{% endblock %}

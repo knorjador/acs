@@ -1,0 +1,32 @@
+
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+  <div class="home-content">
+    <p id="explain">Trouver où obtenir et dépenser des bitcoins près de chez vous</p>
+    <div id="btn-action" class="btn-action flex-wrap">
+      <button class="btn btn-home bitcoin" value="cash"><i><img class="icon-button" src="{{ url('assets/img/icon-cash.png') }}" alt=""></i> Achat cash</button>
+      <button class="btn btn-home bitcoin" value="venue"><i><img class="icon-button" src="{{ url('assets/img/icon-venue.png') }}" alt=""></i>Commerçants</button>
+      <button class="btn btn-home bitcoin" value="atm"><i><img class="icon-button" src="{{ url('assets/img/icon-atm.png') }}" alt=""></i>Distributeurs</button>
+      <button class="btn btn-home bitcoin" value="reset"><i><img class="icon-button" src="{{ url('assets/img/refresh.png') }}" alt=""></i>Réinitialiser</button>
+    </div>
+     <div id="map">
+       <div id="loading">
+         <div id="loader">
+           <p>Chargement en cours</p>
+           <img src="{{ url('assets/img/loading.gif') }}">
+         </div>
+       </div>
+     </div>
+  </div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+  {{ parent() }}
+  <script src="{{ url('assets/js/lib/leaflet.js') }}"></script>
+  <script src="{{ url('assets/js/home.js') }}"></script>
+
+{% endblock %}
