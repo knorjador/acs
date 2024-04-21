@@ -1,0 +1,16 @@
+
+- path:
+  -
+  controller: Controllers\HomeController::render
+
+- path:
+  - /checkpoint
+  controller: Controllers\CheckPointController::checkpoint
+
+- path:
+  - /result/(\w+)
+  controller: Controllers\ResultController::render
+
+- path:
+  - /files/(\w+)
+  controller: Controllers\FilesController::render

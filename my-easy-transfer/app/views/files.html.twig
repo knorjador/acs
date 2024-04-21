@@ -1,0 +1,25 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}My Easy Transfer - Files{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col s2 m2 l2"></div>
+    <div id="formDll" class="col s8 m8 l8">
+        <h3>You can download <br> the files here</h3>
+        <ul>
+            {% for file in files %}
+                <li><a href="{{ url('uploads/') }}{{ id }}_{{ file.filename }}" download>{{ url('uploads/') }}{{ file.filename }}</a></li> <br>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col s2 m2 l2"></div>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ url('assets/js/files.js') }}"></script>
+{% endblock %}
