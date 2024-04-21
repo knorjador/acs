@@ -1,0 +1,430 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI'
+}
+
+button::-moz-focus-inner {
+  border: 0
+}
+
+a:focus {
+  outline: none
+}
+
+.pos-relative {
+  position: relative
+}
+
+/**** **** **** **** **** **** **** ****
+ > TOP NAV
+**** **** **** **** **** **** **** ****/
+
+header {
+  z-index: 8;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  background: #072A5D
+}
+
+#nav-mobile {
+  display: block
+}
+
+#nav-desktop {
+  display: none
+}
+
+#menu-mobile {
+  display: none;
+  padding: 16px 0;
+  text-align: center;
+  background: #072A5D
+}
+
+#menu-mobile > ul {
+  padding-left: 0
+}
+
+#menu-mobile > ul > li {
+  margin: 10px 0;
+  list-style: none
+}
+
+#menu-mobile > ul >li > a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #F8F8F8
+}
+
+#menu-mobile > ul >li > a:hover {
+  cursor: pointer;
+  color: #85BDFC
+}
+
+.top-nav {
+  z-index: 8;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 16px
+}
+
+.d-logo > a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none
+}
+
+.d-logo > a > h1 {
+  margin: 0;
+  padding-left: 2px;
+  font-size: 1.4rem;
+  color: #f8f8f8
+}
+
+.top-icons {
+  cursor: pointer;
+  width: 24px;
+  height: 24px
+}
+
+.i-logo {
+  width: 32px;
+  height: 24px
+}
+
+.f-search {
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 256px;
+  top: 80px;
+  right: 24px;
+  padding: 16px 24px;
+  background: #fff;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, .8)
+}
+
+.f-search > input {
+  width: 100%;
+  padding: 8px
+}
+
+.f-search > button {
+  width: 124px;
+  height: 42px;
+  margin-top: 16px;
+  background: #123FC4
+}
+
+/**** **** **** **** **** **** **** ****
+ > TOP IMG & EFFECTS
+**** **** **** **** **** **** **** ****/
+
+#top-content {
+  margin-top: 60px
+}
+
+.i-top {
+  width: 100%;
+}
+
+.p-discover {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 24px;
+  text-align: center;
+  line-height: 1;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #f2f2f2;
+  text-shadow: 2px 2px 2px rgb(121, 119, 119)
+}
+
+#effects {
+  padding: 48px 0
+}
+
+.effect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 32px 0
+}
+
+.effect > p {
+  margin: 0;
+  color: #000
+}
+
+.i-effect {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 8px;
+  border-radius: 50%
+}
+
+.p-effect {
+  text-align: center;
+}
+
+/**** **** **** **** **** **** **** ****
+ > PRODUCTS
+**** **** **** **** **** **** **** ****/
+
+.i-product {
+  width: 100%
+}
+
+.d-product {
+  z-index: 4;
+  padding: 32px 32px 32px 24px;
+  font-size: .9rem;
+  font-style: italic;
+  color: #f8f8f8
+}
+
+.d-product > p:first-child {
+  font-weight: bold
+}
+
+.d-product > p:last-child {
+  margin: 0
+}
+
+/**** **** **** ****
+ > RED
+**** **** **** ****/
+
+#d-red {
+  background: #d11b51
+}
+
+/**** **** **** ****
+ > BLUE
+**** **** **** ****/
+
+#i-blue {
+  z-index: 2
+}
+
+#d-blue {
+  background: #242d5c
+}
+
+/**** **** **** ****
+ > GREEN
+**** **** **** ****/
+
+#i-green {
+  z-index: 3
+}
+
+#d-green {
+  background: #5da163
+}
+
+/**** **** **** **** **** **** **** ****
+ > FORM
+**** **** **** **** **** **** **** ****/
+
+#se-form {
+  z-index: 4;
+  padding: 48px 0;
+  background: #fff
+}
+
+#blue-bar {
+  position: relative;
+  width: 93%;
+  height: 10px;
+  margin: auto;
+  margin-top: -48px;
+  margin-bottom: 24px;
+  background: #072A5D
+}
+
+form p {
+  font-size: 1.2rem
+}
+
+form label {
+  font-size: 1rem
+}
+
+.send {
+  width: 120px;
+  height: 42px;
+  margin-top: 16px;
+  background: #123FC4
+}
+
+/**** **** **** **** **** **** **** ****
+ > FOOTER
+**** **** **** **** **** **** **** ****/
+
+footer {
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  background-color: #072A5D
+}
+
+footer > p {
+  margin: 0;
+  padding-left: 32px;
+  font-size: 1.1rem;
+  color: #f8f8f8
+}
+
+
+/****************************************************************
+  > MEDIA
+****************************************************************/
+
+/********************************
+ > MIN 996
+********************************/
+@media (min-width: 996px) {
+
+  /**** **** **** **** **** **** **** ****
+   > TOP NAV
+  **** **** **** **** **** **** **** ****/
+
+  #nav-mobile {
+    display: none
+  }
+
+  #nav-desktop {
+    display: block
+  }
+
+  .top-nav {
+    padding: 0 48px
+  }
+
+  #nav-desktop .top-nav > ul {
+    margin: 0
+  }
+
+  #nav-desktop .top-nav > ul > li {
+    display: inline;
+    margin: 0 32px;
+  }
+
+  #nav-desktop .top-nav > ul > li > a {
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-style: italic;
+    color: #f8f8f8
+  }
+
+  #nav-desktop .top-nav > ul > li > a:hover {
+    color: #85bdfc
+  }
+
+  .i-logo {
+    width: 48px;
+    height: 32px
+  }
+
+  .top-icons {
+    width: 32px;
+    height: 32px
+  }
+
+  /**** **** **** **** **** **** **** ****
+   > TOP IMG & EFFECTS
+  **** **** **** **** **** **** **** ****/
+
+  .p-discover {
+    padding: 0 16%;
+    text-align: left;
+    line-height: 1.5;
+    font-size: 2.8rem;
+    font-style: italic
+  }
+
+  #effects {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: #E4EBF3
+  }
+
+  .effect > p {
+    /* width: 100%;
+    text-align: left; */
+    text-align: center;
+    color: #24546B
+  }
+
+  .i-effect {
+    width: 128px;
+    height: 128px
+  }
+
+  /**** **** **** **** **** **** **** ****
+   > PRODUCTS
+  **** **** **** **** **** **** **** ****/
+
+  .i-product {
+    width: 75%
+  }
+
+  .d-product {
+    padding: 2% 16%;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #f8f8f8
+  }
+
+  /**** **** **** **** **** **** **** ****
+   > FORM
+  **** **** **** **** **** **** **** ****/
+
+  #blue-bar {
+    height: 15px;
+    margin-bottom: 0px
+  }
+
+  form p {
+    padding: 16px 0;
+    text-align: center;
+    font-size: 2.5rem;
+    font-style: italic
+  }
+
+  form label {
+    font-size: 1.1rem
+  }
+
+}
+
+
+
+
+
+
+
+
+/**/
