@@ -1,0 +1,30 @@
+
+.container {
+  margin-top: 64px
+}
+
+.container > h1 {
+  margin: 32px 0;
+  font-size: 2rem
+}
+
+.form-group {
+  margin: 24px 0
+}
+
+form > .form-group:last-child {
+  text-align: right
+}
+
+.col > span, .form-group > span {
+  font-weight: bold;
+  color: #FF734D
+}
+
+.alert-success {
+  text-align: center
+}
+
+.sbold {
+  font-weight: bold
+}

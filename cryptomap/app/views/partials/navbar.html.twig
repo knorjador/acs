@@ -1,0 +1,72 @@
+
+<nav class="navbar-left">
+
+  <div class="app-header">
+    <div class="logo">
+      <img width="64px" height="64px"
+      src="{{ url('assets/img/logo.png') }}">
+    </div>
+    <div class="header-center">
+      <a class="navbar-brand" href="{{ url('') }}">
+        Cryptomap
+      </a>
+      {% if expand == true %}
+        <img  id="full" src="{{ url('assets/img/full-screen.png') }}" alt="">
+      {% endif %}
+    </div>
+    <div class="logo" id="hamburger">
+      <img id="iHamburger" width="64px" height="64px" src="{{ url('assets/img/menu.png') }}">
+    </div>
+  </div>
+
+  <!-- https://fr.m.wikipedia.org/wiki/Fichier:Map_ballonicon2.svg -->
+  <ul id="ul-nav">
+    <li><a href="{{ url('news/twitter') }}">&#10140; Actu Twitter</a></li>
+    <li><a href="{{ url('news/youtube') }}">&#10140; Actu Youtube</a></li>
+    <li><a href="{{ url('faq') }}">&#10140; FAQ</a></li>
+    <li>
+  </ul>
+
+  <div id="widget" class="coinmarketcap-currency-widget"
+    data-currencyid="1" data-base="EUR"
+    data-secondary="" data-ticker="false"
+    data-rank="false" data-marketcap="false"
+    data-volume="false" data-stats="USD"
+    data-statsticker="false">
+  </div>
+
+  <div id="donations">
+    <h5>Donations</h5>
+    <img class="donate-img" src="{{ url('assets/img/btcQR.png') }}">
+    <p>1PttavEYDjPBgk9EWKg3qL9x1DoTdqPbF3</p>
+    <img class="donate-img" src="{{ url('assets/img/ethQR.png') }}">
+    <p>0x9b21F40EC85E11B88703E6C9Ed499Bb9a2cbEFFB</p>
+  </div>
+
+  <div id="mobile">
+    <ul id="ul-mobile">
+      <li><a href="{{ url('news/twitter') }}">&#10140; Actu Twitter</a></li>
+      <li><a href="{{ url('news/youtube') }}">&#10140; Actu Youtube</a></li>
+      <li><a href="{{ url('faq') }}">&#10140; FAQ</a></li>
+    </ul>
+    <div id="widget-mobile" class="coinmarketcap-currency-widget"
+      data-currencyid="1" data-base="EUR"
+      data-secondary="" data-ticker="false"
+      data-rank="false" data-marketcap="false"
+      data-volume="false" data-stats="USD"
+      data-statsticker="false">
+    </div>
+    <div id="donations-mobile">
+      <h5>Donations</h5>
+      <img class="donate-img-mobile" src="{{ url('assets/img/btcQR.png') }}">
+      <p>1PttavEYDjPBgk9EWKg3qL9x1DoTdqPbF3</p>
+      <img class="donate-img-mobile" src="{{ url('assets/img/ethQR.png') }}">
+      <p>0x9b21F40EC85E11B88703E6C9Ed499Bb9a2cbEFFB</p>
+    </div>
+  </div>
+
+  {% block javascripts %}
+    <script src="{{ url('assets/js/widget.js') }}"></script>
+  {% endblock %}
+
+</nav>

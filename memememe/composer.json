@@ -1,0 +1,18 @@
+{
+    "name": "pierre",
+    "description": "meme generator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pierre",
+            "email": "pierreh@codeur.online"
+        }
+    ],
+    "require": {
+        "twig/twig": "^2.4",
+        "intervention/image": "^2.4",
+        "sybio/gif-frame-extractor": "^1.0",
+        "sybio/image-workshop": "^2.1",
+        "sybio/gif-creator": "^1.0"
+    }
+}

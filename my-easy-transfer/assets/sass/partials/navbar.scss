@@ -1,0 +1,42 @@
+nav{
+    background-color: $newBlack;
+}
+.brand-logo {
+//    margin-right: 300px;
+}
+.entreprise{
+    color: white;
+    font-size: 2em;
+//    margin-left: 200px;
+    font-family:sans-serif;
+}
+img{
+    height: 100px;
+    margin-top: -20px;
+}
+@media screen and (max-width: 1000px){
+    .entreprise{
+        margin-left: 50px;
+    }
+    .brand-logo{
+        margin-right: 50px;
+    }
+}
+@media screen and (max-width: 600px){
+    img{
+        height: 80px;
+        margin-top: -10px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .entreprise{
+        margin-left: 0px;
+    }
+    .brand-logo{
+        margin-right: 0px;
+    }
+    img{
+        height: 60px;
+        margin-top: 0px;
+    }
+}

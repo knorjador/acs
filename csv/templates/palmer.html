@@ -1,0 +1,34 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h4>Tous les gens dont le nom est Palmer ({{ data.count }})</h4>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Email</th>
+      <th>Genre</th>
+      <th>IP</th>
+      <th>Date Anniversaire</th>
+      <th>Code postal</th>
+      <th>Avatar</th>
+      <th>Code pays</th>
+      <th>Pays</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in data.data %}
+      <tr>
+        {% for value in item %}
+          <td>{{ value }}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

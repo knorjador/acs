@@ -1,0 +1,20 @@
+#formDll{
+    margin-top: 10%;
+    border: solid 8px $newPurple;
+    text-align: center;
+    background-color:white;
+    max-width: auto;
+    opacity: 0.9;
+}
+ul{
+    margin: 10% 0%;
+}
+ul > li > a{
+    color: $newPurple;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+ul:not(.browser-default){
+    word-break: break-word;
+}

@@ -1,0 +1,58 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}MyEasyTransfer - Home{% endblock %}
+
+{% block content %}
+
+<div class="overlay">
+  <div id="modal" class="modal">
+    <div class="center modal-content"></div>
+  </div>
+</div>
+
+<div class="row">
+    <h1>WELCOME</h1>
+    <form class="col s12 m6 l6">
+        <div class="row">
+            <div class="dchoose">
+                <input class="ifiles" type="file" id="ifiles" name="files[]" multiple>
+                <label for="ifiles" class="lfiles"></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input id="receiver" type="email" placeholder="Email Receiver" class="validate">
+                <label for="receiver"></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input id="sender" type="email" placeholder="Your Email" class="validate">
+                <label for="sender"></label>
+            </div>
+        </div>
+        <p>
+            <label>
+                <input type="checkbox" />
+                <span>I want a copy</span>
+            </label>
+        </p>
+        <div class="row">
+            <div>
+                <button type="submit" id="submit" class="btn btn-2 modal-trigger" data-target="modal">Send</a>
+            </div>
+        </div>
+    </form>
+    <div class="col s12 m6 l6 liste">
+        <div class="dfiles">
+          <!-- <p>Un</p>
+          <p>Un</p>
+          <p>Un</p> -->
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

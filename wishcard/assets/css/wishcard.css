@@ -1,0 +1,369 @@
+
+/**** **** **** **** **** **** **** ****
+  > FONTS
+**** **** **** **** **** **** **** ****/
+
+@font-face {
+  font-family: 'cabin-sketch';
+  src: url('../fonts/cabin-sketch-bold.ttf')
+}
+
+@font-face {
+  font-family: 'bungee-shade';
+  src: url('../fonts/bungee-shade.ttf')
+}
+
+@font-face {
+  font-family: 'zilla-slab';
+  src: url('../fonts/zilla-slab.ttf')
+}
+
+/**** **** **** **** **** **** **** ****
+  > GLOBAL
+**** **** **** **** **** **** **** ****/
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%
+}
+
+svg {
+  position: absolute
+}
+
+#Calque_1 {
+  z-index: 1
+}
+
+#start {
+  animation: start 400ms ease forwards;
+  animation-delay: 400ms;
+}
+
+@keyframes start {
+  from {
+    transform: translateX(-100%) translateY(-150%);
+  }
+  to {
+    transform: translateX(20%) translateY(15%);
+  }
+}
+
+#middle {
+  animation: middle 500ms ease-out forwards;
+  animation-delay: 200ms;
+}
+
+@keyframes middle {
+  from {
+    transform: translateX(100%) translateY(-20%);
+  }
+  to {
+    transform: translateX(22.5%) translateY(30%);
+  }
+}
+
+#end {
+  animation: end 200ms ease-out forwards;
+  animation-delay: 800ms;
+}
+
+@keyframes end {
+  from {
+    transform: translateX(-10%) translateY(45%);
+  }
+  to {
+    transform: translateX(20%) translateY(45%);
+  }
+}
+
+
+/**** **** **** **** **** **** **** ****
+  > ANIMATION BODY BACKGROUND
+**** **** **** **** **** **** **** ****/
+
+.body-bg {
+  animation: bodyBg 1.5s cubic-bezier(1,.01,.72,.77)
+}
+
+@keyframes bodyBg {
+  from {
+    background: #d21f43
+  }
+  to {
+    background: #f8f8f8
+  }
+}
+
+/**** **** **** **** **** **** **** ****
+  > ANIMATION TOP TO BOTTOM
+**** **** **** **** **** **** **** ****/
+
+.top-to-bottom {
+  animation: topToBottom 1.5s ease-out forwards
+}
+
+@keyframes topToBottom {
+  from {
+    width: 100%;
+    bottom: 120%
+  }
+  to {
+    width: 16%;
+    bottom: 5%
+  }
+}
+
+/**** **** **** **** **** **** **** ****
+  > ANIMATION LEFT CHEVRON
+**** **** **** **** **** **** **** ****/
+
+.left-chevron {
+  animation: leftChevron .75s ease-out alternate forwards;
+  animation-iteration-count: 2
+}
+
+@keyframes leftChevron {
+  from {
+    transform: translateX(0%);
+    fill: #d21f43
+  }
+  to {
+    transform: translateX(90%);
+    fill: #f8f8f8
+  }
+}
+
+/**** **** **** **** **** **** **** ****
+  > ANIMATION RIGHT CHEVRON
+**** **** **** **** **** **** **** ****/
+
+.right-chevron {
+  animation: rightChevron .75s ease-out alternate forwards;
+  animation-iteration-count: 2
+}
+
+@keyframes rightChevron {
+  from {
+    transform: translateX(0%);
+    fill: #d21f43
+  }
+  to {
+    transform: translateX(-90%);
+    fill: #f8f8f8
+  }
+}
+
+/**** **** **** **** **** **** **** ****
+  >  ANIMATION G ACS
+**** **** **** **** **** **** **** ****/
+
+.g-acs {
+  animation: gAcs 1.2s linear forwards;
+  -webkit-animation-delay: 1.3s;
+  -moz-animation-delay: 0s
+}
+
+@keyframes gAcs {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/**** **** **** **** **** **** **** ****
+  >  ANIMATION TEXT SCHOOL
+**** **** **** **** **** **** **** ****/
+
+.text-school {
+  animation: textSchool .6s ease-out forwards;
+  -webkit-animation-delay: 1.3s;
+  -moz-animation-delay: 0s
+}
+
+@keyframes textSchool {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+/**** **** **** **** **** **** **** ****
+  >  SVG BG
+**** **** **** **** **** **** **** ****/
+
+#svg-bg {
+  width: 100%;
+  height: 100%
+}
+
+#svg-bg text {
+  position: absolute;
+  font-family: 'cabin-sketch';
+  font-size: 4.4rem;
+  fill: #4d4d4d
+}
+
+#best-wishes {
+  font-family: 'zilla-slab';
+  font-size: 4rem;
+  font-weight: bold;
+  fill: #d21f43
+}
+
+#svg-bg #middle {
+  font-size: 3rem;
+}
+
+#svg-bg mask rect {
+  fill: rgba(0, 0, 0, .8)
+}
+
+#svg-bg > rect {
+  mask: url(#mask);
+}
+
+video {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: rotateY(180deg);
+}
+
+/**** **** **** **** **** **** **** ****
+  > VIDEO
+**** **** **** **** **** **** **** ****/
+
+.fade-in {
+  animation: fadeInSvg 2s ease-out;
+}
+
+@keyframes fadeInSvg {
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+}
+
+/**** **** **** **** **** **** **** ****
+  > MEDIA QUERIES
+**** **** **** **** **** **** **** ****/
+
+/**** **** **** ****
+  > MAX 1200
+**** **** **** ****/
+@media (max-width: 1200px) {
+
+  #svg-bg text {
+    font-size: 3.5rem
+  }
+
+  #best-wishes {
+    font-size: 2.6rem;
+  }
+
+  #svg-bg #middle {
+    font-size: 2.1rem;
+  }
+
+}
+
+/**** **** **** ****
+  > MAX 992
+**** **** **** ****/
+@media (max-width: 992px) {
+
+  #svg-bg text {
+    font-size: 3rem
+  }
+
+  #best-wishes {
+    font-size: 2.1rem;
+  }
+
+  #svg-bg #middle {
+    font-size: 1.6rem;
+  }
+
+}
+
+/**** **** **** ****
+  > MAX 768
+**** **** **** ****/
+@media (max-width: 768px) {
+
+  #svg-bg text {
+    font-size: 1.7rem
+  }
+
+  #best-wishes {
+    font-size: 1.5rem;
+  }
+
+  #svg-bg #middle {
+    font-size: 1.2rem;
+  }
+
+  @keyframes topToBottom {
+    from {
+      width: 100%;
+      bottom: 120%
+    }
+    to {
+      width: 35%;
+      bottom: 7.5%
+    }
+  }
+
+  @keyframes start {
+    from {
+      transform: translateX(-100%) translateY(-100%);
+    }
+    to {
+      transform: translateX(5%) translateY(15%);
+    }
+  }
+
+  @keyframes middle {
+    from {
+      transform: translateX(100%) translateY(-20%);
+    }
+    to {
+      transform: translateX(7.5%) translateY(25%);
+    }
+  }
+
+  @keyframes end {
+    from {
+      transform: translateX(-10%) translateY(35%);
+    }
+    to {
+      transform: translateX(5%) translateY(35%);
+    }
+  }
+
+}

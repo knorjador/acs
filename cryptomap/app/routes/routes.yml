@@ -1,0 +1,21 @@
+
+- path:
+  -
+  - /buy
+  controller: Controllers\HomeController::render
+
+- path:
+  - /marquee
+  controller: Controllers\MarqueeController::update
+
+- path:
+  - /news/twitter
+  controller: Controllers\TwitterController::render
+
+- path:
+  - /news/youtube
+  controller: Controllers\YoutubeController::render
+
+- path:
+  - /faq
+  controller: Controllers\FaqController::render

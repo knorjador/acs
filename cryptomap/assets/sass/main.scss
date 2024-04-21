@@ -1,0 +1,18 @@
+
+@import 'variables';
+@import 'bootstrap/scss/bootstrap';
+@import 'partials/navbar';
+@import 'partials/loading';
+@import 'home';
+@import 'localbitcoins';
+@import 'twitter';
+@import 'youtube';
+@import 'faq';
+
+html, body {
+  height: 100%;
+}
+
+.container-fluid {
+  padding-left: 0px;
+}

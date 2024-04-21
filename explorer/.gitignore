@@ -1,0 +1,10 @@
+
+composer.lock
+explorer.old.php
+index.old.php
+recursive.php
+/vendor
+/cache
+/assets/js/explorer.js
+/templates/explorer.html
+/templates/explorer.old.html

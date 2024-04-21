@@ -1,0 +1,26 @@
+{
+    "name": "cryptomap",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "multi",
+            "email": "no@mail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^2.0",
+        "vlucas/phpdotenv": "^2.4",
+        "symfony/yaml": "^4.1",
+        "picorm/picorm": "^0.0.7",
+        "abraham/twitteroauth": "^0.7.4"
+    },
+    "autoload": {
+        "psr-4": {
+          "Controllers\\": "app/controllers/",
+          "Model\\": "app/models/",
+          "Core\\Helpers\\": "core/helpers/",
+          "Core\\Controllers\\": "core/controllers/"
+        }
+    }
+}
