@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon-acs.png"/>
+    <link rel="stylesheet" href="assets/css/lib/foundation.min.css">
+    <link rel="stylesheet" href="assets/css/pp.css">
+    <title>PP</title>
+  </head>
+  <body>
+    <div class="grid-container">
+
+      <h3>Étudiants</h3>
+      <table>
+        <thead>
+          <tr>
+            <th id="s-firstname">Nom</th>
+            <th id="s-lastname">Prénom</th>
+            <th id="s-address">Adresse</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in students %}
+            <tr>
+              <td class="firstname">{{ student.firstname }}</td>
+              <td class="lastname">{{ student.lastname }}</td>
+              <td class="address">{{ student.address }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <h3>Formateurs</h3>
+      <table>
+        <thead>
+          <tr>
+            <th id="c-firstname">Nom</th>
+            <th id="c-lastname">Prénom</th>
+            <th id="c-skills">Compétences</th>
+            <th id="c-birthdate">Date de naissance</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for coach in coachs %}
+            <tr>
+              <td class="c-firstname">{{ coach.firstname }}</td>
+              <td class="c-lastname">{{ coach.lastname }}</td>
+              <td class="c-skills">{{ coach.skills|join(' ') }}</td>
+              <td class="c-birthdate">{{ coach.birthdate|date("d/m/Y") }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+    <script src="assets/js/pp.js"></script>
+  </body>
+</html>
