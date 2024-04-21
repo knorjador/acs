@@ -1,0 +1,88 @@
+
+{% extends "layouts/admin.html" %}
+
+{% block content %}
+
+  <form method="POST">
+    <div class="grid-container">
+      <h3 class="h3">Ajouter un film</h3>
+      <div class="grid-x grid-padding-x">
+        <div class="medium-4 cell">
+          <label>Title
+            <input type="text" name="title">
+          </label>
+        </div>
+        <div class="medium-2 cell">
+          <label>Year
+            <input type="text" name="year">
+          </label>
+        </div>
+        <div class="medium-6 cell">
+          <label>URL Poster
+            <input type="text" name="poster">
+          </label>
+        </div>
+      </div>
+      <label>Description
+        <textarea name="description"></textarea>
+      </label>
+      <div class="dentity">
+        <h5>Genre(s)</h5>
+        <button type="button" class="hollow primary button">+</button>
+      </div>
+      <div class="grid-x grid-padding-x">
+        <div class="medium-4 cell">
+          <label>Name
+            <input type="text" name="genres[]">
+          </label>
+        </div>
+      </div>
+      <div class="dentity">
+        <h5>Director(s)</h5>
+        <button type="button" class="hollow primary button">+</button>
+      </div>
+      <div class="grid-x grid-padding-x">
+        <div class="medium-4 cell">
+          <label>Firstname
+            <input type="text" name="directors['firstname'][]">
+          </label>
+        </div>
+        <div class="medium-4 cell">
+          <label>Lastname
+            <input type="text" name="directors['lastname'][]">
+          </label>
+        </div>
+      </div>
+      <div class="dentity">
+        <h5>Actors(s)</h5>
+        <button type="button" class="hollow primary button">+</button>
+      </div>
+      <div class="grid-x grid-padding-x">
+        <div class="medium-4 cell">
+          <label>Firstname
+            <input type="text" name="actors['firstname'][]">
+          </label>
+        </div>
+        <div class="medium-4 cell">
+          <label>Lastname
+            <input type="text" name="actors['lastname'][]">
+          </label>
+        </div>
+      </div>
+      <div class="grid-x grid-padding-x">
+        <div class="medium-4 cell">
+          <label>Firstname
+            <input type="text" name="actors['firstname'][]">
+          </label>
+        </div>
+        <div class="medium-4 cell">
+          <label>Lastname
+            <input type="text" name="actors['lastname'][]">
+          </label>
+        </div>
+      </div>
+      <button id="valid" type="submit" class="hollow primary button">Valider</button>
+    </div>
+  </form>
+
+{% endblock %}
