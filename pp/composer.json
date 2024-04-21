@@ -1,0 +1,14 @@
+{
+    "name": "r4ph/pp",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "knorjador",
+            "email": "headers@protonmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^2.0",
+        "zurb/foundation": "^6.4"
+    }
+}
