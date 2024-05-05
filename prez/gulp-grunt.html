@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Gulp / Grunt</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+		<!-- <link rel="stylesheet" href="css/theme/league.css" id="theme"> -->
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="css/gulp-grunt.css">
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="subject">
+				<h4>Gulp / Grunt</h4>
+				<div class="di-subject">
+					<img class="i-subject" src="assets/gulp-grunt/gulp-grunt.png" alt="logo gulp & grunt">
+				</div>
+			</div>
+
+			<div class="slides">
+
+				<!-- WELCOME -->
+				<section id="welcome">
+					<h2>Gulp / Grunt</h2>
+					<img class"logo" src="assets/gulp-grunt/gulp-grunt.png" alt="logo gulp & grunt">
+					<p><span>Build Tools</span>&nbsp;&nbsp;&nbsp;&nbsp;&&&nbsp;&nbsp;&nbsp;&nbsp;<span>Task Runner</span></p>
+				</section>
+
+				<!-- WHY -->
+				<section id="why" data-transition="convex">
+					<h5>Why ?</h5>
+					<ul>
+						<li>Enhance your workflow</li>
+						<li>Automate repetitives tasks</li>
+					</ul>
+					<h6>Tasks Examples</h6>
+					<ul>
+						<li>Compiling SASS/SCSS to CSS</li>
+						<li>Minification and concatenation of JavaScript and CSS files</li>
+						<li>Eliminating comments and console statements</li>
+						<li>Image compression</li>
+						<li>Unit testing and linting</li>
+						<li>Run web server with live reload</li>
+					</ul>
+				</section>
+
+				<!-- GET STARTED -->
+				<section data-transition="convex">
+					<section id="nodenpm">
+							<h3 class="grey">Get started</h3>
+							<div>
+								<p>Install NodeJS</p>
+								<a href="https://nodejs.org/dist/latest-v8.x/docs/api/" target="_blank">
+									<img class="i-nodenpm" src="assets/gulp-grunt/nodejs-npm.png" alt="logo nodejs & npm">
+								</a>
+								<p class="p-nodenpm">JavaScript runtime built on Chrome's v8</p>
+								<p class="p-nodenpm">Executes JavaScript code server-side</p>
+								<p>+</p>
+								<p class="p-nodenpm">Packages Manager</p>
+							</div>
+					</section>
+					<section>
+						<h3 class="grey">Get started</h3>
+						<div class="tools">
+							<div>
+								<img class="i-logo" src="assets/gulp-grunt/gulp.png" alt="logo gulp">
+								<p>Install Gulp</p>
+								<pre><code class="hljs" data-trim>
+									// global scope
+									npm i -g gulp-cli
+								</code></pre>
+								<pre><code class="hljs" data-trim>
+									// project folder
+									npm i -D gulp
+								</code></pre>
+							</div>
+							<div>
+								<img class="i-logo" src="assets/gulp-grunt/grunt.png" alt="logo grunt">
+								<p>Install Grunt</p>
+								<pre><code class="hljs" data-trim>
+									// global scope
+									npm i -g grunt-cli
+								</code></pre>
+								<pre><code class="hljs" data-trim>
+									// project folder
+									npm i -D grunt
+								</code></pre>
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<!-- PROJECT -->
+				<section data-transition="convex">
+						<h3 class="grey">Configure a Project</h3>
+						<div class="tools">
+							<div>
+								<img class="i-logo" src="assets/gulp-grunt/gulp.png" alt="logo gulp">
+								<p class="p-grey">gulpfile.js</p>
+								<pre><code class="javascript" data-trim style="font-size: 16px;">
+								const gulp = require('gulp');
+
+								gulp.task('default', function() {
+
+								 	// task code here
+
+								});
+								</code></pre>
+								<pre><code class="hljs" data-trim style="font-size: 12px;">
+									// run it
+									gulp
+								</code></pre>
+							</div>
+							<div>
+								<img class="i-logo" src="assets/gulp-grunt/grunt.png" alt="logo grunt">
+								<p class="p-grey">gruntfile.js</p>
+								<pre><code class="javascript" data-trim style="font-size: 15px;">
+								module.exports = function(grunt) {
+
+								 grunt.initConfig({
+
+								  pkg: grunt.file.readJSON('package.json'),
+									// task code here
+
+								 })
+
+								}
+								</code></pre>
+								<pre><code class="hljs" data-trim style="font-size: 12px;">
+									// run it
+									grunt
+								</code></pre>
+							</div>
+						</div>
+				</section>
+
+				<!-- EXAMPLES -->
+				<section id="example" data-transition="convex">
+					<h3 class="grey">Example of task</h3>
+					<p class="p-grey">Compile SASS to CSS</p>
+					<div class="tools">
+						<div>
+							<img class="i-example" src="assets/gulp-grunt/gulp.png" alt="logo gulp">
+							<pre><code class="javascript" data-trim style="font-size: 14px;">
+							//gulpfile.js
+							const gulp = require('gulp');
+							const sass = require('gulp-sass');
+							//style paths
+							const sassFiles = 'assets/styles/sass/**/*.scss';
+							const cssDest 	= 'assets/styles/css/';
+
+							gulp.task('styles', function(){
+
+							 gulp.src(sassFiles)
+							  .pipe(sass().on('error', sass.logError))
+							  .pipe(gulp.dest(cssDest));
+
+							})
+							</code></pre>
+						</div>
+						<div>
+							<img class="i-example" src="assets/gulp-grunt/grunt.png" alt="logo grunt">
+							<pre><code class="javascript" data-trim style="font-size: 14px;">
+							//gruntfile.js
+							module.exports = function(grunt) {
+							 grunt.initConfig({
+							  pkg: grunt.file.readJSON('package.json'),
+							  sass: {
+							   dist: {
+							    files: {
+							     'style/style.css' : 'sass/style.scss'
+							    }
+							   }
+							  }
+							 });
+							 grunt.loadNpmTasks('grunt-contrib-sass');
+							}
+							</code></pre>
+						</div>
+					</div>
+				</section>
+
+				<!-- COMPARISONS -->
+				<section id="comparisons" data-transition="convex">
+					<h3 class="grey">Comparisons</h3>
+					<table id="array">
+						<thead>
+							<tr>
+								<th></th>
+								<th>Grunt</th>
+								<th>Gulp</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Released</td>
+								<td>2012</td>
+								<td>2013</td>
+							</tr>
+							<tr>
+								<td>Run via</td>
+								<td>Command line</td>
+								<td>Command line</td>
+							</tr>
+							<tr>
+								<td>Based On</td>
+								<td>NodeJS</td>
+								<td>NodeJS</td>
+							</tr>
+							<tr>
+								<td>Concept</td>
+								<td>Configuration over Programing</td>
+								<td>Programming over configuration</td>
+							</tr>
+							<tr>
+								<td>Process execution</td>
+								<td>Local (temporary files)</td>
+								<td>Memory</td>
+							</tr>
+							<tr>
+								<td>Format of source data</td>
+								<td>JavaScript (JSON style)</td>
+								<td>JavaScript</td>
+							</tr>
+							<tr>
+								<td>Plugins</td>
+								<td>+6000</td>
+								<td>+3000</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>Gulp is x2 fast</p>
+				</section>
+
+				<!-- REMINDER -->
+				<section id="reminder" data-transition="convex">
+					<h5>Reminder</h5>
+					<ul>
+						<li>Enhance your workflow</li>
+						<li>Automate repetitives tasks</li>
+					</ul>
+					<h6>Tasks Examples</h6>
+					<ul>
+						<li>Compiling SASS/SCSS to CSS</li>
+						<li>Minification and concatenation of JavaScript and CSS files</li>
+						<li>Eliminating comments and console statements</li>
+						<li>Image compression</li>
+						<li>Unit testing and linting</li>
+						<li>Run web server with live reload</li>
+					</ul>
+				</section>
+
+				<!-- SOURCES -->
+				<section id="sources" data-transition="convex">
+					<h4><span class="hunderline">&#9854;&nbsp;&nbsp;SOURCES&nbsp;&nbsp;&#9854;</span></h4>
+					<img class="igif irounded" src="https://media.giphy.com/media/SggILpMXO7Xt6/giphy.gif">
+					<h6><span class="underline">Textes</span></h6>
+					<ul class="ulsources">
+						<li><a href="https://gulpjs.org/" target="_blank">https://gulpjs.org/</a></li>
+						<li><a href="https://gruntjs.com/" target="_blank">https://gruntjs.com/</a></li>
+						<li><a href="https://en.wikipedia.org/wiki/Node.js" target="_blank">https://en.wikipedia.org/wiki/Node.js</a></li>
+						<li><a href="https://www.1and1.com/digitalguide/websites/web-development/gulp-vs-grunt-differentiating-between-the-task-runners/" target="_blank">https://www.1and1.com/digitalguide/websites/web-development/gulp-vs-grunt-differentiating-between-the-task-runners/</a></li>
+						<li><a href="https://codehangar.io/gulp-sass/" target="_blank">https://codehangar.io/gulp-sass/</a></li>
+					</ul>
+					<h6><span class="underline">Images</span></h6>
+					<ul class="ulsources">
+						<li><a href="https://www.sourceallies.com/img/posts/gulp-grunt.png" target="_blank">https://www.sourceallies.com/img/posts/gulp-grunt.png</a></li>
+						<li><a href="http://www.stickpng.com/img/icons-logos-emojis/tech-companies/gulp-logo" target="_blank">http://www.stickpng.com/img/icons-logos-emojis/tech-companies/gulp-logo</a></li>
+						<li><a href="https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/066/landscape/gruntlogo.png" target="_blank">https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/066/landscape/gruntlogo.png</a></li>
+						<li><a href="https://kalliphant.com/wp-content/uploads/2017/02/nodejs.png" target="_blank">https://kalliphant.com/wp-content/uploads/2017/02/nodejs.png</a></li>
+						<li><a href="https://media.giphy.com/media/SggILpMXO7Xt6/giphy.gif" target="_blank">https://media.giphy.com/media/SggILpMXO7Xt6/giphy.gif</a></li>
+					</ul>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					// { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					// { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					// { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					// { src: 'plugin/search/search.js', async: true },
+					// { src: 'plugin/zoom-js/zoom.js', async: true },
+					// { src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+			document.body.addEventListener('keydown', e => {
+
+				if(e.keyCode === 39)
+					setTimeout(() => document.querySelector('.subject').style.display = 'block', 1024)
+
+				if(e.keyCode === 96)
+					document.querySelector('.subject').style.display = 'none'
+
+			})
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,223 @@
+
+/**** **** **** **** **** **** **** ****
+ > GLOBAL
+**** **** **** **** **** **** **** ****/
+
+.reveal section img {
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+.reveal section .i128 {
+  width: 128px;
+  height: 128px;
+  margin: 0;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, .4)
+}
+
+ .reveal section .i206 {
+   width: 206px;
+   height: 206px;
+   margin: 0;
+   box-shadow: 0 0 6px 2px rgba(0, 0, 0, .4)
+ }
+
+ .reveal section .ishadowed {
+   box-shadow: 0 0 6px 2px rgba(0, 0, 0, .4)
+ }
+
+ .reveal section .irounded {
+   border: none;
+   border-radius: 50%
+ }
+
+ .reveal section img {
+   margin: 0;
+   border: none;
+   box-shadow: none;
+   background: none;
+ }
+
+ .reveal pre {
+   width: 90%;
+   margin: 0 0 16px 0
+ }
+
+ .reveal pre code {
+   max-height: 16384px
+ }
+
+.reveal a:hover img {
+  cursor: default;
+  border-color: transparent;
+  box-shadow: none;
+  background: none
+}
+
+.subject {
+  display: none;
+  position: absolute;
+  width: 164px;
+  height: 96px;
+  top: 24px;
+  left: 24px;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-color: red;
+}
+
+.subject > h4 {
+  margin: 0;
+  font-size: 1.7rem
+}
+
+section > .grey {
+  margin-bottom: 32px;
+  text-decoration: underline;
+  font-weight: bold;
+  color: #888888
+}
+
+section > div .p-grey {
+  font-weight: bold;
+  color: #888888
+}
+
+.reveal section .igif {
+  width: 164px;
+  height: 164px;
+  margin: 0;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, .4)
+}
+
+.reveal section .irounded {
+  border: none;
+  border-radius: 50%
+}
+
+.reveal section .dcode {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.reveal section .dimg {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.reveal section .nomgt {
+  margin-top: 0px;
+}
+
+.reveal .phow {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* text-underline */
+.reveal .t-u {
+  text-decoration: underline;
+}
+
+.hBoxShadow {
+  box-shadow: inset 0 8px 4px rgba(0, 0, 0, .1), inset 0 -16px 4px rgba(0, 0, 0, .2);
+}
+
+/**** **** **** **** **** **** **** ****
+ > WELCOME
+**** **** **** **** **** **** **** ****/
+
+#welcome > h2 {
+  text-decoration-color: #00B0BD;
+}
+
+#welcome .dimg {
+  display: flex;
+  flex-direction: row;
+  margin: 75px 0;
+}
+
+#welcome .dimg > img {
+  margin: 0 40px;
+}
+
+#welcome > p {
+  font-weight: bold;
+  text-decoration-color: #00B0BD;
+}
+
+.errors {
+  color: red
+}
+
+/**** **** **** **** **** **** **** ****
+ > PRESENTATION
+**** **** **** **** **** **** **** ****/
+
+#presentation > p > strong > span {
+  text-decoration-color: yellow;
+}
+
+
+/**** **** **** **** **** **** **** ****
+ > GOALS
+**** **** **** **** **** **** **** ****/
+
+#goals > h3 {
+  text-decoration-color: yellow;
+}
+
+
+/**** **** **** **** **** **** **** ****
+ > HOW TO 1
+**** **** **** **** **** **** **** ****/
+
+
+/**** **** **** **** **** **** **** ****
+  > SOURCES
+**** **** **** **** **** **** **** ****/
+
+#sources > h4 {
+  margin-bottom: 24px;
+  font-size: 3rem
+}
+
+#sources > h6 {
+  margin-bottom: 16px;
+  font-size: 1.8rem
+}
+
+#sources > img {
+  margin-bottom: 24px
+}
+
+.reveal .ulsources {
+  display: block;
+  margin-bottom: 24px
+}
+
+.ulsources > li  {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #00D1A0
+}
+
+.ulsources > li > a {
+  margin: 0px 0 24px 0;
+  font-size: 1.2rem;
+  color: #b8b8b8
+}
+
+.ulsources > li > a:hover {
+  color: #a4a4a4
+}
+
+.ulsources > li > a > small {
+  padding: 12px 0 0 4px
+}

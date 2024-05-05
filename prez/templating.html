@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Templating</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="css/templating.css">
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<div class="subject">
+				<h4 class="el-font">{{ Templating }}</h4>
+				<div class="di-subject">
+					<img class="i-subject" src="assets/templating/twig.png" alt="twig logo">
+				</div>
+			</div>
+
+			<div class="slides">
+
+				<!-- WELCOME -->
+				<section data-transition="convex">
+					<h3 class="el-font">{{ Templating }}</h3>
+					<p class="p-color">Automatic generation of custom web pages</p>
+					<p class="p-color">Illustration with template engine</p>
+					<img width="256px" src="assets/templating/twig.png" alt="twig logo">
+				</section>
+
+				<!-- GOALS -->
+				<section id="goals" data-transition="convex">
+					<h3 id="hgoal" class="el-font">&#10032;&nbsp;&nbsp;GOALS&nbsp;&nbsp;&#10032;</h3>
+					<p class="pgoal">
+						<span class="sgoal">&#10022;</span> Separate the <strong>logic</strong> of <strong>presentation</strong>
+					</p>
+					<p class="pgoal">
+						<span class="sgoal">&#10022;</span> Facilitate <strong>maintainability</strong> of web application
+					</p>
+					<div class="dgoal">
+						<img class="i164 irounded" src="https://media.giphy.com/media/qhImQxTomiOxG/giphy.gif">
+					</div>
+				</section>
+
+				<!-- GET STARTED -->
+				<section id="gs" data-transition="convex">
+					<h4 class="hhiw el-font">&#10032;&nbsp;&nbsp;Get Started&nbsp;&nbsp;&#10032;</h4>
+					<p class="p-color p-templating"><span class="s-templating">Installation</span></p>
+					<pre><code class="hljs" data-trim style="font-size:14px;">
+					// in project folder
+					composer require "twig/twig:^2.0"
+					</code></pre>
+					<p class="p-color p-templating"><span class="s-templating">Initialization</span></p>
+					<pre><code class="hljs" data-trim style="font-size:14px;">
+					// index.php
+					&lt;?php
+
+					require_once './vendor/autoload.php';
+
+					$loader = new Twig_Loader_Filesystem('./templates');
+
+					$twig = new Twig_Environment($loader, array(
+
+					 'cache' => false,
+
+					));
+
+					?&gt;
+					</code></pre>
+				</section>
+
+				<!-- LOGIC & PRESENTATION -->
+				<section id="l&p"data-transition="convex">
+					<h4 class="hhiw el-font">&#10032;&nbsp;&nbsp;Logic &#8660; Presentation&nbsp;&nbsp;&#10032;</h4>
+					<div class="tools">
+						<div>
+							<p class="p-color p-templating"><span class="s-templating">Without Template Engine</span></p>
+							<pre><code class="hljs" data-trim style="font-size:14px;">
+							// index.php
+							&lt;?php
+							$numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+							?&gt;
+							<div class="container">
+							 <ul>
+							  &lt;?php foreach($numbers as $number) ?&gt;
+							   &lt;?php if($number % 2 === 0) ?&gt;
+
+							    &lt;?php echo '<li>'.$number.' est pair</li>';
+
+							   &lt;?php else ?&gt;
+
+							    &lt;?php echo '<li>'.$number.' est impair</li>'; ?&gt;
+
+							   &lt;?php endif; ?&gt;
+							  &lt;?php endforeach; ?&gt;
+							 </ul>
+							</div>
+							...
+							</code></pre>
+						</div>
+						<div>
+							<p class="p-color p-templating"><span class="s-templating">With Template Engine</span></p>
+							<pre><code class="hljs" data-trim style="font-size:12px;">
+							// index.php
+							$numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+							$data    = [];
+							foreach($numbers as $number) {
+							 if($number % 2 === 0) {
+							  array_push($data, ['state' => $number.' est pair');
+							 } else {
+							  array_push($data, ['state' => $number.' est impair');
+							 }
+							}
+							echo $twig->render('index.html', ['data' => $data]);
+							</code></pre>
+							<pre><code class="hljs" data-trim style="font-size:14px;">
+							// index.html
+							<div class="container">
+							 <ul>
+							  {% for number in data %}
+							   <li>{{ number.state }}</li>
+							  {% endfor %}
+							 </ul>
+							</div>
+							</code></pre>
+						</div>
+					</div>
+				</section>
+
+				<!-- MAINTAINABILITY -->
+				<section id="include" data-transition="convex">
+					<h4 class="hhiw el-font h-long">&#10032;&nbsp;&nbsp;Maintainability > Include Template&nbsp;&nbsp;&#10032;</h4>
+					<div class="tools">
+						<div>
+							<p class="p-color p-templating"><span class="s-templating">Without Template Engine</span></p>
+							<pre class="pre-near"><code class="hljs" data-trim style="font-size:14px;">
+							// home.php
+							&lt;nav&gt;
+							 <ul>
+							  <li><a href="home.php">Home</a></li>
+							  <li><a href="products.php">Products</a></li>
+							  <li><a href="about.php">About</a></li>
+							  <li><a href="contact.php">Contact</a></li>
+							 </ul>
+							&lt;/nav&gt;
+							</code></pre>
+							<pre class="pre-near"><code class="hljs" data-trim style="font-size:14px;">
+							// about.php
+							&lt;nav&gt;
+							 <ul>
+							  <li><a href="home.php">Home</a></li>
+							  <li><a href="products.php">Products</a></li>
+							  <li><a href="about.php">About</a></li>
+							  <li><a href="contact.php">Contact</a></li>
+							 </ul>
+							&lt;/nav&gt;
+							</code></pre>
+						</div>
+						<div>
+							<p class="p-color p-templating"><span class="s-templating">With Template Engine</span></p>
+							<pre class="pre-near"><code class="hljs" data-trim style="font-size:14px;">
+							// nav.html
+							&lt;nav&gt;
+							 <ul>
+							  <li><a href="home.html">Home</a></li>
+							  <li><a href="discover.html">Discover</a></li>
+							  <li><a href="products.html">Products</a></li>
+							  <li><a href="about.html">About</a></li>
+							  <li><a href="contact.html">Contact</a></li>
+							</ul>
+							&lt;/nav&gt;
+							</code></pre>
+							<pre class="pre-near"><code class="hljs" data-trim style="font-size:14px;">
+							// home.html
+							{% include "nav.html" %}
+							</code></pre>
+							<pre class="pre-near"><code class="hljs" data-trim style="font-size:14px;">
+							// about.html
+							{% include "nav.html" %}
+							</code></pre>
+						</div>
+					</div>
+				</section>
+
+				<!-- MAINTAINABILITY -->
+				<section id="inheritance" data-transition="convex">
+					<h4 class="hhiw el-font h-long">&#10032;&nbsp;&nbsp;Maintainability > Template Inheritance&nbsp;&nbsp;&#10032;</h4>
+					<div class="tools">
+						<div>
+							<p class="p-color p-templating p-scalability"><span class="s-templating">Without Template Engine</span></p>
+							<pre class="pre-near"><code class="hljs" data-trim style="font-size:14px;">
+							// home.php
+							&lt;!DOCTYPE html&gt;
+							&lt;html&gt;
+							 &lt;head&gt;
+							  ...
+							 &lt;/head&gt;
+							 &lt;body&gt;
+							  Home Content
+							 &lt;/body&gt;
+							&lt;/html&gt;
+							</code></pre>
+							<pre class="pre-near"><code class="hljs" data-trim style="font-size:14px;">
+							// about.php
+							&lt;!DOCTYPE html&gt;
+							&lt;html&gt;
+							 &lt;head&gt;
+							  ...
+							 &lt;/head&gt;
+							 &lt;body&gt;
+							  About Content
+							 &lt;/body&gt;
+							&lt;/html&gt;
+							</code></pre>
+						</div>
+						<div>
+							<p class="p-color p-templating p-scalability"><span class="s-templating">With Template Engine</span></p>
+							<pre class="pre-near"><code class="hljs" data-trim style="font-size:14px;">
+							// base.html
+							&lt;!DOCTYPE html&gt;
+							&lt;html&gt;
+							 &lt;head&gt;
+							  ...
+							 &lt;/head&gt;
+							 &lt;body&gt;
+							  {% block content %} {% endblock %}
+							 &lt;/body&gt;
+							&lt;/html&gt;
+							</code></pre>
+							<pre class="pre-near"><code class="hljs" data-trim style="font-size:14px;">
+							// home.html
+							{% extends "base.html" %}
+							{% block content %}
+							 Home Content
+							{% endblock %}
+							</code></pre>
+							<pre class="pre-near"><code class="hljs" data-trim style="font-size:14px;">
+							// about.html
+							{% extends "base.html" %}
+							{% block content %}
+							 About Content
+							{% endblock %}
+							</code></pre>
+						</div>
+					</div>
+				</section>
+
+				<!-- REMEMBER -->
+				<section id="remember" data-transition="convex">
+					<!-- <h4 class="hhiw el-font">&#10032;&nbsp;&nbsp;REMEMBER&nbsp;&nbsp;&#10032;</h4> -->
+					<h4><span class="hunderline">&nbsp;&nbsp;Remember&nbsp;&nbsp;</span></h4>
+					<!-- <h4><span class="hunderline">&nbsp;&nbsp;Templating&nbsp;&nbsp;</span></h4> -->
+					<ul>
+						<li>
+							<p class="pgoal">
+								<span class="sgoal"></span> Separate <strong>logic</strong> of <strong>presentation</strong>
+							</p>
+							<ul>
+								<li class="li-remember">Logic <strong>==</strong> algorithm <strong>==</strong> php file</li>
+								<li class="li-remember">Presentation <strong>==</strong> display data <strong>==</strong> html/twig file</li>
+							</ul>
+						</li>
+						<li>
+							<p class="pgoal">
+								<span class="sgoal"></span> Facilitate <strong>maintainability</strong>
+							</p>
+							<ul>
+								<li class="li-remember">Include feature</li>
+								<li class="li-remember">Template inheritance</li>
+							</ul>
+						</li>
+					</ul>
+					<div class="d-remember">
+						<img class="i164 irounded" src="https://media.giphy.com/media/DZXtT9jPfyvUQ/giphy.gif">
+					</div>
+				</section>
+
+				<!-- SOURCES -->
+				<section id="sources" data-transition="convex">
+					<h4><span class="hunderline">&nbsp;&nbsp;SOURCES&nbsp;&nbsp;</span></h4>
+					<img class="i128 irounded" src="https://media.giphy.com/media/Li2SQ9JW7u4Ja/giphy.gif">
+					<h6><span class="underline">Textes</span></h6>
+					<ul class="ulsources">
+						<li><a href="https://en.wikipedia.org/wiki/Web_template_system">Wikipedia Web Templating <small>https://en.wikipedia.org/wiki/Web_template_system</small></a></li>
+						<li><a href="https://twig.symfony.com/doc/2.x/">Twig Doc <small>https://twig.symfony.com/doc/2.x/m</small></a></li>
+					</ul>
+					<h6><span class="underline">Images</span></h6>
+					<ul class="ulsources">
+						<li><a href="http://www.apollo-formation.com/wp-content/uploads/twig-templating-6-638-copie-300x184.png">Twig Logo <small>http://www.apollo-formation.com/wp-content/uploads/twig-templating-6-638-copie-300x184.png</small></a></li>
+						<li><a href="https://media.giphy.com/media/qhImQxTomiOxG/giphy.gif">Gif Goals <small>https://media.giphy.com/media/qhImQxTomiOxG/giphy.gif</small></a></li>
+						<li><a href="https://media.giphy.com/media/DZXtT9jPfyvUQ/giphy.gif">Gif Remember <small>https://media.giphy.com/media/DZXtT9jPfyvUQ/giphy.gif</small></a></li>
+						<li><a href="https://media.giphy.com/media/Li2SQ9JW7u4Ja/giphy.gif">Gif Sources <small>https://media.giphy.com/media/Li2SQ9JW7u4Ja/giphy.gif</small></a></li>
+					</ul>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					// { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					// { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					// { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					// { src: 'plugin/search/search.js', async: true },
+					// { src: 'plugin/zoom-js/zoom.js', async: true },
+					// { src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+			document.body.addEventListener('keydown', e => {
+
+				if(e.keyCode === 39)
+					setTimeout(() => document.querySelector('.subject').style.display = 'block', 1024)
+
+				if(e.keyCode === 96)
+					document.querySelector('.subject').style.display = 'none'
+
+			})
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Méthodes HTTP</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+		<!-- <link rel="stylesheet" href="css/theme/league.css" id="theme"> -->
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="css/http.css">
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<!-- WELCOME -->
+				<section>
+					<h2>Les Méthodes HTTP</h2>
+					<p>
+						<small>( on parle aussi de verbes HTTP )</small>
+					</p>
+					<h4 id="httph4"><span class="acronym">H</span>yper<span class="acronym">T</span>ext <span class="acronym">T</span>ransfer <span class="acronym">P</span>rotocol</h4>
+					<p id="phttp">
+						Protocole de communication <span class="underline">client-serveur</span> pour le
+						<br>
+						<span id="swww"><strong>W</strong>orld <strong>W</strong>ide <strong>W</strong>eb</span>
+					</p>
+				</section>
+
+				<!-- DEFINITION -->
+				<section data-transition="slide" data-background="#00D1A0" data-background-transition="convex">
+					<h2 id="hdefinition" class="h2"><span class="sunderline">&nbsp;&nbsp;Définition&nbsp;&nbsp;</span></h2>
+					<p id="pwhat">
+						Les méthodes HTTP sont des <strong>actions</strong>
+						<br>
+						que l'on souhaite effectuer sur une <strong>ressource</strong>
+						<br>
+						via des <strong>requêtes</strong>
+					</p>
+					<div id="dokbut">
+						<img class="i164 irounded" src="https://media.giphy.com/media/9Ai5dIk8xvBm0/giphy.gif">
+						<p>mais encore</p>
+						<img class="i164 irounded" src="https://media.giphy.com/media/kaq6GnxDlJaBq/giphy.gif">
+					</div>
+				</section>
+
+				<!-- VERTICAL -->
+				<section>
+					<section id="explain">
+						<h2>Qu'est ce qu'une requête <img class="iquestion igif" src="assets/http/question.gif"></h2>
+						<p class="fragment fade-down">Une demande effectuée par un client ( exemple de client : navigateur )</p>
+						<h2 class="fragment fade-right">Qu'est ce qu'une ressource <img class="iquestion igif" src="assets/http/question.gif"></h2>
+						<p class="fragment fade-left">Un fichier sur un serveur ( exemples de fichiers : index.html / contact.php / écétéra.écétéra )</p>
+						<div id="ddone" class="fragment fade-up">
+							<p id="pdone">
+								Les méthodes HTTP sont donc l'ensemble des <strong>actions</strong>
+								<br>
+								qu'un <strong>client</strong> peut demander à exécuter ( via <strong>requête</strong> )
+								<br>
+								sur une <strong>ressource</strong> d'un <strong>serveur</strong>
+							</p>
+							<img class="i164 irounded" src="https://media.giphy.com/media/3o7P4F86TAI9Kz7XYk/giphy.gif">
+						</div>
+						<p class="fragment fade-down">
+							<span class="underline">Quelles sont ces méthodes/actions</span> <img class="iquestion-small igif" src="assets/http/question.gif">
+						</p>
+					</section>
+					<section>
+						<h2>Les méthodes</h2>
+						<ul class="ulmethods">
+							<li>
+								<div>
+									<span class="sverb">CONNECT</span>
+									<p>&#10145; Crée une communication bidirectionnelle avec la ressource</p>
+								</div>
+								<p class="segverb">CONNECT example.com:443</p>
+							</li>
+							<li>
+								<div>
+									<span class="sverb">HEAD</span>
+									<p>&#10145; Accède aux métadonnées d’une ressource</p>
+								</div>
+								<p class="segverb">HEAD /index.html</p>
+							</li>
+							<li>
+								<div>
+									<span class="sverb">OPTIONS</span>
+									<p>&#10145; Décrit les options de communication avec la ressource</p>
+								</div>
+								<p class="segverb">OPTIONS /index.html</p>
+							</li>
+							<li>
+								<div>
+									<span class="sverb">TRACE</span>
+									<p>&#10145; Réalise un message de test aller/retour avec la ressource</p>
+								</div>
+								<p class="segverb">TRACE /index.html</p>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Les méthodes</h2>
+						<ul class="ulmethods">
+							<li>
+								<div>
+									<span class="sverb">GET</span>
+									<p>&#10145; Demande une ressource</p>
+								</div>
+								<p class="segverb">GET /index.html</p>
+							</li>
+							<li>
+								<div>
+									<span class="sverb">POST</span>
+									<p>&#10145; Envoie des données à la ressource</p>
+								</div>
+								<p class="segverb">POST /form.php</p>
+							</li>
+							<li>
+								<div>
+									<span class="sverb">PUT</span>
+									<p>&#10145; Met à jour complètement une ressource</p>
+								</div>
+								<p class="segverb">PUT /update.html</p>
+							</li>
+							<li>
+								<div>
+									<span class="sverb">PATCH</span>
+									<p>&#10145; Modification partielle d'une ressource ( ~ git diff )</p>
+								</div>
+								<p class="segverb">PATCH /partial.html</p>
+							</li>
+							<li>
+								<div>
+									<span class="sverb">DELETE</span>
+									<p>&#10145; Supprime la ressource</p>
+								</div>
+								<p class="segverb">DELETE /old.html</p>
+							</li>
+						</ul>
+						<!-- <div class="dinfo">
+							<p>Ces méthodes sont les principales utilisées dans le cadre d'une API <span class="underline">REST</span></p>
+							<p>
+								<span class="acronym">RE</span>presentational <span class="acronym">S</span>tate <span class="acronym">T</span>ransfer
+							</p>
+							<small>( style architectural / mode de communication utilisé pour un service web )</small>
+						</div> -->
+					</section>
+					<section>
+						<h4>&#10032;&nbsp;&nbsp;&nbsp;&nbsp;Précisions&nbsp;&nbsp;&nbsp;&nbsp;&#10032;</h4>
+						<div class="ddetails">
+							<p>Les méthodes peuvent être <span class="underline">safe</span>, <span class="underline">idempotent</span>, <span class="underline">mise en cache</span> ( cachabilité )</p>
+							<ul>
+								<li><strong>Safe</strong> : méthode qui ne modifiera pas la ressource</li>
+								<li><strong>Idempotent</strong> : méthode qui retournera toujours le même résultat</li>
+								<li><strong>Cachabilité</strong> : décharge le serveur, réduit traitement requête</li>
+							</ul>
+							<p><span class="underline">Bonne pratique == Les méthodes safe sont à mettre en cache</span></p>
+						</div>
+						<table id="array">
+							<thead>
+								<tr>
+									<th>Méthode HTTP</th>
+									<th>Safe</th>
+									<th>Idempotent</th>
+									<th>Cachabilité</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>HEAD</td>
+									<td>Oui</td>
+									<td>Oui</td>
+									<td>Oui</td>
+								</tr>
+								<tr>
+									<td>OPTIONS</td>
+									<td>Oui</td>
+									<td>Oui</td>
+									<td>Oui</td>
+								</tr>
+								</tr>
+									<td>GET</td>
+									<td>Oui</td>
+									<td>Oui</td>
+									<td>Oui</td>
+								</tr>
+								<tr>
+									<td>CONNECT</td>
+									<td>Oui</td>
+									<td>Non</td>
+									<td>Non</td>
+								</tr>
+								<tr>
+									<td>TRACE</td>
+									<td>Oui</td>
+									<td>Non</td>
+									<td>Non</td>
+								</tr>
+								<tr>
+									<td>PUT</td>
+									<td>Non</td>
+									<td>Oui</td>
+									<td>Non</td>
+								</tr>
+								<tr>
+									<td>DELETE</td>
+									<td>Non</td>
+									<td>Oui</td>
+									<td>Non</td>
+								</tr>
+								<tr>
+									<td>POST</td>
+									<td>Non</td>
+									<td>Non</td>
+									<td>Non</td>
+								</tr>
+								<tr>
+									<td>PATCH</td>
+									<td>Non</td>
+									<td>Non</td>
+									<td>Non</td>
+								</tr>
+							</tbody>
+						</table>
+						<p id="see-more" class="fragment fade-up">&#10032;&nbsp;&nbsp;&nbsp;&nbsp;Voyons + en détail les 2 principales méthodes&nbsp;&nbsp;&nbsp;&nbsp;&#10032;</p>
+					</section>
+				</section>
+
+				<!-- GET -->
+				<section class="get" data-transition="convex" data-background="#00D1A0">
+					<div class="dmethod">
+						<h2 class="h2"><span class="sunderline">&nbsp;&nbsp;Méthode GET&nbsp;&nbsp;</span></h2>
+						<ul class="ulsettings">
+							<li>&#10004; Safe</span></li>
+							<li>&#10004; Idempotent</span></li>
+							<li>&#10004; Cacheable</span></li>
+						</ul>
+					</div>
+					<p class="pdesc"><span class="punderline">&#10140; Permet de récupérer le contenu d'un fichier</span></p>
+					<img src="https://romain-lebreton.developpez.com/tutoriels/progweb-coteserveur-1617/introduction-a-php/images/RequeteHTTP.png">
+					<p><a href="http://www.codeshttp.com/" target="_blank">Codes HTTP</a></p>
+				</section>
+				<section class="get" data-transition="convex" data-background="#00D1A0">
+					<h4><span class="hunderline">&nbsp;Inspector Network&nbsp;</span></h4>
+					<div class="daddress"><span class="surl">URL</span> <img src="assets/http/address-get.png"></div>
+					<img src="assets/http/inspector-get.png">
+				</section>
+				<section class="get" data-transition="convex" data-background="#00D1A0">
+					<h4><span class="hunderline">&nbsp;Inspector Headers&nbsp;</span></h4>
+					<div class="daddress"><span class="surl">URL</span> <img src="assets/http/address-get.png"></div>
+					<img src="assets/http/headers-get.png">
+				</section>
+				<section class="get" data-transition="convex" data-background="#00D1A0">
+					<h4><span class="hunderline">&nbsp;Inspector Response Payload&nbsp;</span></h4>
+					<div class="daddress"><span class="surl">URL</span> <img src="assets/http/address-get.png"></div>
+					<img src="assets/http/response-get.png">
+				</section>
+				<section class="get php" data-transition="convex" data-background="#00D1A0">
+					<h3 class="h3"><span class="sunderline">&nbsp;GET & PHP&nbsp;</span></h3>
+					<div class="dside">
+						<span class="sside">Client</span>
+						<p>GET /index.html</p>
+					</div>
+					<pre><code data-trim style="font-size:16px;">
+					// index.html
+					<form method="get" action="welcome.php">
+						<input name="pseudo" type="text">
+						<button type="submit">Aller</button>
+					</form>
+					</code></pre>
+					<div class="dside">
+						<span class="sside">Client</span>
+						<p>GET /welcome.php?pseudo=Bobby</p>
+					</div>
+					<pre><code data-trim style="font-size:16px;">
+				  // welcome.php?pseudo=Bobby
+					<p>Bienvenue Bobby</p>
+					</code></pre>
+					<div class="dside">
+						<span class="sside">Server</span>
+					</div>
+					<pre><code data-trim style="font-size:16px;">
+						// welcome.php
+						< ?php
+							echo '<p>'.$_GET["pseudo"].'</p>';
+						?>
+					</code></pre>
+				</section>
+
+				<!-- POST -->
+				<section class="post" data-transition="convex" data-background="#00D1A0">
+					<div class="dmethod">
+						<h2 class="h2"><span class="sunderline">&nbsp;&nbsp;Méthode POST&nbsp;&nbsp;</span></h2>
+						<ul class="ulsettings">
+							<li>Safe</span></li>
+							<li>Idempotent</span></li>
+							<li>Cacheable</span></li>
+						</ul>
+					</div>
+					<p class="pdesc"><span class="punderline">&#10140; Permet d'envoyer des données</span></p>
+					<img class="png" src="https://i2.wp.com/btheweb.blog/wp-content/uploads/2017/01/le-web-architecture-web-simple.png?resize=770%2C253&ssl=1">
+				</section>
+				<section class="post" data-transition="convex" data-background="#00D1A0">
+					<h4><span class="hunderline">&nbsp;Inspector Network&nbsp;</span></h4>
+					<div class="daddress"><span class="surl">URL</span> <img src="assets/http/address-post.png"></div>
+					<img src="assets/http/inspector-post.png">
+				</section>
+				<section class="post" data-transition="convex" data-background="#00D1A0">
+					<h4><span class="hunderline">&nbsp;Inspector Headers&nbsp;</span></h4>
+					<div class="daddress"><span class="surl">URL</span> <img src="assets/http/address-post.png"></div>
+					<img src="assets/http/headers-post.png">
+				</section>
+				<section class="post" data-transition="convex" data-background="#00D1A0">
+					<h4><span class="hunderline">&nbsp;Inspector Params&nbsp;</span></h4>
+					<div class="daddress"><span class="surl">URL</span> <img src="assets/http/address-post.png"></div>
+					<img src="assets/http/params-post.png">
+				</section>
+				<section class="post" data-transition="convex" data-background="#00D1A0">
+					<h4><span class="hunderline">&nbsp;Inspector Response Payload&nbsp;</span></h4>
+					<div class="daddress"><span class="surl">URL</span> <img src="assets/http/address-post.png"></div>
+					<img src="assets/http/response-post.png">
+				</section>
+				<section class="post" data-transition="convex" data-background="#00D1A0">
+					<div class="dinspector">
+						<h4><span class="hunderline">&nbsp;Inspector Send&nbsp;</span></h4>
+						<ul class="ullinks">
+							<li><a href="https://www.getpostman.com/apps" target="_blank">Postman App</a></li>
+							<li><a href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=fr" target="_blank">Postman Extension</a></li>
+						</ul>
+					</div>
+					<div class="daddress"><span class="surl">URL</span> <img src="assets/http/address-post.png"></div>
+					<img src="assets/http/resend-post.png">
+				</section>
+				<section class="post php" data-transition="convex" data-background="#00D1A0">
+					<h3 class="h3"><span class="sunderline">&nbsp;POST & PHP&nbsp;</span></h3>
+					<div class="dside">
+						<span class="sside">Client</span>
+						<p>POST /index.html</p>
+					</div>
+					<pre><code data-trim style="font-size:16px;">
+					// index.html
+					<form method="post" action="welcome.php">
+						<input name="pseudo" type="text">
+						<button type="submit">Aller</button>
+					</form>
+					</code></pre>
+					<div class="dside">
+						<span class="sside">Client</span>
+						<p>GET /welcome.php</p>
+					</div>
+					<pre><code data-trim style="font-size:16px;">
+					// welcome.php
+					<p>Bienvenue Bobby</p>
+					</code></pre>
+					<div class="dside">
+						<span class="sside">Server</span>
+					</div>
+					<pre><code data-trim style="font-size:16px;">
+						// welcome.php
+						< ?php
+							echo '<p>'.$_POST["pseudo"].'</p>';
+						?>
+					</code></pre>
+				</section>
+
+				<!-- SOURCES -->
+				<section id="sources" data-transition="convex">
+					<h4><span class="hunderline">&nbsp;&nbsp;SOURCES&nbsp;&nbsp;</span></h4>
+					<img class="i128 irounded" src="https://media.giphy.com/media/l378AOCi1nVe1v5II/giphy.gif">
+					<h6><span class="underline">Textes</span></h6>
+					<ul class="ulsources">
+						<li><a href="https://developer.mozilla.org/fr/docs/HTTP/M%C3%A9thode">https://developer.mozilla.org/fr/docs/HTTP/Méthode</a></li>
+						<li><a href="https://www.maxpou.fr/rest-crud/">https://www.maxpou.fr/rest-crud/</a></li>
+						<li><a href="http://www.sbnet.fr/2017/03/29/restful-cest-quoi-methode-safe-idempotent/">http://www.sbnet.fr/2017/03/29/restful-cest-quoi-methode-safe-idempotent/</a></li>
+						<li><a href="https://secure.php.net/manual/fr/reserved.variables.server.php">https://secure.php.server/manual/fr/reserved.variables.get.php</a></li>
+						<li><a href="https://secure.php.net/manual/fr/reserved.variables.get.php">https://secure.php.net/manual/fr/reserved.variables.get.php</a></li>
+						<li><a href="https://secure.php.net/manual/fr/reserved.variables.post.php">https://secure.php.post/manual/fr/reserved.variables.get.php</a></li>
+					</ul>
+					<h6><span class="underline">Images</span></h6>
+					<ul class="ulsources">
+						<li><a href="https://media.giphy.com/media/9Ai5dIk8xvBm0/giphy.gif">https://media.giphy.com/media/9Ai5dIk8xvBm0/giphy.gif</a></li>
+						<li><a href="https://media.giphy.com/media/kaq6GnxDlJaBq/giphy.gif">https://media.giphy.com/media/kaq6GnxDlJaBq/giphy.gif</a></li>
+						<li><a href="http://gifimage.net/wp-content/uploads/2017/11/gif-vraagteken-2.gif">http://gifimage.net/wp-content/uploads/2017/11/gif-vraagteken-2.gif</a></li>
+						<li><a href="https://media.giphy.com/media/3o7P4F86TAI9Kz7XYk/giphy.gif">https://media.giphy.com/media/3o7P4F86TAI9Kz7XYk/giphy.gif</a></li>
+						<li><a href="https://romain-lebreton.developpez.com/tutoriels/progweb-coteserveur-1617/introduction-a-php/images/RequeteHTTP.png">https://romain-lebreton.developpez.com/tutoriels/progweb-coteserveur-1617/introduction-a-php/images/RequeteHTTP.png</a></li>
+						<li><a href="https://i2.wp.com/btheweb.blog/wp-content/uploads/2017/01/le-web-architecture-web-simple.png?resize=770%2C253&ssl=1">https://i2.wp.com/btheweb.blog/wp-content/uploads/2017/01/le-web-architecture-web-simple.png?resize=770%2C253&ssl=1</a></li>
+						<li><a href="https://media.giphy.com/media/l378AOCi1nVe1v5II/giphy.gif">https://media.giphy.com/media/l378AOCi1nVe1v5II/giphy.gif</a></li>
+					</ul>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					// { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					// { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					// { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					// { src: 'plugin/search/search.js', async: true },
+					// { src: 'plugin/zoom-js/zoom.js', async: true },
+					// { src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
